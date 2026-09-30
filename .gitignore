@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.env
+*.egg-info/
+frontend/node_modules/
+frontend/dist/assets/
+data/app.db
+data/workflow_checkpoints.db
+data/projects/
+data/backups/
+.idea/
+frontend/.npm-cache/
