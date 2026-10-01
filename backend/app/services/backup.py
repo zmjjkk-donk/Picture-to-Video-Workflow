@@ -34,7 +34,7 @@ def project_manifest(settings: Settings, session_factory, project: Project) -> N
     project_dir = settings.projects_dir / project.id
     project_dir.mkdir(parents=True, exist_ok=True)
     payload = {
-        "version": "v1",
+        "version": "v2",
         "project_id": project.id,
         "name": project.name,
         "description": project.description,
@@ -74,13 +74,13 @@ def export_backup(settings: Settings, session_factory) -> BackupRecord:
             archive.write(path, relative)
             manifest_files.append({"path": relative, "size": path.stat().st_size, "sha256": sha256_file(path)})
         manifest = {
-            "version": "v1",
+            "version": "v2",
             "created_at": datetime.now(timezone.utc).isoformat(),
             "project_ids": [project.id for project in projects],
             "files": manifest_files,
         }
         archive.writestr("manifest.json", json.dumps(manifest, ensure_ascii=False, indent=2))
-    record = BackupRecord(archive_name=archive_name, archive_path=str(archive_path.relative_to(settings.data_dir)).replace("\\", "/"), manifest_version="v1", file_count=len(manifest_files) + 1, file_size=archive_path.stat().st_size, sha256=sha256_file(archive_path))
+    record = BackupRecord(archive_name=archive_name, archive_path=str(archive_path.relative_to(settings.data_dir)).replace("\\", "/"), manifest_version="v2", file_count=len(manifest_files) + 1, file_size=archive_path.stat().st_size, sha256=sha256_file(archive_path))
     with session_factory() as session:
         session.add(record)
         session.commit()

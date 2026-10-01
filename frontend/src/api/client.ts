@@ -1,4 +1,4 @@
-import type { Asset, DashboardSummary, Job, Project, VideoOutput, WorkflowLog } from "./types";
+import type { Asset, DashboardSummary, GeneratedArtifact, Job, Project, VideoOutput, WorkflowLog } from "./types";
 
 const API_BASE = (import.meta.env.VITE_API_BASE ?? "http://127.0.0.1:8000/api").replace(/\/$/, "");
 
@@ -16,7 +16,7 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
 async function upload<T>(path: string, form: FormData): Promise<T> {
   const response = await fetch(`${API_BASE}${path}`, { method: "POST", body: form });
   const body = await response.json();
-  if (!response.ok || body.success === false) throw new Error(body?.detail?.error?.message ?? "上传失败");
+  if (!response.ok || body.success === false) throw new Error(body?.detail?.error?.message ?? body?.error?.message ?? "上传失败");
   return body.data as T;
 }
 
@@ -33,7 +33,7 @@ export const api = {
     create: (payload: { name: string; description?: string }) => request<Project>("/projects", { method: "POST", body: JSON.stringify(payload) }),
     update: (id: string, payload: Record<string, unknown>) => request<Project>(`/projects/${id}`, { method: "PATCH", body: JSON.stringify(payload) }),
     uploadModel: (id: string, file: File) => { const form = new FormData(); form.append("file", file); return upload<Asset>(`/projects/${id}/assets/model`, form); },
-    uploadClothing: (id: string, file: File, name: string, slot: number) => { const form = new FormData(); form.append("file", file); form.append("name", name); form.append("slot_index", String(slot)); return upload<Asset>(`/projects/${id}/assets/clothing`, form); },
+    uploadClothing: (id: string, file: File, name: string, slot: number) => { const form = new FormData(); form.append("file", file); form.append("name", name); form.append("slot_index", String(slot)); const query = new URLSearchParams({ name, slot_index: String(slot) }); return upload<Asset>(`/projects/${id}/assets/clothing?${query.toString()}`, form); },
     reorder: (id: string, assetIds: string[]) => request<null>(`/projects/${id}/assets/reorder`, { method: "POST", body: JSON.stringify({ asset_ids: assetIds }) }),
     createJob: (id: string, clothingOrder: string[], provider = "mock") => request<Job>(`/projects/${id}/jobs`, { method: "POST", body: JSON.stringify({ provider, clothing_order: clothingOrder }) }),
   },
@@ -41,8 +41,11 @@ export const api = {
     list: () => request<Job[]>("/jobs"),
     get: (id: string) => request<Job>(`/jobs/${id}`),
     logs: (id: string) => request<WorkflowLog[]>(`/jobs/${id}/logs`),
+    steps: (id: string) => request<any[]>(`/jobs/${id}/steps`),
+    artifacts: (id: string) => request<GeneratedArtifact[]>(`/jobs/${id}/artifacts`),
     outputs: (id: string) => request<VideoOutput[]>(`/jobs/${id}/outputs`),
     retry: (id: string) => request<Job>(`/jobs/${id}/retry`, { method: "POST" }),
+    resume: (id: string) => request<Job>(`/jobs/${id}/resume`, { method: "POST" }),
     cancel: (id: string) => request<Job>(`/jobs/${id}/cancel`, { method: "POST" }),
   },
   backups: {

@@ -24,6 +24,6 @@ describe("workbench shell", () => {
     expect(screen.getByText("电商服装换装短视频")).toBeInTheDocument();
     expect(await screen.findByText("让每一套服装都拥有自己的展示视频")).toBeInTheDocument();
     expect(await screen.findByText("成功输出")).toBeInTheDocument();
-    expect(screen.getByText("本地演示模式")).toBeInTheDocument();
+    expect(screen.getByText("本地工作流")).toBeInTheDocument();
   });
 });

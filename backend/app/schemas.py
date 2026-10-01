@@ -72,7 +72,7 @@ class ReorderRequest(BaseModel):
 
 
 class JobCreate(BaseModel):
-    provider: Literal["mock", "siliconflow"] = "mock"
+    provider: Literal["mock", "agnes"] = "mock"
     video_ratio: Literal["9:16"] = "9:16"
     duration_seconds: int = Field(default=5, ge=1, le=60)
     transition_style: Literal["natural"] = "natural"

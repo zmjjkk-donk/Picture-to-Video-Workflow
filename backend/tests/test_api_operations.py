@@ -17,7 +17,7 @@ def test_dashboard_providers_settings_and_failed_job_retry(tmp_path: Path):
     assert summary.json()["data"]["asset_count"] == 4
 
     providers = client.get("/api/providers").json()["data"]
-    assert {provider["name"] for provider in providers} == {"mock", "siliconflow"}
+    assert {provider["name"] for provider in providers} == {"mock", "agnes"}
 
     settings = client.patch("/api/settings", json={"mode": "mock", "api_key": "must-not-persist"})
     assert settings.status_code == 200
@@ -25,12 +25,12 @@ def test_dashboard_providers_settings_and_failed_job_retry(tmp_path: Path):
     assert saved["mode"] == "mock"
     assert "api_key" not in saved
 
-    failed = client.post(f"/api/projects/{project_id}/jobs", json={"provider": "siliconflow", "clothing_order": clothing_ids})
+    failed = client.post(f"/api/projects/{project_id}/jobs", json={"provider": "agnes", "clothing_order": clothing_ids})
     assert failed.status_code == 201
     failed_job_id = failed.json()["data"]["id"]
     job = client.get(f"/api/jobs/{failed_job_id}").json()["data"]
     assert job["status"] == "failed"
-    assert job["error_code"] == "PROVIDER_SUBMIT_FAILED"
+    assert job["error_code"] == "KEY_NOT_CONFIGURED"
 
     retry = client.post(f"/api/jobs/{failed_job_id}/retry")
     assert retry.status_code == 201

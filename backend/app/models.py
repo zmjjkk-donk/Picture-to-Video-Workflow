@@ -77,6 +77,7 @@ class GenerationJob(Base):
     project: Mapped[Project] = relationship(back_populates="jobs")
     workflow_runs: Mapped[list["WorkflowRun"]] = relationship(back_populates="job", cascade="all, delete-orphan")
     outputs: Mapped[list["VideoOutput"]] = relationship(back_populates="job", cascade="all, delete-orphan")
+    steps: Mapped[list["GenerationStep"]] = relationship(back_populates="job", cascade="all, delete-orphan")
 
 
 class WorkflowRun(Base):
@@ -113,6 +114,49 @@ class VideoOutput(Base):
 
     job: Mapped[GenerationJob] = relationship(back_populates="outputs")
     project: Mapped[Project] = relationship(back_populates="outputs")
+
+
+class GenerationStep(Base):
+    __tablename__ = "generation_steps"
+    __table_args__ = (UniqueConstraint("job_id", "step_key", "attempt", name="uq_generation_step_attempt"),)
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=new_id)
+    job_id: Mapped[str] = mapped_column(ForeignKey("generation_jobs.id", ondelete="CASCADE"), nullable=False, index=True)
+    step_key: Mapped[str] = mapped_column(String(64), nullable=False)
+    attempt: Mapped[int] = mapped_column(Integer, nullable=False, default=1)
+    status: Mapped[str] = mapped_column(String(32), nullable=False, default="queued")
+    provider: Mapped[str] = mapped_column(String(32), nullable=False, default="agnes")
+    model: Mapped[str] = mapped_column(String(128), nullable=False, default="")
+    provider_job_id: Mapped[str | None] = mapped_column(String(255))
+    progress: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
+    input_summary: Mapped[str] = mapped_column(Text, default="", nullable=False)
+    error_message: Mapped[str | None] = mapped_column(Text)
+    started_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    finished_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+
+    job: Mapped[GenerationJob] = relationship(back_populates="steps")
+    artifacts: Mapped[list["GeneratedArtifact"]] = relationship(back_populates="step", cascade="all, delete-orphan")
+
+
+class GeneratedArtifact(Base):
+    __tablename__ = "generated_artifacts"
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=new_id)
+    job_id: Mapped[str] = mapped_column(ForeignKey("generation_jobs.id", ondelete="CASCADE"), nullable=False, index=True)
+    step_id: Mapped[str | None] = mapped_column(ForeignKey("generation_steps.id", ondelete="SET NULL"), index=True)
+    kind: Mapped[str] = mapped_column(String(32), nullable=False)
+    slot_index: Mapped[int | None] = mapped_column(Integer)
+    relative_path: Mapped[str] = mapped_column(String(1000), nullable=False)
+    mime_type: Mapped[str] = mapped_column(String(100), nullable=False)
+    sha256: Mapped[str] = mapped_column(String(64), nullable=False)
+    file_size: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
+    width: Mapped[int | None] = mapped_column(Integer)
+    height: Mapped[int | None] = mapped_column(Integer)
+    duration: Mapped[float | None] = mapped_column()
+    remote_url: Mapped[str | None] = mapped_column(Text)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now, nullable=False)
+
+    step: Mapped[GenerationStep | None] = relationship(back_populates="artifacts")
 
 
 class BackupRecord(Base):

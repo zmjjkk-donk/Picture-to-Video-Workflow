@@ -72,3 +72,23 @@ def test_asset_validation_and_job_requires_complete_assets(tmp_path: Path):
     job = client.post(f"/api/projects/{project_id}/jobs", json={"clothing_order": ["a", "b", "c"]})
     assert job.status_code == 400
     assert job.json()["detail"]["error"]["code"] == "MODEL_ASSET_REQUIRED"
+
+
+def test_reupload_replaces_model_and_clothing_slot(tmp_path: Path):
+    client = make_client(tmp_path)
+    project_id = create_project(client)
+    first_model = client.post(f"/api/projects/{project_id}/assets/model", files={"file": ("first.png", image_bytes((10, 20, 30)), "image/png")})
+    assert first_model.status_code == 201
+    first_model_data = first_model.json()["data"]
+    replacement_model = client.post(f"/api/projects/{project_id}/assets/model", files={"file": ("second.png", image_bytes((210, 220, 230)), "image/png")})
+    assert replacement_model.status_code == 201
+    assert replacement_model.json()["data"]["id"] == first_model_data["id"]
+    assert replacement_model.json()["data"]["original_name"] == "second.png"
+    assert replacement_model.json()["data"]["sha256"] != first_model_data["sha256"]
+
+    first_clothing = client.post(f"/api/projects/{project_id}/assets/clothing", data={"name": "旧款", "slot_index": "0"}, files={"file": ("old.png", image_bytes((1, 2, 3)), "image/png")})
+    assert first_clothing.status_code == 201
+    replacement_clothing = client.post(f"/api/projects/{project_id}/assets/clothing", data={"name": "新款", "slot_index": "0"}, files={"file": ("new.png", image_bytes((220, 30, 40)), "image/png")})
+    assert replacement_clothing.status_code == 201
+    assert replacement_clothing.json()["data"]["id"] == first_clothing.json()["data"]["id"]
+    assert replacement_clothing.json()["data"]["display_name"] == "新款"

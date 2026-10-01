@@ -10,13 +10,13 @@ from datetime import datetime, timezone
 from pathlib import Path
 from uuid import uuid4
 
-from fastapi import APIRouter, BackgroundTasks, Depends, File, HTTPException, Request, UploadFile, status
+from fastapi import APIRouter, BackgroundTasks, Depends, File, Form, HTTPException, Request, UploadFile, status
 from fastapi.responses import FileResponse
 from PIL import Image, UnidentifiedImageError
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
-from ..models import AppSetting, Asset, BackupRecord, GenerationJob, Project, VideoOutput, WorkflowRun
+from ..models import AppSetting, Asset, BackupRecord, GeneratedArtifact, GenerationJob, GenerationStep, Project, VideoOutput, WorkflowRun
 from ..schemas import (
     AssetResponse,
     AssetUpdate,
@@ -30,6 +30,8 @@ from ..schemas import (
 )
 from .deps import get_session
 from ..workflow.runner import run_job
+from ..providers.agnes_common import AgnesNotConfigured
+from ..providers.agnes_image import AgnesImageProvider
 from ..services.backup import BackupError, export_backup, import_backup, restore_backup
 from ..db import init_database
 
@@ -119,9 +121,10 @@ def health(request: Request) -> HealthResponse:
 
 
 @router.get("/system/info")
-def system_info(request: Request):
+def system_info(request: Request, session: Session = Depends(get_session)):
     settings = request.app.state.settings
-    return success({"app_name": settings.app_name, "version": settings.app_version, "data_dir": str(settings.data_dir), "mode": "mock"})
+    selected = session.get(AppSetting, "mode")
+    return success({"app_name": settings.app_name, "version": settings.app_version, "data_dir": str(settings.data_dir), "mode": json.loads(selected.value_json) if selected else "mock"})
 
 
 @router.get("/system/storage")
@@ -215,27 +218,40 @@ async def read_image_upload(upload: UploadFile, max_size: int) -> tuple[bytes, s
     return content, upload.content_type, width, height
 
 
-async def save_asset(request: Request, session: Session, project: Project, upload: UploadFile, asset_type: str, display_name: str, slot_index: int | None) -> Asset:
-    if asset_type == "model" and any(asset.asset_type == "model" for asset in project.assets):
+async def save_asset(request: Request, session: Session, project: Project, upload: UploadFile, asset_type: str, display_name: str, slot_index: int | None, replace_existing: Asset | None = None) -> Asset:
+    if replace_existing is None and asset_type == "model" and any(asset.asset_type == "model" for asset in project.assets):
         raise fail("MODEL_ASSET_LIMIT", "一个项目只能有一张模特图")
-    if asset_type == "clothing" and sum(asset.asset_type == "clothing" for asset in project.assets) >= 3:
+    if replace_existing is None and asset_type == "clothing" and sum(asset.asset_type == "clothing" for asset in project.assets) >= 3:
         raise fail("CLOTHING_ASSET_LIMIT", "一个项目最多上传三张服装图")
     content, mime_type, width, height = await read_image_upload(upload, request.app.state.settings.max_upload_size)
-    asset = Asset(
-        project_id=project.id,
-        asset_type=asset_type,
-        original_name=Path(upload.filename or "upload").name,
-        display_name=display_name,
-        stored_path="",
-        mime_type=mime_type,
-        file_size=len(content),
-        sha256=hashlib.sha256(content).hexdigest(),
-        width=width,
-        height=height,
-        slot_index=slot_index,
-    )
-    session.add(asset)
-    session.flush()
+    old_path = None
+    asset = replace_existing
+    if asset is None:
+        asset = Asset(
+            project_id=project.id,
+            asset_type=asset_type,
+            original_name=Path(upload.filename or "upload").name,
+            display_name=display_name,
+            stored_path="",
+            mime_type=mime_type,
+            file_size=len(content),
+            sha256=hashlib.sha256(content).hexdigest(),
+            width=width,
+            height=height,
+            slot_index=slot_index,
+        )
+        session.add(asset)
+        session.flush()
+    else:
+        old_path = (request.app.state.settings.data_dir / asset.stored_path).resolve() if asset.stored_path else None
+        asset.original_name = Path(upload.filename or "upload").name
+        asset.display_name = display_name
+        asset.mime_type = mime_type
+        asset.file_size = len(content)
+        asset.sha256 = hashlib.sha256(content).hexdigest()
+        asset.width = width
+        asset.height = height
+        asset.slot_index = slot_index
     project_dir = safe_project_dir(request, project.id) / "assets"
     project_dir.mkdir(parents=True, exist_ok=True)
     extension = Path(upload.filename or ".img").suffix.lower()
@@ -248,6 +264,8 @@ async def save_asset(request: Request, session: Session, project: Project, uploa
         asset.slot_index = sum(item.asset_type == "clothing" for item in project.assets if item.id != asset.id)
     session.commit()
     session.refresh(asset)
+    if old_path and old_path != stored_path and old_path.is_file():
+        old_path.unlink()
     return asset
 
 
@@ -261,7 +279,8 @@ def list_assets(project_id: str, request: Request, session: Session = Depends(ge
 @router.post("/projects/{project_id}/assets/model", status_code=status.HTTP_201_CREATED)
 async def upload_model(project_id: str, request: Request, file: UploadFile = File(...), session: Session = Depends(get_session)):
     project = get_project_or_404(session, project_id)
-    asset = await save_asset(request, session, project, file, "model", "模特图", None)
+    existing = next((item for item in project.assets if item.asset_type == "model"), None)
+    asset = await save_asset(request, session, project, file, "model", "模特图", None, existing)
     if sum(item.asset_type == "clothing" for item in project.assets) == 3:
         project.status = "ready"
         session.commit()
@@ -269,12 +288,22 @@ async def upload_model(project_id: str, request: Request, file: UploadFile = Fil
 
 
 @router.post("/projects/{project_id}/assets/clothing", status_code=status.HTTP_201_CREATED)
-async def upload_clothing(project_id: str, request: Request, name: str = "", slot_index: int | None = None, file: UploadFile = File(...), session: Session = Depends(get_session)):
+async def upload_clothing(project_id: str, request: Request, name: str = Form(""), slot_index: int | None = Form(None), file: UploadFile = File(...), session: Session = Depends(get_session)):
     project = get_project_or_404(session, project_id)
+    # Older clients sent these values as query parameters; keep that shape
+    # compatible while accepting the multipart form fields used by the web UI.
+    if not name and request.query_params.get("name"):
+        name = request.query_params["name"]
+    if slot_index is None and request.query_params.get("slot_index") is not None:
+        try:
+            slot_index = int(request.query_params["slot_index"])
+        except ValueError as exc:
+            raise fail("INVALID_SLOT_INDEX", "服装顺序必须是 0、1 或 2") from exc
+    if slot_index is not None and slot_index not in {0, 1, 2}:
+        raise fail("INVALID_SLOT_INDEX", "服装顺序必须是 0、1 或 2")
     clothing_count = sum(item.asset_type == "clothing" for item in project.assets)
-    if slot_index is not None and slot_index in {item.slot_index for item in project.assets if item.asset_type == "clothing"}:
-        raise fail("SLOT_ALREADY_USED", "服装顺序位置已被占用")
-    asset = await save_asset(request, session, project, file, "clothing", name.strip() or Path(file.filename or "服装").stem, slot_index)
+    existing = next((item for item in project.assets if item.asset_type == "clothing" and item.slot_index == slot_index), None) if slot_index is not None else None
+    asset = await save_asset(request, session, project, file, "clothing", name.strip() or Path(file.filename or "服装").stem, slot_index, existing)
     if clothing_count + 1 == 3 and any(item.asset_type == "model" for item in project.assets):
         project.status = "ready"
         session.commit()
@@ -385,6 +414,8 @@ def list_jobs(session: Session = Depends(get_session)):
 @router.post("/projects/{project_id}/jobs", status_code=status.HTTP_201_CREATED)
 def create_job(project_id: str, payload: JobCreate, background_tasks: BackgroundTasks, request: Request, session: Session = Depends(get_session)):
     project = get_project_or_404(session, project_id)
+    if any(job.status in {"queued", "validating", "preparing", "submitted", "processing"} for job in project.jobs):
+        raise fail("JOB_ALREADY_RUNNING", "当前项目已有任务正在运行")
     clothing = [asset for asset in project.assets if asset.asset_type == "clothing"]
     if not any(asset.asset_type == "model" for asset in project.assets):
         raise fail("MODEL_ASSET_REQUIRED", "请先上传模特图")
@@ -392,7 +423,7 @@ def create_job(project_id: str, payload: JobCreate, background_tasks: Background
         raise fail("CLOTHING_ASSET_COUNT_INVALID", "请先上传三张服装图")
     if set(payload.clothing_order) != {asset.id for asset in clothing}:
         raise fail("CLOTHING_ORDER_INVALID", "服装顺序必须来自当前项目的三张服装图")
-    job = GenerationJob(project_id=project.id, provider=payload.provider, status="queued", progress=0, current_node="queued")
+    job = GenerationJob(project_id=project.id, provider=payload.provider, workflow_version="v2" if payload.provider == "agnes" else "v1", status="queued", progress=0, current_node="queued")
     project.status = "generating"
     session.add(job)
     session.commit()
@@ -407,6 +438,34 @@ def get_job(job_id: str, session: Session = Depends(get_session)):
     if job is None:
         raise fail("JOB_NOT_FOUND", "生成任务不存在", 404)
     return success(job_response(job))
+
+
+@router.get("/jobs/{job_id}/steps")
+def get_job_steps(job_id: str, session: Session = Depends(get_session)):
+    if session.get(GenerationJob, job_id) is None:
+        raise fail("JOB_NOT_FOUND", "生成任务不存在", 404)
+    steps = session.scalars(select(GenerationStep).where(GenerationStep.job_id == job_id).order_by(GenerationStep.id)).all()
+    return success([{"id": step.id, "step_key": step.step_key, "attempt": step.attempt, "status": step.status, "provider": step.provider, "model": step.model, "provider_job_id": step.provider_job_id, "progress": step.progress, "error_message": step.error_message, "started_at": step.started_at.isoformat() if step.started_at else None, "finished_at": step.finished_at.isoformat() if step.finished_at else None} for step in steps])
+
+
+@router.get("/jobs/{job_id}/artifacts")
+def get_job_artifacts(job_id: str, request: Request, session: Session = Depends(get_session)):
+    if session.get(GenerationJob, job_id) is None:
+        raise fail("JOB_NOT_FOUND", "生成任务不存在", 404)
+    base = str(request.base_url).rstrip("/")
+    artifacts = session.scalars(select(GeneratedArtifact).where(GeneratedArtifact.job_id == job_id).order_by(GeneratedArtifact.created_at)).all()
+    return success([{"id": item.id, "job_id": item.job_id, "kind": item.kind, "slot_index": item.slot_index, "relative_path": item.relative_path, "mime_type": item.mime_type, "file_size": item.file_size, "width": item.width, "height": item.height, "duration": item.duration, "file_url": f"{base}/api/artifacts/{item.id}/file"} for item in artifacts])
+
+
+@router.get("/artifacts/{artifact_id}/file")
+def get_artifact_file(artifact_id: str, request: Request, session: Session = Depends(get_session)):
+    artifact = session.get(GeneratedArtifact, artifact_id)
+    if artifact is None:
+        raise fail("ARTIFACT_NOT_FOUND", "中间产物不存在", 404)
+    path = (request.app.state.settings.data_dir / artifact.relative_path).resolve()
+    if request.app.state.settings.data_dir.resolve() not in path.parents or not path.is_file():
+        raise fail("ARTIFACT_FILE_NOT_FOUND", "中间产物文件不存在", 404)
+    return FileResponse(path, media_type=artifact.mime_type)
 
 
 
@@ -615,7 +674,7 @@ def retry_job(job_id: str, background_tasks: BackgroundTasks, request: Request, 
     clothing = sorted((asset for asset in project.assets if asset.asset_type == "clothing"), key=lambda asset: asset.slot_index or 0)
     if len(clothing) != 3 or not any(asset.asset_type == "model" for asset in project.assets):
         raise fail("ASSETS_INCOMPLETE", "项目素材不完整，无法重试")
-    replacement = GenerationJob(project_id=project.id, provider=job.provider, status="queued", progress=0, current_node="queued")
+    replacement = GenerationJob(project_id=project.id, provider=job.provider, workflow_version=job.workflow_version, status="queued", progress=0, current_node="queued")
     project.status = "generating"
     session.add(replacement)
     session.commit()
@@ -624,16 +683,45 @@ def retry_job(job_id: str, background_tasks: BackgroundTasks, request: Request, 
     return success(job_response(replacement), "已创建重试任务")
 
 
+@router.post("/jobs/{job_id}/resume", status_code=status.HTTP_200_OK)
+def resume_job(job_id: str, background_tasks: BackgroundTasks, request: Request, session: Session = Depends(get_session)):
+    """Resume the same job so persisted Agnes step IDs and artifacts can be reused."""
+    job = session.get(GenerationJob, job_id)
+    if job is None:
+        raise fail("JOB_NOT_FOUND", "生成任务不存在", 404)
+    if job.status not in {"failed", "canceled"}:
+        raise fail("JOB_RESUME_NOT_ALLOWED", "只有失败或已取消任务可以恢复")
+    if job.provider not in {"mock", "agnes"}:
+        raise fail("PROVIDER_NOT_SUPPORTED", "历史 Provider 不支持恢复")
+    project = get_project_or_404(session, job.project_id)
+    if any(other.status in {"queued", "validating", "preparing", "submitted", "processing"} for other in project.jobs if other.id != job.id):
+        raise fail("JOB_ALREADY_RUNNING", "当前项目已有任务正在运行")
+    job.status = "queued"
+    job.progress = 0
+    job.current_node = "queued"
+    job.error_code = None
+    job.error_message = None
+    job.started_at = None
+    job.finished_at = None
+    project.status = "generating"
+    session.commit()
+    session.refresh(job)
+    background_tasks.add_task(run_job, request.app.state.settings, request.app.state.session_factory, job.id)
+    return success(job_response(job), "已恢复原任务，已有中间产物将优先复用")
+
+
 @router.delete("/jobs/{job_id}")
 def delete_job(job_id: str, request: Request, session: Session = Depends(get_session)):
     job = session.get(GenerationJob, job_id)
     if job is None:
         raise fail("JOB_NOT_FOUND", "生成任务不存在", 404)
+    job_dir = request.app.state.settings.projects_dir / job.project_id / "jobs" / job_id
     output_dir = request.app.state.settings.projects_dir / job.project_id / "outputs" / job_id
     session.delete(job)
     session.commit()
-    if output_dir.exists():
-        shutil.rmtree(output_dir)
+    for directory in (job_dir, output_dir):
+        if directory.exists():
+            shutil.rmtree(directory)
     return success(None, "任务删除成功")
 
 
@@ -653,19 +741,30 @@ def delete_output(output_id: str, request: Request, session: Session = Depends(g
 
 
 @router.get("/providers")
-def providers():
+def providers(request: Request):
+    try:
+        AgnesImageProvider(request.app.state.settings).validate_config()
+        agnes_configured = True
+        agnes_description = "已配置 Agnes 双模型，可执行三图换装和两段首尾帧视频"
+    except AgnesNotConfigured:
+        agnes_configured = False
+        agnes_description = "请在项目根目录 .env 设置 AGNES_API_KEY"
     return success([
         {"name": "mock", "label": "演示 Provider", "configured": True, "description": "本地生成可播放演示视频"},
-        {"name": "siliconflow", "label": "SiliconFlow", "configured": False, "description": "等待配置 API Key 和真实视频接口"},
+        {"name": "agnes", "label": "Agnes AI", "configured": agnes_configured, "description": agnes_description},
     ])
 
 
 @router.post("/providers/{provider}/validate")
-def validate_provider(provider: str):
+def validate_provider(provider: str, request: Request):
     if provider == "mock":
         return success({"provider": provider, "configured": True}, "Provider 配置有效")
-    if provider == "siliconflow":
-        return success({"provider": provider, "configured": False}, "SiliconFlow 尚未配置")
+    if provider == "agnes":
+        try:
+            AgnesImageProvider(request.app.state.settings).validate_config()
+        except AgnesNotConfigured as exc:
+            return success({"provider": provider, "configured": False}, str(exc))
+        return success({"provider": provider, "configured": True}, "Agnes API Key 已配置")
     raise fail("PROVIDER_NOT_SUPPORTED", "不支持的 Provider", 400)
 
 
@@ -679,7 +778,7 @@ def get_settings_route(session: Session = Depends(get_session)):
 @router.patch("/settings")
 def patch_settings(payload: dict, session: Session = Depends(get_session)):
     for key, value in payload.items():
-        if key in {"api_key", "siliconflow_api_key"}:
+        if key in {"api_key", "agnes_api_key", "AGNES_API_KEY"}:
             continue
         setting = session.get(AppSetting, key)
         if setting is None:

@@ -9,7 +9,9 @@ from backend.app.config import Settings
 from backend.app.main import create_app
 from backend.app.providers.base import VideoJobRequest
 from backend.app.providers.mock import MockVideoProvider
-from backend.app.providers.siliconflow import ProviderNotConfigured, SiliconFlowVideoProvider
+from backend.app.config import Settings
+from backend.app.providers.agnes_common import AgnesNotConfigured
+from backend.app.providers.agnes_image import AgnesImageProvider
 
 
 def image_bytes(color: tuple[int, int, int]) -> bytes:
@@ -86,11 +88,11 @@ def test_langgraph_job_persists_output_logs_and_checkpoint(tmp_path: Path):
     assert thumbnail.content.startswith(b"\x89PNG")
 
 
-def test_siliconflow_provider_is_explicitly_unconfigured():
-    provider = SiliconFlowVideoProvider()
+def test_agnes_provider_is_explicitly_unconfigured(tmp_path: Path):
+    provider = AgnesImageProvider(Settings(data_dir=tmp_path / "data"))
     try:
         provider.validate_config()
-    except ProviderNotConfigured as exc:
-        assert "API Key" in str(exc)
+    except AgnesNotConfigured as exc:
+        assert "AGNES_API_KEY" in str(exc)
     else:
-        raise AssertionError("未配置 Provider 不应被视为已配置")
+        raise AssertionError("未配置 Agnes Provider 不应被视为已配置")

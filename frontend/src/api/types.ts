@@ -16,5 +16,6 @@ export interface Job {
   created_at: string; started_at?: string | null; finished_at?: string | null;
 }
 export interface VideoOutput { id: string; job_id: string; project_id: string; width: number; height: number; duration: number; file_size: number; sha256: string; video_url: string; thumbnail_url: string; created_at: string; }
+export interface GeneratedArtifact { id: string; job_id: string; kind: string; slot_index?: number | null; relative_path: string; mime_type: string; file_size: number; width?: number | null; height?: number | null; duration?: number | null; file_url: string; remote_url?: string | null; }
 export interface WorkflowLog { id: string; node_name: string; sequence: number; status: string; input_summary: string; output_summary: string; error_message?: string | null; started_at: string; finished_at?: string | null; }
 export interface DashboardSummary { project_count: number; asset_count: number; job_count: number; succeeded_count: number; }

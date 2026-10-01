@@ -13,9 +13,9 @@
 - 查询历史任务、重试失败任务；
 - 将数据库、项目清单、图片和视频导出为 ZIP；
 - 校验 SHA256 并导入恢复 ZIP；
-- Provider 接口可替换，预留 SiliconFlow Provider。
+- Provider 接口可替换，支持 Mock Provider 和 Agnes 双模型工作流。
 
-第一版默认使用 Mock Provider，不会调用真实 AI 服务。待提供 SiliconFlow API 后，再实现真实 Provider 的请求和轮询逻辑。
+默认使用 Mock Provider，不会调用真实 AI 服务。配置 Agnes API Key 后，可执行“3 次图生图 + 2 次首尾帧图生视频 + 本地合成”的真实流程。
 
 ## 技术栈
 
@@ -109,21 +109,17 @@ SQLite 保存业务数据，图片、视频和封面保存为独立文件。数�
 
 恢复时会校验 ZIP 路径、文件数量和 SHA256，然后使用显式 `replace` 模式恢复数据库和项目文件。恢复前请关闭正在运行的生成任务。
 
-## SiliconFlow 接入位置
+## Agnes 真实模型接入
 
-当前 `backend/app/providers/siliconflow.py` 是明确的未配置 Provider。后续只需要实现：
+第二版已接入 Agnes 的 OpenAI 兼容接口：`Agnes Image 2.0 Flash` 负责生成三张换装图，`Agnes Video 2.5 Flash` 负责生成两段首尾帧过渡视频，最后由本地 FFmpeg 合成为约 5 秒的竖屏视频。新任务只允许 `mock` 和 `agnes` 两种 Provider，旧 SiliconFlow 文件仅作为历史记录保留，不再被工作流引用。
 
-- `validate_config()`；
-- `submit_video_job()`；
-- `get_video_job_status()`；
-- `download_video()`；
-- `cancel_video_job()`。
-
-API Key 从环境变量读取，不写入 SQLite 和前端：
+复制 `.env.example` 为项目根目录 `.env`，填入：
 
 ```text
-SILICONFLOW_API_KEY=your-api-key
+AGNES_API_KEY=在此填入你的 Agnes API Key
 ```
+
+其余 Agnes 地址、模型、轮询和输出尺寸配置也可以在 `.env` 中覆盖。Key 只从环境变量读取，不写入 SQLite 和前端接口；没有填入真实 Key 时，Agnes 任务会明确返回 `KEY_NOT_CONFIGURED`，本地 Mock 仍可完整演示。
 
 ## 测试
 
@@ -155,4 +151,4 @@ npm test
 
 ## 项目范围说明
 
-第一版采用 Mock 视频完成本地演示，不包含真实服装生成模型、多用户权限、云端对象存储、Redis/Celery 和在线部署。Provider 接口已经预留，后续接入 SiliconFlow 时不需要修改工作台页面和数据库结构。
+项目当前支持本地 Mock 演示和 Agnes 真实双模型工作流，不包含多用户权限、云端对象存储、Redis/Celery 和在线部署。生成任务、三张换装图、两段过渡视频、最终视频、封面和 LangGraph 检查点都会落盘到 `data/`，可通过工作台导出 ZIP 并恢复。
