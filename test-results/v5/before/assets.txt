@@ -1,0 +1,46 @@
+- complementary:
+  - generic: AI
+  - strong: Outfit Studio
+  - generic: 换装视频工作台
+  - menu:
+    - menuitem "appstore 工作台":
+      - img "appstore":
+      - generic: 工作台
+    - menuitem "video-camera 换装项目":
+      - img "video-camera":
+      - generic: 换装项目
+    - menuitem "cloud-upload 素材库":
+      - img "cloud-upload":
+      - generic: 素材库
+    - menuitem "history 生成记录":
+      - img "history":
+      - generic: 生成记录
+    - menuitem "file-protect 备份与恢复":
+      - img "file-protect":
+      - generic: 备份与恢复
+    - menuitem "setting 系统设置":
+      - img "setting":
+      - generic: 系统设置
+  - generic: 本地工作流
+- banner:
+  - text: AI 内容生产工作台
+  - heading "电商服装换装短视频" [level=4]
+  - img "thunderbolt":
+  - text: Mock Provider
+  - button "plus 创建换装任务":
+    - img "plus":
+    - generic: 创建换装任务
+- main:
+  - text: ASSETS / 素材库
+  - heading "素材库" [level=1]
+  - generic: 按项目查看已上传的模特和服装素材。
+  - generic: 新系列 · 等待素材
+  - generic: 草稿
+  - button "删除项目 新系列 · 等待素材":
+    - generic: 删除
+  - generic: 0 个素材文件
+  - generic: 暮光衣橱 · 秋日系列
+  - generic: 已完成
+  - button "删除项目 暮光衣橱 · 秋日系列":
+    - generic: 删除
+  - generic: 4 个素材文件

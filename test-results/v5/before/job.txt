@@ -1,0 +1,63 @@
+- complementary:
+  - generic: AI
+  - strong: Outfit Studio
+  - generic: 换装视频工作台
+  - menu:
+    - menuitem "appstore 工作台":
+      - img "appstore":
+      - generic: 工作台
+    - menuitem "video-camera 换装项目":
+      - img "video-camera":
+      - generic: 换装项目
+    - menuitem "cloud-upload 素材库":
+      - img "cloud-upload":
+      - generic: 素材库
+    - menuitem "history 生成记录":
+      - img "history":
+      - generic: 生成记录
+    - menuitem "file-protect 备份与恢复":
+      - img "file-protect":
+      - generic: 备份与恢复
+    - menuitem "setting 系统设置":
+      - img "setting":
+      - generic: 系统设置
+  - generic: 本地工作流
+- banner:
+  - text: AI 内容生产工作台
+  - heading "电商服装换装短视频" [level=4]
+  - img "thunderbolt":
+  - text: Mock Provider
+  - button "plus 创建换装任务":
+    - img "plus":
+    - generic: 创建换装任务
+- main:
+  - button "← 返回项目":
+    - generic: ← 返回项目
+  - text: WORKFLOW / LANGGRAPH RUN
+  - heading "换装视频生成任务" [level=1]
+  - generic: 任务 2871ea9f-1c9
+  - generic: 已完成
+  - button "删除任务 2871ea9f":
+    - generic: 删除
+  - img "check":
+  - generic: 素材校验
+  - img "check":
+  - generic: 提示词准备
+  - img "check":
+  - generic: 生成换装图
+  - img "check":
+  - generic: 生成过渡视频
+  - img "check":
+  - generic: 本地合成
+  - img "check":
+  - generic: 完成
+  - progressbar:
+    - img "check-circle":
+  - generic: 当前节点：finish_job
+  - generic: 中间产物
+  - generic: 等待中间产物
+  - generic: 视频输出
+  - img "No data"
+  - generic: 视频生成中
+  - generic: 工作流日志
+  - generic: 等待日志

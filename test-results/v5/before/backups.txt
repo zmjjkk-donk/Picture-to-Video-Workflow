@@ -1,0 +1,73 @@
+- complementary:
+  - generic: AI
+  - strong: Outfit Studio
+  - generic: 换装视频工作台
+  - menu:
+    - menuitem "appstore 工作台":
+      - img "appstore":
+      - generic: 工作台
+    - menuitem "video-camera 换装项目":
+      - img "video-camera":
+      - generic: 换装项目
+    - menuitem "cloud-upload 素材库":
+      - img "cloud-upload":
+      - generic: 素材库
+    - menuitem "history 生成记录":
+      - img "history":
+      - generic: 生成记录
+    - menuitem "file-protect 备份与恢复":
+      - img "file-protect":
+      - generic: 备份与恢复
+    - menuitem "setting 系统设置":
+      - img "setting":
+      - generic: 系统设置
+  - generic: 本地工作流
+- banner:
+  - text: AI 内容生产工作台
+  - heading "电商服装换装短视频" [level=4]
+  - img "thunderbolt":
+  - text: Mock Provider
+  - button "plus 创建换装任务":
+    - img "plus":
+    - generic: 创建换装任务
+- main:
+  - text: BACKUP / 数据安全
+  - heading "备份与恢复" [level=1]
+  - generic: 数据库、项目清单、图片和视频会打包成可迁移的 ZIP 文件。
+  - button "database 创建完整备份":
+    - img "database":
+    - generic: 创建完整备份
+  - generic: 导入备份
+  - button "upload 选择 ZIP 文件":
+    - img "upload":
+    - generic: 选择 ZIP 文件
+  - button "导入项目" [disabled]:
+    - generic: 导入项目
+  - generic: 备份记录
+  - table:
+    - rowgroup:
+      - row "文件 文件数 大小 创建时间 操作":
+        - columnheader "文件"
+        - columnheader "文件数"
+        - columnheader "大小"
+        - columnheader "创建时间"
+        - columnheader "操作"
+    - rowgroup:
+      - row "backup-20261003-134822-c38e7bde.zip 11 7700.7 KB 2026/10/3 13:48:22 下载":
+        - cell "backup-20261003-134822-c38e7bde.zip"
+        - cell "11"
+        - cell "7700.7 KB"
+        - cell "2026/10/3 13:48:22"
+        - cell "下载":
+          - link "下载":
+            - /url: http://127.0.0.1:8000/api/backups/9fd856e8-e306-436d-af19-59cadaaf143c/download
+            - generic: 下载
+  - list:
+    - listitem "Previous Page":
+      - button "left" [disabled]:
+        - img "left":
+    - listitem "1":
+      - generic: "1"
+    - listitem "Next Page":
+      - button "right" [disabled]:
+        - img "right":

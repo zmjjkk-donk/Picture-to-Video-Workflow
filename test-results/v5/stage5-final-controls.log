@@ -1,0 +1,47 @@
+
+> outfit-studio-frontend@0.1.0 test
+> vitest run --config vite.config.mjs --configLoader runner src/ResponsiveControls.test.tsx src/BusinessContract.test.ts src/theme/WeatherTheme.test.tsx src/ProjectPresentation.test.tsx --reporter=dot --maxWorkers=2
+
+
+ RUN  v3.2.7 D:/VibeCoding Project Record/2.Interview_TestQuestion_Project/frontend
+
+stderr | src/ProjectPresentation.test.tsx > project presentation preserves behavior > keeps known and unavailable Token values in project rows
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/ResponsiveControls.test.tsx > exposes the existing collapsed menu as a keyboard reachable native button
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/ResponsiveControls.test.tsx > exposes the existing collapsed menu as a keyboard reachable native button
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: Space] `split` is deprecated. Please use `separator` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/ResponsiveControls.test.tsx > exposes the existing collapsed menu as a keyboard reachable native button
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: Space] `split` is deprecated. Please use `separator` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/ProjectPresentation.test.tsx > project presentation preserves behavior > creates a project through the existing modal with the original fields
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/ResponsiveControls.test.tsx > exposes the existing collapsed menu as a keyboard reachable native button
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/ProjectPresentation.test.tsx > project presentation preserves behavior > saves four original File objects in order before enabling generation
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+
+stderr | src/theme/WeatherTheme.test.tsx > weather theme foundation > carries the theme into a modal portal
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+·········
+
+ Test Files  4 passed (4)
+      Tests  9 passed (9)
+   Start at  22:19:01
+   Duration  10.75s (transform 209ms, setup 319ms, collect 7.28s, tests 10.51s, environment 2.25s, prepare 311ms)
+

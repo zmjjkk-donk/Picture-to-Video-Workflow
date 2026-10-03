@@ -1,0 +1,335 @@
+
+> outfit-studio-frontend@0.1.0 test
+> vitest run --config vite.config.mjs --configLoader runner src/ProjectPresentation.test.tsx src/BusinessContract.test.ts --reporter=dot --maxWorkers=2
+
+
+ RUN  v3.2.7 D:/VibeCoding Project Record/2.Interview_TestQuestion_Project/frontend
+
+stderr | src/ProjectPresentation.test.tsx > project presentation preserves behavior > keeps known and unavailable Token values in project rows
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/ProjectPresentation.test.tsx > project presentation preserves behavior > creates a project through the existing modal with the original fields
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/ProjectPresentation.test.tsx > project presentation preserves behavior > saves four original File objects in order before enabling generation
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+
+··x·
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/ProjectPresentation.test.tsx > project presentation preserves behavior > creates a project through the existing modal with the original fields
+TestingLibraryElementError: Unable to find an accessible element with the role "button" and name `/确\s*定/`
+
+Here are the accessible roles:
+
+  button:
+
+  Name "Close":
+  <button
+    aria-label="Close"
+    class="ant-modal-close"
+    type="button"
+  />
+
+  Name "Cancel":
+  <button
+    class="ant-btn css-dev-only-do-not-override-oc1rc0 css-var-_r_i_ ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+    type="button"
+  />
+
+  Name "OK":
+  <button
+    class="ant-btn css-dev-only-do-not-override-oc1rc0 css-var-_r_i_ ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  />
+
+  --------------------------------------------------
+  img:
+
+  Name "close":
+  <span
+    aria-label="close"
+    class="anticon anticon-close ant-modal-close-icon"
+    role="img"
+  />
+
+  --------------------------------------------------
+  textbox:
+
+  Name "项目名称":
+  <input
+    aria-required="true"
+    class="ant-input css-dev-only-do-not-override-oc1rc0 ant-input-outlined ant-input-status-validating css-var-_r_i_ ant-input-css-var"
+    id="name"
+    placeholder="例如：春季女装换装展示"
+    type="text"
+    value="秋日衣橱"
+  />
+
+  Name "项目描述":
+  <textarea
+    class="ant-input css-dev-only-do-not-override-oc1rc0 ant-input-outlined ant-input-status-success css-var-_r_i_ ant-input-css-var"
+    id="description"
+    placeholder="记录本次视频的用途和素材说明"
+    rows="3"
+  />
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+<div
+  aria-labelledby="test-id"
+  aria-modal="true"
+  class="ant-modal css-dev-only-do-not-override-oc1rc0 ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
+  role="dialog"
+  style="width: 520px;"
+  tabindex="-1"
+>
+  <div
+    class="ant-modal-container"
+  >
+    <button
+      aria-label="Close"
+      class="ant-modal-close"
+      type="button"
+    >
+      <span
+        aria-label="Close"
+        class="ant-modal-close-x"
+      >
+        <span
+          aria-label="close"
+          class="anticon anticon-close ant-modal-close-icon"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="close"
+            fill="currentColor"
+            fill-rule="evenodd"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+            />
+          </svg>
+        </span>
+      </span>
+    </button>
+    <div
+      class="ant-modal-header"
+    >
+      <div
+        class="ant-modal-title"
+        id="test-id"
+      >
+        创建换装项目
+      </div>
+    </div>
+    <div
+      class="ant-modal-body"
+    >
+      <form
+        class="ant-form ant-form-vertical css-var-_r_i_ ant-form-css-var css-dev-only-do-not-override-oc1rc0"
+      >
+        <div
+          class="ant-form-item css-var-_r_i_ ant-form-css-var css-dev-only-do-not-override-oc1rc0 ant-form-item-is-validating ant-form-item-vertical"
+        >
+          <div
+            class="ant-row ant-form-item-row css-dev-only-do-not-override-oc1rc0 css-var-_r_i_"
+          >
+            <div
+              class="ant-col ant-form-item-label css-dev-only-do-not-override-oc1rc0 css-var-_r_i_"
+            >
+              <label
+                class="ant-form-item-required"
+                for="name"
+                title="项目名称"
+              >
+                项目名称
+              </label>
+            </div>
+            <div
+              class="ant-col ant-form-item-control css-dev-only-do-not-override-oc1rc0 css-var-_r_i_"
+            >
+              <div
+                class="ant-form-item-control-input"
+              >
+                <div
+                  class="ant-form-item-control-input-content"
+                >
+                  <input
+                    aria-required="true"
+                    class="ant-input css-dev-only-do-not-override-oc1rc0 ant-input-outlined ant-input-status-validating css-var-_r_i_ ant-input-css-var"
+                    id="name"
+                    placeholder="例如：春季女装换装展示"
+                    type="text"
+                    value="秋日衣橱"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-form-item css-var-_r_i_ ant-form-css-var css-dev-only-do-not-override-oc1rc0 ant-form-item-has-success ant-form-item-vertical"
+        >
+          <div
+            class="ant-row ant-form-item-row css-dev-only-do-not-override-oc1rc0 css-var-_r_i_"
+          >
+            <div
+              class="ant-col ant-form-item-label css-dev-only-do-not-override-oc1rc0 css-var-_r_i_"
+            >
+              <label
+                class=""
+                for="description"
+                title="项目描述"
+              >
+                项目描述
+              </label>
+            </div>
+            <div
+              class="ant-col ant-form-item-control css-dev-only-do-not-override-oc1rc0 css-var-_r_i_"
+            >
+              <div
+                class="ant-form-item-control-input"
+              >
+                <div
+                  class="ant-form-item-control-input-content"
+                >
+                  <textarea
+                    class="ant-input css-dev-only-do-not-override-oc1rc0 ant-input-outlined ant-input-status-success css-var-_r_i_ ant-input-css-var"
+                    id="description"
+                    placeholder="记录本次视频的用途和素材说明"
+                    rows="3"
+                  >
+                    三套服装
+                  </textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div
+      class="ant-modal-footer"
+    >
+      <button
+        class="ant-btn css-dev-only-do-not-override-oc1rc0 css-var-_r_i_ ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        type="button"
+      >
+        <span>
+          Cancel
+        </span>
+      </button>
+      <button
+        class="ant-btn css-dev-only-do-not-override-oc1rc0 css-var-_r_i_ ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        type="button"
+      >
+        <span>
+          OK
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+ ❯ Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ src/ProjectPresentation.test.tsx:22:28
+     20|     fireEvent.change(dialog.getByPlaceholderText("例如：春季女装换装展示"),{targe…
+     21|     fireEvent.change(dialog.getByPlaceholderText("记录本次视频的用途和素材说明"),{ta…
+     22|     fireEvent.click(dialog.getByRole("button",{name:/确\s*定/}));
+       |                            ^
+     23|     await waitFor(()=>expect(view.calls.filter(c=>c.path==="/projects"…
+     24|     expect(JSON.parse(String(view.calls.find(c=>c.method==="POST")!.bo…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 4 unhandled errors during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯ Unhandled Rejection ⎯⎯⎯⎯⎯
+TypeError: window.URL.createObjectURL is not a function
+ ❯ node_modules/antd/lib/upload/utils.js:137:28
+ ❯ previewImage node_modules/antd/lib/upload/utils.js:83:10
+ ❯ node_modules/antd/lib/upload/UploadList/index.js:70:20
+ ❯ node_modules/antd/lib/upload/UploadList/index.js:65:19
+ ❯ Object.react_stack_bottom_frame node_modules/react-dom/cjs/react-dom-client.development.js:28656:20
+ ❯ runWithFiberInDEV node_modules/react-dom/cjs/react-dom-client.development.js:1048:13
+ ❯ commitHookEffectListMount node_modules/react-dom/cjs/react-dom-client.development.js:13748:29
+ ❯ commitHookPassiveMountEffects node_modules/react-dom/cjs/react-dom-client.development.js:13835:11
+
+This error originated in "src/ProjectPresentation.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "saves four original File objects in order before enabling generation". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯ Unhandled Rejection ⎯⎯⎯⎯⎯
+TypeError: window.URL.createObjectURL is not a function
+ ❯ node_modules/antd/lib/upload/utils.js:137:28
+ ❯ previewImage node_modules/antd/lib/upload/utils.js:83:10
+ ❯ node_modules/antd/lib/upload/UploadList/index.js:70:20
+ ❯ node_modules/antd/lib/upload/UploadList/index.js:65:19
+ ❯ Object.react_stack_bottom_frame node_modules/react-dom/cjs/react-dom-client.development.js:28656:20
+ ❯ runWithFiberInDEV node_modules/react-dom/cjs/react-dom-client.development.js:1048:13
+ ❯ commitHookEffectListMount node_modules/react-dom/cjs/react-dom-client.development.js:13748:29
+ ❯ commitHookPassiveMountEffects node_modules/react-dom/cjs/react-dom-client.development.js:13835:11
+
+This error originated in "src/ProjectPresentation.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "saves four original File objects in order before enabling generation". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯ Unhandled Rejection ⎯⎯⎯⎯⎯
+TypeError: window.URL.createObjectURL is not a function
+ ❯ node_modules/antd/lib/upload/utils.js:137:28
+ ❯ previewImage node_modules/antd/lib/upload/utils.js:83:10
+ ❯ node_modules/antd/lib/upload/UploadList/index.js:70:20
+ ❯ node_modules/antd/lib/upload/UploadList/index.js:65:19
+ ❯ Object.react_stack_bottom_frame node_modules/react-dom/cjs/react-dom-client.development.js:28656:20
+ ❯ runWithFiberInDEV node_modules/react-dom/cjs/react-dom-client.development.js:1048:13
+ ❯ commitHookEffectListMount node_modules/react-dom/cjs/react-dom-client.development.js:13748:29
+ ❯ commitHookPassiveMountEffects node_modules/react-dom/cjs/react-dom-client.development.js:13835:11
+
+This error originated in "src/ProjectPresentation.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "saves four original File objects in order before enabling generation". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯ Unhandled Rejection ⎯⎯⎯⎯⎯
+TypeError: window.URL.createObjectURL is not a function
+ ❯ node_modules/antd/lib/upload/utils.js:137:28
+ ❯ previewImage node_modules/antd/lib/upload/utils.js:83:10
+ ❯ node_modules/antd/lib/upload/UploadList/index.js:70:20
+ ❯ node_modules/antd/lib/upload/UploadList/index.js:65:19
+ ❯ Object.react_stack_bottom_frame node_modules/react-dom/cjs/react-dom-client.development.js:28656:20
+ ❯ runWithFiberInDEV node_modules/react-dom/cjs/react-dom-client.development.js:1048:13
+ ❯ commitHookEffectListMount node_modules/react-dom/cjs/react-dom-client.development.js:13748:29
+ ❯ commitHookPassiveMountEffects node_modules/react-dom/cjs/react-dom-client.development.js:13835:11
+
+This error originated in "src/ProjectPresentation.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "saves four original File objects in order before enabling generation". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 3 passed (4)
+     Errors  4 errors
+   Start at  22:04:13
+   Duration  9.91s (transform 164ms, setup 192ms, collect 2.95s, tests 6.51s, environment 1.08s, prepare 151ms)
+

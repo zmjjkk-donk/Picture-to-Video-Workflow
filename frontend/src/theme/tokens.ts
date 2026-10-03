@@ -1,0 +1,48 @@
+import { theme, type ThemeConfig } from "antd";
+
+export const weatherColors = {
+  background: "#12273e", surface: "#243d57", popup: "#203a53",
+  text: "#f5f9ff", secondary: "#d2deeb", muted: "#b8cbe0",
+  accent: "#b5dcff", onAccent: "#15324d", success: "#8de2b5",
+  warning: "#ffd68e", error: "#ffb2b2", border: "#7896b5",
+};
+export const weatherTheme: ThemeConfig = {
+  algorithm: theme.darkAlgorithm,
+  token: {
+    colorPrimary: weatherColors.accent, colorInfo: weatherColors.accent,
+    colorSuccess: weatherColors.success, colorWarning: weatherColors.warning, colorError: weatherColors.error,
+    colorText: weatherColors.text, colorTextSecondary: weatherColors.secondary,
+    colorTextTertiary: weatherColors.muted, colorTextQuaternary: weatherColors.muted,
+    colorTextDisabled: "#a7b8ca", colorTextPlaceholder: weatherColors.muted, colorTextLightSolid: weatherColors.onAccent,
+    colorBgBase: weatherColors.background, colorBgContainer: weatherColors.surface,
+    colorBgElevated: weatherColors.popup, colorBgLayout: "transparent",
+    colorBorder: weatherColors.border, colorBorderSecondary: "rgba(235,245,255,0.16)",
+    colorLink: weatherColors.accent, colorLinkHover: "#e1f1ff",
+    colorSuccessText: weatherColors.success, colorWarningText: weatherColors.warning,
+    colorErrorText: weatherColors.error, colorInfoText: weatherColors.accent,
+    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif',
+    fontSize: 15, lineHeight: 1.55, borderRadius: 12, controlHeight: 40, controlHeightLG: 44,
+    motionDurationFast: "0.12s", motionDurationMid: "0.18s", motionDurationSlow: "0.22s",
+    boxShadow: "0 12px 36px rgba(5,16,31,0.18)",
+  },
+  components: {
+    Layout: { bodyBg: "transparent", headerBg: "transparent", siderBg: "transparent" },
+    Card: { borderRadiusLG: 20, headerFontSize: 18, headerHeight: 64, bodyPadding: 24 },
+    Button: { primaryColor: weatherColors.onAccent, primaryShadow: "none", dangerColor: "#fff5f5" },
+    Menu: { darkItemBg: "transparent", darkItemColor: weatherColors.secondary,
+      darkItemSelectedBg: "rgba(190,222,250,0.16)", darkItemSelectedColor: weatherColors.text,
+      darkItemHoverBg: "rgba(190,222,250,0.08)", darkItemHoverColor: weatherColors.text,
+      itemHeight: 48, itemBorderRadius: 12 },
+    Table: { headerBg: "rgba(13,32,53,0.3)", headerColor: weatherColors.secondary,
+      rowHoverBg: "rgba(181,220,255,0.07)", borderColor: "rgba(235,245,255,0.12)",
+      headerSplitColor: "transparent", cellPaddingBlock: 18 },
+    Input: { activeBorderColor: weatherColors.accent, hoverBorderColor: weatherColors.accent,
+      activeShadow: "0 0 0 3px rgba(181,220,255,0.15)" },
+    Select: { optionSelectedBg: "#355c7e", optionSelectedColor: weatherColors.text },
+    Modal: { contentBg: weatherColors.popup, headerBg: weatherColors.popup, titleColor: weatherColors.text },
+    Message: { contentBg: weatherColors.popup },
+    Descriptions: { labelBg: "rgba(13,32,53,0.3)" },
+    Progress: { defaultColor: weatherColors.accent, remainingColor: "rgba(211,230,248,0.15)" },
+    Statistic: { titleFontSize: 14, contentFontSize: 44 },
+  },
+};

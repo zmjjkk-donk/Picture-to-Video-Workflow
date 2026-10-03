@@ -1,0 +1,29 @@
+
+> outfit-studio-frontend@0.1.0 test
+> vitest run --config vite.config.mjs --configLoader runner src/BusinessContract.test.ts --reporter=dot
+
+
+ RUN  v3.2.7 D:/VibeCoding Project Record/2.Interview_TestQuestion_Project/frontend
+
+x
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/BusinessContract.test.ts > V5 business preservation > preserves original requests, state, form conditions, links and event bindings
+TypeError: The URL must be of scheme file
+ ❯ src/BusinessContract.test.ts:8:20
+      6| describe("V5 business preservation", () => {
+      7|   it("preserves original requests, state, form conditions, links and e…
+      8|     const source = readFileSync(new URL("./App.tsx", import.meta.url),…
+       |                    ^
+      9|     expect(businessContract(source)).toEqual(baseline);
+     10|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Start at  21:51:08
+   Duration  1.47s (transform 65ms, setup 109ms, collect 360ms, tests 13ms, environment 520ms, prepare 162ms)
+

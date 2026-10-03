@@ -1,0 +1,36 @@
+
+> outfit-studio-frontend@0.1.0 test
+> vitest run --config vite.config.mjs --configLoader runner src/theme/WeatherTheme.test.tsx src/BusinessContract.test.ts --reporter=dot --maxWorkers=2
+
+
+ RUN  v3.2.7 D:/VibeCoding Project Record/2.Interview_TestQuestion_Project/frontend
+
+stderr | src/theme/WeatherTheme.test.tsx > weather theme foundation > carries the theme into a modal portal
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+··x·
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/theme/WeatherTheme.test.tsx > weather theme foundation > themes static notifications without changing the error text
+Error: expect(received).toHaveStyle()
+
+received value must be an HTMLElement or an SVGElement.
+Received has type:  Null
+Received has value: null
+ ❯ src/theme/WeatherTheme.test.tsx:23:59
+     21|     await act(async () => { message.error("保存失败：测试错误"); });
+     22|     const notice = await screen.findByText("保存失败：测试错误");
+     23|     expect(notice.closest(".ant-message-notice-content")).toHaveStyle(…
+       |                                                           ^
+     24|   });
+     25|   it("keeps text, status and control colors readable", () => {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 3 passed (4)
+   Start at  21:53:55
+   Duration  2.90s (transform 107ms, setup 221ms, collect 2.21s, tests 343ms, environment 1.03s, prepare 123ms)
+

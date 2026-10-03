@@ -1,0 +1,31 @@
+
+> outfit-studio-frontend@0.1.0 test
+> vitest run --config vite.config.mjs --configLoader runner src/ResponsiveControls.test.tsx src/BusinessContract.test.ts src/WeatherTheme.test.tsx --reporter=dot --maxWorkers=2
+
+
+ RUN  v3.2.7 D:/VibeCoding Project Record/2.Interview_TestQuestion_Project/frontend
+
+stderr | src/ResponsiveControls.test.tsx > exposes the existing collapsed menu as a keyboard reachable native button
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/ResponsiveControls.test.tsx > exposes the existing collapsed menu as a keyboard reachable native button
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: Space] `split` is deprecated. Please use `separator` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/ResponsiveControls.test.tsx > exposes the existing collapsed menu as a keyboard reachable native button
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: Space] `split` is deprecated. Please use `separator` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/ResponsiveControls.test.tsx > exposes the existing collapsed menu as a keyboard reachable native button
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+···
+
+ Test Files  2 passed (2)
+      Tests  3 passed (3)
+   Start at  22:15:11
+   Duration  6.10s (transform 189ms, setup 254ms, collect 3.13s, tests 2.53s, environment 1.15s, prepare 144ms)
+

@@ -1,0 +1,539 @@
+[
+  {
+    "viewport": 320,
+    "page": "dashboard",
+    "headerCreate": [
+      {
+        "display": "inline-flex",
+        "height": 44,
+        "text": "创建换装任务"
+      }
+    ],
+    "images": [],
+    "localTables": [],
+    "navVisible": true,
+    "scrollWidth": 320,
+    "width": 305
+  },
+  {
+    "viewport": 320,
+    "page": "projects",
+    "headerCreate": [
+      {
+        "display": "inline-flex",
+        "height": 44,
+        "text": "创建换装任务"
+      }
+    ],
+    "images": [],
+    "localTables": [
+      {
+        "client": 255,
+        "overflow": "auto",
+        "scroll": 780
+      }
+    ],
+    "navVisible": true,
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "viewport": 320,
+    "page": "create",
+    "headerCreate": [
+      {
+        "display": "inline-flex",
+        "height": 44,
+        "text": "创建换装任务"
+      }
+    ],
+    "images": [],
+    "localTables": [],
+    "navVisible": true,
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "viewport": 320,
+    "page": "project",
+    "headerCreate": [
+      {
+        "display": "inline-flex",
+        "height": 44,
+        "text": "创建换装任务"
+      }
+    ],
+    "images": [
+      {
+        "filter": "none",
+        "fit": "contain"
+      },
+      {
+        "filter": "none",
+        "fit": "contain"
+      },
+      {
+        "filter": "none",
+        "fit": "contain"
+      },
+      {
+        "filter": "none",
+        "fit": "contain"
+      }
+    ],
+    "localTables": [],
+    "navVisible": true,
+    "scrollWidth": 320,
+    "width": 305
+  },
+  {
+    "viewport": 320,
+    "page": "job",
+    "headerCreate": [
+      {
+        "display": "inline-flex",
+        "height": 44,
+        "text": "创建换装任务"
+      }
+    ],
+    "images": [],
+    "localTables": [],
+    "navVisible": true,
+    "scrollWidth": 320,
+    "width": 305
+  },
+  {
+    "viewport": 320,
+    "page": "assets",
+    "headerCreate": [
+      {
+        "display": "inline-flex",
+        "height": 44,
+        "text": "创建换装任务"
+      }
+    ],
+    "images": [],
+    "localTables": [],
+    "navVisible": true,
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "viewport": 320,
+    "page": "history",
+    "headerCreate": [
+      {
+        "display": "inline-flex",
+        "height": 44,
+        "text": "创建换装任务"
+      }
+    ],
+    "images": [],
+    "localTables": [
+      {
+        "client": 255,
+        "overflow": "auto",
+        "scroll": 780
+      }
+    ],
+    "navVisible": true,
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "viewport": 320,
+    "page": "backups",
+    "headerCreate": [
+      {
+        "display": "inline-flex",
+        "height": 44,
+        "text": "创建换装任务"
+      }
+    ],
+    "images": [],
+    "localTables": [
+      {
+        "client": 255,
+        "overflow": "auto",
+        "scroll": 780
+      }
+    ],
+    "navVisible": true,
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "viewport": 320,
+    "page": "settings",
+    "headerCreate": [
+      {
+        "display": "inline-flex",
+        "height": 44,
+        "text": "创建换装任务"
+      }
+    ],
+    "images": [],
+    "localTables": [],
+    "navVisible": true,
+    "scrollWidth": 323,
+    "width": 305
+  },
+  {
+    "viewport": 390,
+    "page": "dashboard",
+    "headerCreate": [
+      {
+        "display": "inline-flex",
+        "height": 44,
+        "text": "创建换装任务"
+      }
+    ],
+    "images": [],
+    "localTables": [],
+    "navVisible": true,
+    "scrollWidth": 375,
+    "width": 375
+  },
+  {
+    "viewport": 390,
+    "page": "projects",
+    "headerCreate": [
+      {
+        "display": "inline-flex",
+        "height": 44,
+        "text": "创建换装任务"
+      }
+    ],
+    "images": [],
+    "localTables": [
+      {
+        "client": 325,
+        "overflow": "auto",
+        "scroll": 780
+      }
+    ],
+    "navVisible": true,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "viewport": 390,
+    "page": "create",
+    "headerCreate": [
+      {
+        "display": "inline-flex",
+        "height": 44,
+        "text": "创建换装任务"
+      }
+    ],
+    "images": [],
+    "localTables": [],
+    "navVisible": true,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "viewport": 390,
+    "page": "project",
+    "headerCreate": [
+      {
+        "display": "inline-flex",
+        "height": 44,
+        "text": "创建换装任务"
+      }
+    ],
+    "images": [
+      {
+        "filter": "none",
+        "fit": "contain"
+      },
+      {
+        "filter": "none",
+        "fit": "contain"
+      },
+      {
+        "filter": "none",
+        "fit": "contain"
+      },
+      {
+        "filter": "none",
+        "fit": "contain"
+      }
+    ],
+    "localTables": [],
+    "navVisible": true,
+    "scrollWidth": 375,
+    "width": 375
+  },
+  {
+    "viewport": 390,
+    "page": "job",
+    "headerCreate": [
+      {
+        "display": "inline-flex",
+        "height": 44,
+        "text": "创建换装任务"
+      }
+    ],
+    "images": [],
+    "localTables": [],
+    "navVisible": true,
+    "scrollWidth": 375,
+    "width": 375
+  },
+  {
+    "viewport": 390,
+    "page": "assets",
+    "headerCreate": [
+      {
+        "display": "inline-flex",
+        "height": 44,
+        "text": "创建换装任务"
+      }
+    ],
+    "images": [],
+    "localTables": [],
+    "navVisible": true,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "viewport": 390,
+    "page": "history",
+    "headerCreate": [
+      {
+        "display": "inline-flex",
+        "height": 44,
+        "text": "创建换装任务"
+      }
+    ],
+    "images": [],
+    "localTables": [
+      {
+        "client": 325,
+        "overflow": "auto",
+        "scroll": 780
+      }
+    ],
+    "navVisible": true,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "viewport": 390,
+    "page": "backups",
+    "headerCreate": [
+      {
+        "display": "inline-flex",
+        "height": 44,
+        "text": "创建换装任务"
+      }
+    ],
+    "images": [],
+    "localTables": [
+      {
+        "client": 325,
+        "overflow": "auto",
+        "scroll": 780
+      }
+    ],
+    "navVisible": true,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "viewport": 390,
+    "page": "settings",
+    "headerCreate": [
+      {
+        "display": "inline-flex",
+        "height": 44,
+        "text": "创建换装任务"
+      }
+    ],
+    "images": [],
+    "localTables": [],
+    "navVisible": true,
+    "scrollWidth": 375,
+    "width": 375
+  },
+  {
+    "viewport": 768,
+    "page": "dashboard",
+    "headerCreate": [
+      {
+        "display": "inline-flex",
+        "height": 44,
+        "text": "创建换装任务"
+      }
+    ],
+    "images": [],
+    "localTables": [],
+    "navVisible": true,
+    "scrollWidth": 753,
+    "width": 753
+  },
+  {
+    "viewport": 768,
+    "page": "projects",
+    "headerCreate": [
+      {
+        "display": "inline-flex",
+        "height": 44,
+        "text": "创建换装任务"
+      }
+    ],
+    "images": [],
+    "localTables": [
+      {
+        "client": 679,
+        "overflow": "auto",
+        "scroll": 780
+      }
+    ],
+    "navVisible": true,
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "viewport": 768,
+    "page": "create",
+    "headerCreate": [
+      {
+        "display": "inline-flex",
+        "height": 44,
+        "text": "创建换装任务"
+      }
+    ],
+    "images": [],
+    "localTables": [],
+    "navVisible": true,
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "viewport": 768,
+    "page": "project",
+    "headerCreate": [
+      {
+        "display": "inline-flex",
+        "height": 44,
+        "text": "创建换装任务"
+      }
+    ],
+    "images": [
+      {
+        "filter": "none",
+        "fit": "contain"
+      },
+      {
+        "filter": "none",
+        "fit": "contain"
+      },
+      {
+        "filter": "none",
+        "fit": "contain"
+      },
+      {
+        "filter": "none",
+        "fit": "contain"
+      }
+    ],
+    "localTables": [],
+    "navVisible": true,
+    "scrollWidth": 753,
+    "width": 753
+  },
+  {
+    "viewport": 768,
+    "page": "job",
+    "headerCreate": [
+      {
+        "display": "inline-flex",
+        "height": 44,
+        "text": "创建换装任务"
+      }
+    ],
+    "images": [],
+    "localTables": [],
+    "navVisible": true,
+    "scrollWidth": 753,
+    "width": 753
+  },
+  {
+    "viewport": 768,
+    "page": "assets",
+    "headerCreate": [
+      {
+        "display": "inline-flex",
+        "height": 44,
+        "text": "创建换装任务"
+      }
+    ],
+    "images": [],
+    "localTables": [],
+    "navVisible": true,
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "viewport": 768,
+    "page": "history",
+    "headerCreate": [
+      {
+        "display": "inline-flex",
+        "height": 44,
+        "text": "创建换装任务"
+      }
+    ],
+    "images": [],
+    "localTables": [
+      {
+        "client": 679,
+        "overflow": "auto",
+        "scroll": 780
+      }
+    ],
+    "navVisible": true,
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "viewport": 768,
+    "page": "backups",
+    "headerCreate": [
+      {
+        "display": "inline-flex",
+        "height": 44,
+        "text": "创建换装任务"
+      }
+    ],
+    "images": [],
+    "localTables": [
+      {
+        "client": 679,
+        "overflow": "auto",
+        "scroll": 780
+      }
+    ],
+    "navVisible": true,
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "viewport": 768,
+    "page": "settings",
+    "headerCreate": [
+      {
+        "display": "inline-flex",
+        "height": 44,
+        "text": "创建换装任务"
+      }
+    ],
+    "images": [],
+    "localTables": [],
+    "navVisible": true,
+    "scrollWidth": 753,
+    "width": 753
+  }
+]

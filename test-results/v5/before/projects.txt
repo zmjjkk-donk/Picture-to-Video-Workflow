@@ -1,0 +1,86 @@
+- complementary:
+  - generic: AI
+  - strong: Outfit Studio
+  - generic: 换装视频工作台
+  - menu:
+    - menuitem "appstore 工作台":
+      - img "appstore":
+      - generic: 工作台
+    - menuitem "video-camera 换装项目":
+      - img "video-camera":
+      - generic: 换装项目
+    - menuitem "cloud-upload 素材库":
+      - img "cloud-upload":
+      - generic: 素材库
+    - menuitem "history 生成记录":
+      - img "history":
+      - generic: 生成记录
+    - menuitem "file-protect 备份与恢复":
+      - img "file-protect":
+      - generic: 备份与恢复
+    - menuitem "setting 系统设置":
+      - img "setting":
+      - generic: 系统设置
+  - generic: 本地工作流
+- banner:
+  - text: AI 内容生产工作台
+  - heading "电商服装换装短视频" [level=4]
+  - img "thunderbolt":
+  - text: Mock Provider
+  - button "plus 创建换装任务":
+    - img "plus":
+    - generic: 创建换装任务
+- main:
+  - text: PROJECTS / 项目空间
+  - heading "换装项目" [level=1]
+  - generic: 每个项目保存一组模特、三套服装和对应的生成历史。
+  - button "plus 新建项目":
+    - img "plus":
+    - generic: 新建项目
+  - table:
+    - rowgroup:
+      - row "项目 状态 素材 任务 Token 消耗 更新时间 操作":
+        - columnheader "项目"
+        - columnheader "状态"
+        - columnheader "素材"
+        - columnheader "任务"
+        - columnheader "Token 消耗"
+        - columnheader "更新时间"
+        - columnheader "操作"
+    - rowgroup:
+      - row "新系列 · 等待素材 草稿 0 / 4 0 Token：接口未提供用量数据 2026/10/3 13:48:22 删除项目 新系列 · 等待素材":
+        - cell "新系列 · 等待素材":
+          - button "新系列 · 等待素材":
+            - generic: 新系列 · 等待素材
+        - cell "草稿":
+          - generic: 草稿
+        - cell "0 / 4"
+        - cell "0"
+        - cell "Token：接口未提供用量数据"
+        - cell "2026/10/3 13:48:22"
+        - cell "删除项目 新系列 · 等待素材":
+          - button "删除项目 新系列 · 等待素材":
+            - generic: 删除
+      - row "暮光衣橱 · 秋日系列 已完成 4 / 4 2 Token 消耗 2000 2026/10/3 13:48:22 删除项目 暮光衣橱 · 秋日系列":
+        - cell "暮光衣橱 · 秋日系列":
+          - button "暮光衣橱 · 秋日系列":
+            - generic: 暮光衣橱 · 秋日系列
+        - cell "已完成":
+          - generic: 已完成
+        - cell "4 / 4"
+        - cell "2"
+        - cell "Token 消耗 2000":
+          - generic: Token 消耗 2000
+        - cell "2026/10/3 13:48:22"
+        - cell "删除项目 暮光衣橱 · 秋日系列":
+          - button "删除项目 暮光衣橱 · 秋日系列":
+            - generic: 删除
+  - list:
+    - listitem "Previous Page":
+      - button "left" [disabled]:
+        - img "left":
+    - listitem "1":
+      - generic: "1"
+    - listitem "Next Page":
+      - button "right" [disabled]:
+        - img "right":

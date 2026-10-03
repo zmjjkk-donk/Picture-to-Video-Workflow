@@ -75,11 +75,11 @@ describe("project deletion across workspaces", () => {
     fireEvent.click(screen.getByRole("button", { name: `删除项目 ${project.name}` }));
     fireEvent.click(within(await screen.findByRole("dialog")).getByRole("button", { name: "确认删除" }));
     await waitFor(() => expect(requests).toContainEqual({ path: `/projects/${project.id}`, method: "DELETE" }));
-    await waitFor(() => expect(screen.queryByRole("button", { name: `删除项目 ${project.name}` })).not.toBeInTheDocument());
+    await waitFor(() => expect(screen.queryByLabelText(`删除项目 ${project.name}`)).not.toBeInTheDocument());
     for (const [page, heading] of [["换装项目", "PROJECTS / 项目空间"], ["素材库", "ASSETS / 素材库"], ["工作台", "OVERVIEW / 工作台概览"]]) {
       fireEvent.click(screen.getByRole("menuitem", { name: new RegExp(`${page}$`) }));
       expect(await screen.findByText(heading)).toBeInTheDocument();
-      await waitFor(() => expect(screen.queryByRole("button", { name: `删除项目 ${project.name}` })).not.toBeInTheDocument());
+      await waitFor(() => expect(screen.queryByLabelText(`删除项目 ${project.name}`)).not.toBeInTheDocument());
     }
     fireEvent.click(screen.getByRole("menuitem", { name: /生成记录$/ }));
     expect(await screen.findByText("所属项目已删除")).toBeInTheDocument();
@@ -94,11 +94,11 @@ describe("single task deletion", () => {
     const dialog = await screen.findByRole("dialog");
     expect(within(dialog).getByText(/所属项目及其他任务继续保留/)).toBeInTheDocument();
     fireEvent.click(within(dialog).getByRole("button", { name: "确认删除" }));
-    await waitFor(() => expect(screen.queryByRole("button", { name: "删除任务 68968372" })).not.toBeInTheDocument());
+    await waitFor(() => expect(screen.queryByLabelText("删除任务 68968372")).not.toBeInTheDocument());
     expect(projects).toHaveLength(1);
     expect(requests).toContainEqual({ path: `/jobs/${task.id}`, method: "DELETE" });
     fireEvent.click(screen.getByRole("menuitem", { name: route === "/history" ? /工作台$/ : /生成记录$/ }));
-    await waitFor(() => expect(screen.queryByRole("button", { name: "删除任务 68968372" })).not.toBeInTheDocument());
+    await waitFor(() => expect(screen.queryByLabelText("删除任务 68968372")).not.toBeInTheDocument());
   }, 20000);
 
   it.each(["succeeded", "canceled"] as const)("allows deleting a %s task", async (status) => {

@@ -1,0 +1,87 @@
+- complementary:
+  - generic: AI
+  - strong: Outfit Studio
+  - generic: 换装视频工作台
+  - menu:
+    - menuitem "appstore 工作台":
+      - img "appstore":
+      - generic: 工作台
+    - menuitem "video-camera 换装项目":
+      - img "video-camera":
+      - generic: 换装项目
+    - menuitem "cloud-upload 素材库":
+      - img "cloud-upload":
+      - generic: 素材库
+    - menuitem "history 生成记录":
+      - img "history":
+      - generic: 生成记录
+    - menuitem "file-protect 备份与恢复":
+      - img "file-protect":
+      - generic: 备份与恢复
+    - menuitem "setting 系统设置":
+      - img "setting":
+      - generic: 系统设置
+  - generic: 本地工作流
+- banner:
+  - text: AI 内容生产工作台
+  - heading "电商服装换装短视频" [level=4]
+  - img "thunderbolt":
+  - text: Mock Provider
+  - button "plus 创建换装任务":
+    - img "plus":
+    - generic: 创建换装任务
+- main:
+  - text: HISTORY / 生成记录
+  - heading "生成记录" [level=1]
+  - table:
+    - rowgroup:
+      - row "任务 所属项目 Provider 状态 进度 创建时间 操作":
+        - columnheader "任务"
+        - columnheader "所属项目"
+        - columnheader "Provider"
+        - columnheader "状态"
+        - columnheader "进度"
+        - columnheader "创建时间"
+        - columnheader "操作"
+    - rowgroup:
+      - row "c8d41822-2ad 暮光衣橱 · 秋日系列 mock 生成失败 0 2026/10/3 13:48:22 查看详情 删除任务 c8d41822":
+        - cell "c8d41822-2ad"
+        - cell "暮光衣橱 · 秋日系列":
+          - generic: 暮光衣橱 · 秋日系列
+        - cell "mock"
+        - cell "生成失败":
+          - generic: 生成失败
+        - cell "0":
+          - progressbar:
+            - generic "0%"
+        - cell "2026/10/3 13:48:22"
+        - cell "查看详情 删除任务 c8d41822":
+          - button "查看详情":
+            - generic: 查看详情
+          - button "删除任务 c8d41822":
+            - generic: 删除
+      - row "2871ea9f-1c9 暮光衣橱 · 秋日系列 mock 已完成 100 2026/10/3 13:48:20 查看详情 删除任务 2871ea9f":
+        - cell "2871ea9f-1c9"
+        - cell "暮光衣橱 · 秋日系列":
+          - generic: 暮光衣橱 · 秋日系列
+        - cell "mock"
+        - cell "已完成":
+          - generic: 已完成
+        - cell "100":
+          - progressbar:
+            - img "check-circle":
+        - cell "2026/10/3 13:48:20"
+        - cell "查看详情 删除任务 2871ea9f":
+          - button "查看详情":
+            - generic: 查看详情
+          - button "删除任务 2871ea9f":
+            - generic: 删除
+  - list:
+    - listitem "Previous Page":
+      - button "left" [disabled]:
+        - img "left":
+    - listitem "1":
+      - generic: "1"
+    - listitem "Next Page":
+      - button "right" [disabled]:
+        - img "right":

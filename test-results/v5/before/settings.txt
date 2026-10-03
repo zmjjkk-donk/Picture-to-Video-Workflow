@@ -1,0 +1,63 @@
+- complementary:
+  - generic: AI
+  - strong: Outfit Studio
+  - generic: 换装视频工作台
+  - menu:
+    - menuitem "appstore 工作台":
+      - img "appstore":
+      - generic: 工作台
+    - menuitem "video-camera 换装项目":
+      - img "video-camera":
+      - generic: 换装项目
+    - menuitem "cloud-upload 素材库":
+      - img "cloud-upload":
+      - generic: 素材库
+    - menuitem "history 生成记录":
+      - img "history":
+      - generic: 生成记录
+    - menuitem "file-protect 备份与恢复":
+      - img "file-protect":
+      - generic: 备份与恢复
+    - menuitem "setting 系统设置":
+      - img "setting":
+      - generic: 系统设置
+  - generic: 本地工作流
+- banner:
+  - text: AI 内容生产工作台
+  - heading "电商服装换装短视频" [level=4]
+  - img "thunderbolt":
+  - text: Mock Provider
+  - button "plus 创建换装任务":
+    - img "plus":
+    - generic: 创建换装任务
+- main:
+  - text: SETTINGS / 系统设置
+  - heading "系统设置" [level=1]
+  - generic: 生成模式
+  - table:
+    - rowgroup:
+      - row "当前数据目录 本地 data/ 目录":
+        - rowheader "当前数据目录"
+        - cell "本地 data/ 目录"
+      - row "工作流引擎 LangGraph":
+        - rowheader "工作流引擎"
+        - cell "LangGraph"
+      - row "当前 Provider 演示 Provider down":
+        - rowheader "当前 Provider"
+        - cell "演示 Provider down":
+          - generic "演示 Provider":
+            - text: 演示 Provider
+            - combobox
+          - img "down":
+  - button "保存设置":
+    - generic: 保存设置
+  - generic: Provider 状态
+  - list:
+    - heading "演示 Provider" [level=4]
+    - generic: 本地生成可播放演示视频
+    - generic: 已配置
+    - heading "Agnes AI" [level=4]
+    - generic: 请在项目根目录 .env 设置 AGNES_API_KEY
+    - generic: 待配置
+  - generic: 已保存设置
+  - generic: "{}"

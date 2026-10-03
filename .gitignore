@@ -13,3 +13,7 @@ data/backups/
 .idea/
 frontend/.npm-cache/
 frontend/.vite-cache/
+
+# V5 browser verification uses a disposable local database and media copies.
+test-results/v5/runtime/
+test-results/v5/browser-inputs/

@@ -1,0 +1,46 @@
+- complementary:
+  - generic: AI
+  - strong: Outfit Studio
+  - generic: 换装视频工作台
+  - menu:
+    - menuitem "appstore 工作台":
+      - img "appstore":
+      - generic: 工作台
+    - menuitem "video-camera 换装项目":
+      - img "video-camera":
+      - generic: 换装项目
+    - menuitem "cloud-upload 素材库":
+      - img "cloud-upload":
+      - generic: 素材库
+    - menuitem "history 生成记录":
+      - img "history":
+      - generic: 生成记录
+    - menuitem "file-protect 备份与恢复":
+      - img "file-protect":
+      - generic: 备份与恢复
+    - menuitem "setting 系统设置":
+      - img "setting":
+      - generic: 系统设置
+  - generic: 本地工作流
+- banner:
+  - text: AI 内容生产工作台
+  - heading "电商服装换装短视频" [level=4]
+  - img "thunderbolt":
+  - text: Mock Provider
+  - button "plus 创建换装任务":
+    - img "plus":
+    - generic: 创建换装任务
+- main:
+  - button "← 返回项目列表":
+    - generic: ← 返回项目列表
+  - text: NEW PROJECT / 新建项目
+  - heading "创建一组新的换装内容" [level=1]
+  - generic: 先定义视频项目，再在下一步上传模特和三件商品服装。
+  - generic "项目名称": "* 项目名称"
+  - textbox "* 项目名称":
+    - /placeholder: 例如：春季女装换装展示
+  - generic "项目描述"
+  - textbox "项目描述":
+    - /placeholder: 用于记录商品系列、拍摄场景或面试演示说明
+  - button "创建并上传素材":
+    - generic: 创建并上传素材

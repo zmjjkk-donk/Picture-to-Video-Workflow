@@ -1,0 +1,16 @@
+{
+  "home": 200,
+  "health": 200,
+  "resources": [
+    {
+      "path": "/assets/index-Bxh2_46V.js",
+      "status": 200,
+      "size": 1249628
+    },
+    {
+      "path": "/assets/index-CmgPxLKQ.css",
+      "status": 200,
+      "size": 17133
+    }
+  ]
+}
