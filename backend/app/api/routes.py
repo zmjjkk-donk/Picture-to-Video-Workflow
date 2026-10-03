@@ -16,7 +16,7 @@ from PIL import Image, UnidentifiedImageError
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
-from ..models import AppSetting, Asset, BackupRecord, GeneratedArtifact, GenerationJob, GenerationStep, Project, VideoOutput, WorkflowRun
+from ..models import AppSetting, Asset, BackupRecord, GeneratedArtifact, GenerationJob, GenerationStep, Project, TokenUsage, VideoOutput, WorkflowRun
 from ..schemas import (
     AssetResponse,
     AssetUpdate,
@@ -34,6 +34,7 @@ from ..providers.agnes_common import AgnesNotConfigured
 from ..providers.agnes_image import AgnesImageProvider
 from ..services.backup import BackupError, export_backup, import_backup, restore_backup
 from ..db import init_database
+from ..services.token_usage import aggregate_job_usage, aggregate_project_usage
 
 
 router = APIRouter(prefix="/api")
@@ -56,7 +57,8 @@ def fail(code: str, message: str, http_status: int = 400) -> HTTPException:
     )
 
 
-def project_response(project: Project) -> dict:
+def project_response(project: Project, session: Session | None = None) -> dict:
+    usage = aggregate_project_usage(session, project.id) if session is not None else {"status": "unavailable", "total_tokens": 0, "input_tokens": 0, "output_tokens": 0}
     return ProjectResponse(
         id=project.id,
         name=project.name,
@@ -69,6 +71,10 @@ def project_response(project: Project) -> dict:
         archived_at=project.archived_at,
         asset_count=len(project.assets),
         job_count=len(project.jobs),
+        token_usage_status=str(usage["status"]),
+        token_total=int(usage["total_tokens"]),
+        token_input=int(usage["input_tokens"]),
+        token_output=int(usage["output_tokens"]),
     ).model_dump(mode="json")
 
 
@@ -94,7 +100,15 @@ def asset_response(request: Request, asset: Asset) -> dict:
 
 
 def job_response(job: GenerationJob) -> dict:
-    return JobResponse.model_validate(job).model_dump(mode="json")
+    response = JobResponse.model_validate(job).model_dump(mode="json")
+    return response
+
+
+def job_response_with_usage(job: GenerationJob, session: Session) -> dict:
+    response = job_response(job)
+    usage = aggregate_job_usage(session, job.id)
+    response.update(token_usage_status=usage["status"], token_total=usage["total_tokens"], token_input=usage["input_tokens"], token_output=usage["output_tokens"])
+    return response
 
 
 def get_project_or_404(session: Session, project_id: str) -> Project:
@@ -137,7 +151,7 @@ def system_storage(request: Request):
 @router.get("/projects")
 def list_projects(session: Session = Depends(get_session)):
     projects = session.scalars(select(Project).order_by(Project.updated_at.desc())).all()
-    return success([project_response(project) for project in projects])
+    return success([project_response(project, session) for project in projects])
 
 
 @router.post("/projects", status_code=status.HTTP_201_CREATED)
@@ -146,12 +160,12 @@ def create_project(payload: ProjectCreate, session: Session = Depends(get_sessio
     session.add(project)
     session.commit()
     session.refresh(project)
-    return success(project_response(project), "项目创建成功")
+    return success(project_response(project, session), "项目创建成功")
 
 
 @router.get("/projects/{project_id}")
 def get_project(project_id: str, session: Session = Depends(get_session)):
-    return success(project_response(get_project_or_404(session, project_id)))
+    return success(project_response(get_project_or_404(session, project_id), session))
 
 
 @router.patch("/projects/{project_id}")
@@ -162,7 +176,7 @@ def update_project(project_id: str, payload: ProjectUpdate, session: Session = D
     project.updated_at = datetime.now(timezone.utc)
     session.commit()
     session.refresh(project)
-    return success(project_response(project), "项目更新成功")
+    return success(project_response(project, session), "项目更新成功")
 
 
 @router.delete("/projects/{project_id}")
@@ -184,7 +198,7 @@ def archive_project(project_id: str, session: Session = Depends(get_session)):
     project.updated_at = datetime.now(timezone.utc)
     session.commit()
     session.refresh(project)
-    return success(project_response(project), "项目已归档")
+    return success(project_response(project, session), "项目已归档")
 
 
 @router.post("/projects/{project_id}/duplicate", status_code=status.HTTP_201_CREATED)
@@ -199,7 +213,7 @@ def duplicate_project(project_id: str, request: Request, session: Session = Depe
         shutil.copytree(source_dir, target_dir)
     session.commit()
     session.refresh(copied)
-    return success(project_response(copied), "项目复制成功")
+    return success(project_response(copied, session), "项目复制成功")
 
 
 async def read_image_upload(upload: UploadFile, max_size: int) -> tuple[bytes, str, int, int]:
@@ -437,7 +451,21 @@ def get_job(job_id: str, session: Session = Depends(get_session)):
     job = session.get(GenerationJob, job_id)
     if job is None:
         raise fail("JOB_NOT_FOUND", "生成任务不存在", 404)
-    return success(job_response(job))
+    return success(job_response_with_usage(job, session))
+
+
+@router.get("/jobs/{job_id}/token-usage")
+def get_job_token_usage(job_id: str, session: Session = Depends(get_session)):
+    job = session.get(GenerationJob, job_id)
+    if job is None:
+        raise fail("JOB_NOT_FOUND", "生成任务不存在", 404)
+    return success(aggregate_job_usage(session, job_id))
+
+
+@router.get("/projects/{project_id}/token-usage")
+def get_project_token_usage(project_id: str, session: Session = Depends(get_session)):
+    get_project_or_404(session, project_id)
+    return success(aggregate_project_usage(session, project_id))
 
 
 @router.get("/jobs/{job_id}/steps")
@@ -639,7 +667,7 @@ def dashboard_summary(session: Session = Depends(get_session)):
 @router.get("/dashboard/recent-projects")
 def recent_projects(session: Session = Depends(get_session)):
     projects = session.scalars(select(Project).order_by(Project.updated_at.desc()).limit(5)).all()
-    return success([project_response(project) for project in projects])
+    return success([project_response(project, session) for project in projects])
 
 
 @router.get("/dashboard/recent-jobs")

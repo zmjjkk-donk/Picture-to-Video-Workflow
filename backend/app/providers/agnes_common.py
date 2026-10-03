@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import base64
+import json
 import mimetypes
 from pathlib import Path
 from urllib.parse import urlencode
@@ -8,6 +9,55 @@ from urllib.parse import urlencode
 import httpx
 
 from ..config import Settings
+
+
+def extract_token_usage(body: dict) -> dict[str, int | str] | None:
+    """Normalize provider-reported usage without inventing values.
+
+    Agnes endpoints may expose usage under either ``usage`` or
+    ``token_usage``. Unknown or missing fields remain unknown and return
+    ``None`` so callers can show that the provider did not report usage.
+    """
+    candidates: list[dict] = []
+    for value in (body.get("usage"), body.get("token_usage")):
+        if isinstance(value, dict):
+            candidates.append(value)
+    for item in body.get("data") or []:
+        if isinstance(item, dict):
+            for value in (item.get("usage"), item.get("token_usage")):
+                if isinstance(value, dict):
+                    candidates.append(value)
+    if not candidates:
+        return None
+    usage = candidates[0]
+
+    def number(*keys: str) -> int | None:
+        for key in keys:
+            value = usage.get(key)
+            if value is None:
+                continue
+            try:
+                return max(0, int(value))
+            except (TypeError, ValueError):
+                continue
+        return None
+
+    input_tokens = number("input_tokens", "prompt_tokens", "input_token_count")
+    output_tokens = number("output_tokens", "completion_tokens", "output_token_count")
+    total_tokens = number("total_tokens", "total_token_count")
+    if total_tokens is None and (input_tokens is not None or output_tokens is not None):
+        total_tokens = (input_tokens or 0) + (output_tokens or 0)
+    if input_tokens is None and output_tokens is None and total_tokens is None:
+        return None
+    result: dict[str, int | str] = {}
+    if input_tokens is not None:
+        result["input_tokens"] = input_tokens
+    if output_tokens is not None:
+        result["output_tokens"] = output_tokens
+    if total_tokens is not None:
+        result["total_tokens"] = total_tokens
+    result["raw_usage_json"] = json.dumps(usage, ensure_ascii=False, sort_keys=True)
+    return result
 
 
 class AgnesError(RuntimeError):

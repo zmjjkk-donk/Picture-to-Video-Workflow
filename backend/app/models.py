@@ -138,6 +138,32 @@ class GenerationStep(Base):
     artifacts: Mapped[list["GeneratedArtifact"]] = relationship(back_populates="step", cascade="all, delete-orphan")
 
 
+class TokenUsage(Base):
+    """Provider-reported token usage for one logical workflow step.
+
+    A single row per job/step makes resumed jobs idempotent: polling or
+    resuming a step updates the row instead of counting the same response
+    repeatedly.
+    """
+
+    __tablename__ = "token_usages"
+    __table_args__ = (UniqueConstraint("job_id", "step_key", name="uq_token_usage_job_step"),)
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=new_id)
+    job_id: Mapped[str] = mapped_column(ForeignKey("generation_jobs.id", ondelete="CASCADE"), nullable=False, index=True)
+    step_key: Mapped[str] = mapped_column(String(64), nullable=False)
+    provider: Mapped[str] = mapped_column(String(32), nullable=False, default="agnes")
+    model: Mapped[str] = mapped_column(String(128), nullable=False, default="")
+    input_tokens: Mapped[int | None] = mapped_column(Integer)
+    output_tokens: Mapped[int | None] = mapped_column(Integer)
+    total_tokens: Mapped[int | None] = mapped_column(Integer)
+    raw_usage_json: Mapped[str] = mapped_column(Text, default="{}", nullable=False)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now, nullable=False)
+    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now, onupdate=utc_now, nullable=False)
+
+    job: Mapped[GenerationJob] = relationship()
+
+
 class GeneratedArtifact(Base):
     __tablename__ = "generated_artifacts"
 

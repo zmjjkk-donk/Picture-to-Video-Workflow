@@ -5,7 +5,7 @@ from pathlib import Path
 import httpx
 
 from ..config import Settings
-from .agnes_common import AgnesClient, AgnesError
+from .agnes_common import AgnesClient, AgnesError, extract_token_usage
 
 
 class AgnesVideoProvider(AgnesClient):
@@ -14,6 +14,7 @@ class AgnesVideoProvider(AgnesClient):
     def __init__(self, settings: Settings | None = None) -> None:
         super().__init__(settings)
         self._video_urls: dict[str, str] = {}
+        self.last_usage: dict[str, int | str] | None = None
 
     def submit_keyframe_job(self, first_frame_url: str | None, last_frame_url: str | None, prompt: str) -> str:
         if not first_frame_url or not last_frame_url:
@@ -34,6 +35,7 @@ class AgnesVideoProvider(AgnesClient):
             },
             timeout=60.0,
         )
+        self.last_usage = extract_token_usage(body)
         video_id = body.get("video_id")
         if not video_id:
             raise AgnesError("VIDEO_SUBMIT_UNKNOWN", f"Agnes 视频提交未返回 video_id：{body}")
@@ -42,6 +44,7 @@ class AgnesVideoProvider(AgnesClient):
     def get_status(self, video_id: str) -> tuple[str, int, str]:
         url = self.status_url(self.settings.agnes_video_status_url, video_id, self.settings.agnes_video_model)
         body = self.request_json("GET", url, timeout=60.0)
+        self.last_usage = extract_token_usage(body)
         status = str(body.get("status", "")).lower()
         progress = int(body.get("progress") or 0)
         if status == "completed":

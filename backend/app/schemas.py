@@ -40,6 +40,10 @@ class ProjectResponse(BaseModel):
     archived_at: datetime | None = None
     asset_count: int = 0
     job_count: int = 0
+    token_usage_status: str = "unavailable"
+    token_total: int = 0
+    token_input: int = 0
+    token_output: int = 0
 
 
 class AssetResponse(BaseModel):
@@ -95,6 +99,10 @@ class JobResponse(BaseModel):
     created_at: datetime
     started_at: datetime | None
     finished_at: datetime | None
+    token_usage_status: str = "unavailable"
+    token_total: int = 0
+    token_input: int = 0
+    token_output: int = 0
 
 
 class HealthResponse(BaseModel):

@@ -6,11 +6,15 @@ from pathlib import Path
 import httpx
 
 from ..config import Settings
-from .agnes_common import AgnesClient, AgnesError
+from .agnes_common import AgnesClient, AgnesError, extract_token_usage
 
 
 class AgnesImageProvider(AgnesClient):
     name = "agnes-image"
+
+    def __init__(self, settings: Settings | None = None) -> None:
+        super().__init__(settings)
+        self.last_usage: dict[str, int | str] | None = None
 
     def generate_outfit_image(self, model_path: Path, clothing_path: Path, prompt: str, output_path: Path) -> str | None:
         body = self.request_json(
@@ -27,6 +31,7 @@ class AgnesImageProvider(AgnesClient):
             },
             timeout=self.settings.agnes_image_timeout_seconds,
         )
+        self.last_usage = extract_token_usage(body)
         items = body.get("data") or []
         if not items or not isinstance(items[0], dict):
             raise AgnesError("IMAGE_GENERATION_FAILED", f"Agnes 生图未返回 data：{body}")

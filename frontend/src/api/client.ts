@@ -1,4 +1,4 @@
-import type { Asset, DashboardSummary, GeneratedArtifact, Job, Project, VideoOutput, WorkflowLog } from "./types";
+import type { Asset, DashboardSummary, GeneratedArtifact, Job, Project, TokenUsage, VideoOutput, WorkflowLog } from "./types";
 
 const API_BASE = (import.meta.env.VITE_API_BASE ?? "http://127.0.0.1:8000/api").replace(/\/$/, "");
 
@@ -36,6 +36,7 @@ export const api = {
     uploadClothing: (id: string, file: File, name: string, slot: number) => { const form = new FormData(); form.append("file", file); form.append("name", name); form.append("slot_index", String(slot)); const query = new URLSearchParams({ name, slot_index: String(slot) }); return upload<Asset>(`/projects/${id}/assets/clothing?${query.toString()}`, form); },
     reorder: (id: string, assetIds: string[]) => request<null>(`/projects/${id}/assets/reorder`, { method: "POST", body: JSON.stringify({ asset_ids: assetIds }) }),
     createJob: (id: string, clothingOrder: string[], provider = "mock") => request<Job>(`/projects/${id}/jobs`, { method: "POST", body: JSON.stringify({ provider, clothing_order: clothingOrder }) }),
+    tokenUsage: (id: string) => request<TokenUsage>(`/projects/${id}/token-usage`),
   },
   jobs: {
     list: () => request<Job[]>("/jobs"),
@@ -47,6 +48,7 @@ export const api = {
     retry: (id: string) => request<Job>(`/jobs/${id}/retry`, { method: "POST" }),
     resume: (id: string) => request<Job>(`/jobs/${id}/resume`, { method: "POST" }),
     cancel: (id: string) => request<Job>(`/jobs/${id}/cancel`, { method: "POST" }),
+    tokenUsage: (id: string) => request<TokenUsage>(`/jobs/${id}/token-usage`),
   },
   backups: {
     list: () => request<any[]>("/backups"),

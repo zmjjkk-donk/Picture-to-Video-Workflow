@@ -1,154 +1,154 @@
 # 电商服装 AI 换装短视频工作流
 
-这是一个本地可运行的 AI 换装短视频工作台，用于完成电商服装换装视频笔试题。项目采用 React + TypeScript + Vite + Ant Design 前端，Python + FastAPI + LangGraph 后端，SQLite 和本地文件系统保存数据。
-
-## 当前能力
-
-- 创建和管理换装项目；
-- 上传一张模特图和三张服装图；
-- 编辑商品名称，保存服装顺序；
-- 使用 LangGraph 执行素材校验、提示词准备、Provider 提交、状态轮询和输出保存；
-- Mock Provider 本地生成可播放的竖屏 MP4 演示视频；
-- 查看任务进度、工作流日志、视频封面和视频输出；
-- 查询历史任务、重试失败任务；
-- 将数据库、项目清单、图片和视频导出为 ZIP；
-- 校验 SHA256 并导入恢复 ZIP；
-- Provider 接口可替换，支持 Mock Provider 和 Agnes 双模型工作流。
-
-默认使用 Mock Provider，不会调用真实 AI 服务。配置 Agnes API Key 后，可执行“3 次图生图 + 2 次首尾帧图生视频 + 本地合成”的真实流程。
-
-## 技术栈
-
-- 前端源码：React、TypeScript、Vite、Ant Design、TanStack Query、React Router；
-- 后端：Python 3.12、FastAPI、Uvicorn、Pydantic；
-- Agent 工作流：LangGraph + SQLite Checkpoint；
-- 数据：SQLAlchemy、SQLite；
-- 媒体：Pillow、ImageIO、imageio-ffmpeg；
-- 测试：pytest、pytest-asyncio、Vitest、Testing Library。
-
-## 环境要求
-
-- Windows；
-- Python 环境：`D:\anaconda\envs\interview-agent\python.exe`；
-- Node.js 24+ 和 npm 11+（仅在需要重新构建 React 前端时需要）。
+这是一个本地可运行的电商服装换装短视频工作台。使用者可以创建项目、上传模特图和三套服装图，并通过 Mock 演示模型或 Agnes 双模型工作流生成竖屏换装视频。
 
 ## 启动方式
 
-### 方式一：直接启动本地完整应用
+以下步骤以 Windows PowerShell 为例。请先把本文中的 `<PROJECT_ROOT>` 替换为你下载后的项目根目录，把 `<PYTHON_EXE>` 替换为你实际使用的 Python 解释器路径。Python 版本建议为 3.12 或更高版本，Node.js 建议为 20 或更高版本。
 
-项目已经提供无需 npm 的 `frontend/dist` 演示构建。它由 FastAPI 直接托管，适合在当前没有前端依赖时运行：
+### 1. 获取项目并进入根目录
 
 ```powershell
-Set-Location "D:\VibeCoding Project Record\2.Interview_TestQuestion_Project"
-& "D:\anaconda\envs\interview-agent\python.exe" -m pip install -r requirements.txt
-& "D:\anaconda\envs\interview-agent\python.exe" -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8000
+Set-Location "<PROJECT_ROOT>"
 ```
 
-也可以双击 `start.bat`，或在 PowerShell 中运行 `./start.ps1`。
+### 2. 安装后端依赖
 
-打开：
+```powershell
+& "<PYTHON_EXE>" -m pip install -r requirements.txt
+```
+
+如果你使用虚拟环境，请将 `<PYTHON_EXE>` 替换为该虚拟环境中的 Python 路径。后续运行测试、FastAPI 和 Uvicorn 时，也要继续使用同一个解释器。
+
+### 3. 配置 Agnes（可选）
+
+项目默认使用 Mock Provider，不需要 API Key 就可以运行本地演示。需要调用真实模型时，在项目根目录复制 `.env.example` 为 `.env`，填写：
+
+```text
+AGNES_API_KEY=<YOUR_AGNES_API_KEY>
+```
+
+不要把真实 API Key 提交到 Git。没有配置 Key 时，可以在工作台设置中选择演示 Provider；配置完成后选择 Agnes Provider。
+
+### 4. 启动后端和内置前端
+
+```powershell
+Set-Location "<PROJECT_ROOT>"
+& "<PYTHON_EXE>" -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8000
+```
+
+启动后打开：
 
 - 工作台：http://127.0.0.1:8000/
 - API 文档：http://127.0.0.1:8000/docs
 - 健康检查：http://127.0.0.1:8000/api/health
 
-### 方式二：开发 React 前端
+项目已经包含前端构建产物，直接启动后端即可访问完整工作台。也可以使用项目提供的 `start.bat` 或 `start.ps1`，但首次使用前请检查其中的解释器配置。
 
-当 npm 可以访问 registry 时：
+### 5. 使用 React 开发服务器（可选）
+
+需要修改前端源码时，在另一个终端执行：
 
 ```powershell
-Set-Location frontend
+Set-Location "<PROJECT_ROOT>\frontend"
 npm install
 npm run dev
 ```
 
-另开一个终端运行后端：
+开发地址通常为 http://127.0.0.1:5173。开发服务器会把 `/api` 请求转发到本地后端，因此仍需在另一个终端启动 Uvicorn。
+
+修改完成后构建前端：
 
 ```powershell
-Set-Location "D:\VibeCoding Project Record\2.Interview_TestQuestion_Project"
-& "D:\anaconda\envs\interview-agent\python.exe" -m uvicorn backend.app.main:app --reload --port 8000
-```
-
-前端开发地址：http://localhost:5173
-
-构建 React 前端：
-
-```powershell
-Set-Location frontend
+Set-Location "<PROJECT_ROOT>\frontend"
 npm run build
 ```
 
-构建产物会替换 `frontend/dist`，FastAPI 生产模式会自动托管该目录。
+构建产物会写入 `frontend/dist`，之后再次通过后端启动即可访问更新后的页面。
 
-## 本地数据结构
+### 6. 首次使用流程
+
+1. 打开工作台并创建换装项目。
+2. 上传一张模特图和三张服装图。
+3. 点击“保存上传素材”。
+4. 在设置中选择 Mock Provider 或 Agnes Provider。
+5. 点击“生成换装视频”。
+6. 在任务详情中查看工作流进度、中间产物、日志和最终视频。
+7. 任务失败时可以查看错误信息，并使用“恢复任务”继续执行。
+
+## 技术选型
+
+- 前端：React、TypeScript、Vite、Ant Design、TanStack Query、React Router；
+- 后端：Python、FastAPI、Uvicorn、Pydantic；
+- Agent 工作流：LangGraph 和 SQLite Checkpoint；
+- 数据库：SQLAlchemy + SQLite；
+- 文件存储：本地文件系统；
+- 图像生成：Agnes Image 2.0 Flash；
+- 视频生成：Agnes Video 2.5 Flash；
+- 媒体处理：Pillow、ImageIO、imageio-ffmpeg；
+- 测试：pytest、pytest-asyncio、Vitest、Testing Library。
+
+## 已完成功能
+
+- 创建、查看、更新和删除换装项目；
+- 上传一张模特图和三张服装图；
+- 编辑服装名称并调整三套服装顺序；
+- 使用 LangGraph 执行素材校验、提示词准备、模型调用、状态轮询和输出保存；
+- Mock Provider 本地生成可播放的竖屏 MP4 演示视频；
+- Agnes Image 2.0 Flash 生成三张换装图；
+- Agnes Video 2.5 Flash 生成两段首尾帧过渡视频；
+- 本地合成约 5 秒竖屏最终视频和封面；
+- 查看任务进度、当前节点、工作流日志和中间产物；
+- 取消、恢复和重试生成任务；
+- 按项目展示 Agnes 接口实际返回的 token 用量；
+- 对失败后恢复并最终成功的任务按步骤幂等累计 token；
+- Agnes 未返回 usage 时显示“接口未提供用量数据”，不估算用量；
+- 将数据库、检查点、项目清单、图片和视频导出为 ZIP；
+- 校验 SHA256 并导入恢复 ZIP 备份；
+- 通过 FastAPI 托管内置前端并提供 API 文档。
+
+## 本地数据和备份
+
+运行后，数据默认保存在项目根目录的 `data/`：
 
 ```text
 data/
 ├── app.db
 ├── workflow_checkpoints.db
 ├── projects/
-│   └── {project_id}/
+│   └── <project_id>/
 │       ├── project.json
 │       ├── assets/
 │       └── outputs/
 └── backups/
 ```
 
-SQLite 保存业务数据，图片、视频和封面保存为独立文件。数据库只记录文件路径、大小和 SHA256。
+SQLite 保存业务记录，图片、视频和封面保存为独立文件。工作台的“备份与恢复”页面可以创建完整 ZIP，内容包括数据库、LangGraph 检查点、项目清单、素材、视频、封面和 `manifest.json`。恢复前请关闭正在运行的生成任务。
 
-## 备份和恢复
+## Agnes 接入说明
 
-在“备份与恢复”页面点击“创建完整备份”，系统会生成 ZIP，包含：
+Agnes 接口采用 OpenAI 兼容方式。图像模型负责三张换装图，视频模型负责两段首尾帧视频，最后由本地媒体处理流程合成最终视频。Agnes 的 token 用量只在接口响应提供 `usage` 或 `token_usage` 时记录，接口没有提供时保留为未知状态。
 
-- `app.db`；
-- `workflow_checkpoints.db`；
-- `manifest.json`；
-- 项目 `project.json`；
-- 模特图、服装图；
-- 生成的视频和封面。
-
-恢复时会校验 ZIP 路径、文件数量和 SHA256，然后使用显式 `replace` 模式恢复数据库和项目文件。恢复前请关闭正在运行的生成任务。
-
-## Agnes 真实模型接入
-
-第二版已接入 Agnes 的 OpenAI 兼容接口：`Agnes Image 2.0 Flash` 负责生成三张换装图，`Agnes Video 2.5 Flash` 负责生成两段首尾帧过渡视频，最后由本地 FFmpeg 合成为约 5 秒的竖屏视频。新任务只允许 `mock` 和 `agnes` 两种 Provider，旧 SiliconFlow 文件仅作为历史记录保留，不再被工作流引用。
-
-复制 `.env.example` 为项目根目录 `.env`，填入：
-
-```text
-AGNES_API_KEY=在此填入你的 Agnes API Key
-```
-
-其余 Agnes 地址、模型、轮询和输出尺寸配置也可以在 `.env` 中覆盖。Key 只从环境变量读取，不写入 SQLite 和前端接口；没有填入真实 Key 时，Agnes 任务会明确返回 `KEY_NOT_CONFIGURED`，本地 Mock 仍可完整演示。
+真实 Key 只从环境变量读取，不写入 SQLite，也不会通过前端接口返回。旧 SiliconFlow 文件仅作为历史记录保留，当前工作流不再引用。
 
 ## 测试
 
-后端测试必须使用指定 Python 解释器：
+运行后端测试：
 
 ```powershell
-& "D:\anaconda\envs\interview-agent\python.exe" -m pytest
+Set-Location "<PROJECT_ROOT>"
+& "<PYTHON_EXE>" -m pytest
 ```
 
-当前后端测试覆盖：
-
-- SQLite 初始化、关系和级联删除；
-- 项目和素材 API；
-- 上传校验、顺序调整和文件读取；
-- LangGraph Mock 工作流和 MP4 输出；
-- Provider 失败状态；
-- 首页统计、任务取消、重试、设置；
-- ZIP 导出、导入、SHA256 校验和恢复；
-- FastAPI 静态前端托管和健康检查。
-
-React 源码测试：
+运行前端测试：
 
 ```powershell
-Set-Location frontend
-npm test
+Set-Location "<PROJECT_ROOT>\frontend"
+npm test -- --run
 ```
 
-当前机器 npm registry 访问受限时，可以先使用已提供的 `frontend/dist` 本地演示构建；React 测试在依赖安装成功后执行。
+测试覆盖数据库初始化、项目和素材 API、上传校验、Mock 工作流、Agnes Provider、任务恢复、备份恢复、token 用量解析与累计、项目接口返回值、前端工作台渲染和静态前端托管。
 
-## 项目范围说明
+## 当前范围和限制
 
-项目当前支持本地 Mock 演示和 Agnes 真实双模型工作流，不包含多用户权限、云端对象存储、Redis/Celery 和在线部署。生成任务、三张换装图、两段过渡视频、最终视频、封面和 LangGraph 检查点都会落盘到 `data/`，可通过工作台导出 ZIP 并恢复。
+项目面向本地笔试演示和单机使用，不包含多用户权限、云端对象存储、Redis/Celery 和在线部署。真实视频生成依赖 Agnes API Key、接口额度、网络和 Agnes 返回的可访问媒体地址。项目数据可以通过 ZIP 备份迁移到另一台电脑。

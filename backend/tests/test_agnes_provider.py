@@ -4,7 +4,7 @@ import httpx
 import pytest
 
 from backend.app.config import Settings
-from backend.app.providers.agnes_common import AgnesError, AgnesNotConfigured
+from backend.app.providers.agnes_common import AgnesError, AgnesNotConfigured, extract_token_usage
 from backend.app.providers.agnes_image import AgnesImageProvider
 from backend.app.providers.agnes_video import AgnesVideoProvider
 
@@ -66,6 +66,28 @@ def test_placeholder_key_is_rejected_without_network(tmp_path: Path):
     settings = Settings(data_dir=tmp_path / "data", agnes_api_key="YOUR_AGNES_API_KEY_HERE")
     with pytest.raises(AgnesNotConfigured):
         AgnesImageProvider(settings).validate_config()
+
+
+def test_token_usage_is_normalized_only_when_provider_returns_it():
+    usage = extract_token_usage({"usage": {"prompt_tokens": 12, "completion_tokens": 8}})
+    assert usage == {"input_tokens": 12, "output_tokens": 8, "total_tokens": 20, "raw_usage_json": '{"completion_tokens": 8, "prompt_tokens": 12}'}
+    assert extract_token_usage({"data": [{"url": "https://example.test/image.png"}]}) is None
+
+
+def test_provider_exposes_reported_usage(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
+    model = tmp_path / "model.png"
+    clothing = tmp_path / "clothing.png"
+    model.write_bytes(b"model")
+    clothing.write_bytes(b"clothing")
+
+    def fake_request(method, url, **kwargs):
+        return httpx.Response(200, json={"usage": {"input_tokens": 3, "output_tokens": 7}, "data": [{"b64_json": "aW1hZ2U="}]}, request=httpx.Request(method, url))
+
+    monkeypatch.setattr(httpx, "request", fake_request)
+    provider = AgnesImageProvider(_settings(tmp_path))
+    provider.generate_outfit_image(model, clothing, "prompt", tmp_path / "output.png")
+    assert provider.last_usage is not None
+    assert provider.last_usage["total_tokens"] == 10
 
 
 @pytest.mark.parametrize(("status_code", "code"), [(401, "AGNES_AUTH_FAILED"), (429, "AGNES_RATE_LIMITED")])

@@ -18,6 +18,7 @@ from ..providers.agnes_common import AgnesError
 from ..providers.agnes_image import AgnesImageProvider
 from ..providers.agnes_video import AgnesVideoProvider
 from ..services.media import MediaComposeError, compose_segments
+from ..services.token_usage import record_token_usage
 
 
 class WorkflowState(TypedDict, total=False):
@@ -269,6 +270,7 @@ def build_agnes_graph(settings: Settings, session_factory, checkpointer=None):
                 remote_url = existing.remote_url
             else:
                 remote_url = image_provider.generate_outfit_image(model_path, clothing_path, state["prompt"], output_path)
+                record_token_usage(session_factory, job_id, f"outfit_image_{index + 1}", "agnes", settings.agnes_image_model, getattr(image_provider, "last_usage", None))
                 _save_artifact(session_factory, settings, job_id, step.id, "outfit_image", output_path, index, remote_url)
             _record_generation_step(session_factory, job_id, f"outfit_image_{index + 1}", settings.agnes_image_model, "succeeded", progress=100)
             outfit_paths.append(str(output_path))
@@ -294,11 +296,13 @@ def build_agnes_graph(settings: Settings, session_factory, checkpointer=None):
                 continue
             step = _record_generation_step(session_factory, job_id, step_key, settings.agnes_video_model)
             video_id = (existing_step.provider_job_id if existing_step and existing_step.status == "processing" and existing_step.provider_job_id else None) or video_provider.submit_keyframe_job(state["outfit_urls"][index], state["outfit_urls"][index + 1], prompt)
+            record_token_usage(session_factory, job_id, step_key, "agnes", settings.agnes_video_model, getattr(video_provider, "last_usage", None))
             _record_generation_step(session_factory, job_id, step_key, settings.agnes_video_model, "processing", video_id, 1)
             deadline = time.monotonic() + settings.agnes_video_timeout_seconds
             while time.monotonic() < deadline:
                 ensure_job_active(session_factory, job_id)
                 status, progress, _message = video_provider.get_status(video_id)
+                record_token_usage(session_factory, job_id, step_key, "agnes", settings.agnes_video_model, getattr(video_provider, "last_usage", None))
                 _record_generation_step(session_factory, job_id, step_key, settings.agnes_video_model, "processing", video_id, progress)
                 update_job(session_factory, job_id, status="processing", progress=45 + index * 15 + min(progress // 4, 20), current_node=f"poll_transition_{index + 1}")
                 if status == "succeeded":
