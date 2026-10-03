@@ -12,6 +12,7 @@ export interface Asset {
   slot_index?: number | null; created_at: string; file_url: string; thumbnail_url: string;
 }
 export interface Job {
+  project_name?: string; project_deleted?: boolean;
   id: string; project_id: string; provider: string; status: JobStatus; progress: number; current_node?: string | null;
   provider_job_id?: string | null; workflow_version: string; error_code?: string | null; error_message?: string | null;
   created_at: string; started_at?: string | null; finished_at?: string | null;

@@ -1,0 +1,18 @@
+
+> outfit-studio-frontend@0.1.0 build
+> tsc --noEmit && vite build --config vite.config.mjs --configLoader runner
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 3174 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                     0.38 kB │ gzip:   0.28 kB
+dist/assets/index-DspUjAhR.css      3.42 kB │ gzip:   1.35 kB
+dist/assets/index-BSsa6Uw2.js   1,244.74 kB │ gzip: 397.93 kB
+✓ built in 38.98s
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.

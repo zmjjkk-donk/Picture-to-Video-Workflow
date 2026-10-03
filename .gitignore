@@ -12,3 +12,4 @@ data/projects/
 data/backups/
 .idea/
 frontend/.npm-cache/
+frontend/.vite-cache/

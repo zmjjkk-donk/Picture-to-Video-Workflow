@@ -46,6 +46,12 @@ class Settings:
     agnes_poll_interval_seconds: float = 2.0
     agnes_video_timeout_seconds: float = 1200.0
 
+    def __post_init__(self) -> None:
+        # Uploads and generated files use absolute paths when calculating
+        # portable paths relative to the data directory. Normalize once so
+        # APP_DATA_DIR=data also works and stays stable if the cwd changes.
+        object.__setattr__(self, "data_dir", self.data_dir.expanduser().resolve())
+
     @property
     def database_path(self) -> Path:
         return self.data_dir / self.database_name
@@ -72,7 +78,7 @@ def get_settings() -> Settings:
     """Build settings from environment without storing secrets in SQLite."""
 
     _load_local_env()
-    data_dir = Path(os.getenv("APP_DATA_DIR", str(PROJECT_ROOT / "data"))).resolve()
+    data_dir = Path(os.getenv("APP_DATA_DIR", str(PROJECT_ROOT / "data")))
     return Settings(
         data_dir=data_dir,
         agnes_api_key=os.getenv("AGNES_API_KEY", "").strip(),

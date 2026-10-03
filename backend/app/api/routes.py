@@ -35,6 +35,7 @@ from ..providers.agnes_image import AgnesImageProvider
 from ..services.backup import BackupError, export_backup, import_backup, restore_backup
 from ..db import init_database
 from ..services.token_usage import aggregate_job_usage, aggregate_project_usage
+from ..services.deletion import TERMINAL_JOB_STATUSES, clear_job_checkpoints, has_active_jobs, is_job_executing, is_project_deleted, mark_project_deleted, run_tracked_job, visible_projects
 
 
 router = APIRouter(prefix="/api")
@@ -101,6 +102,11 @@ def asset_response(request: Request, asset: Asset) -> dict:
 
 def job_response(job: GenerationJob) -> dict:
     response = JobResponse.model_validate(job).model_dump(mode="json")
+    from sqlalchemy.orm import object_session
+
+    session = object_session(job)
+    response["project_name"] = job.project.name
+    response["project_deleted"] = is_project_deleted(session, job.project_id) if session is not None else False
     return response
 
 
@@ -113,7 +119,7 @@ def job_response_with_usage(job: GenerationJob, session: Session) -> dict:
 
 def get_project_or_404(session: Session, project_id: str) -> Project:
     project = session.get(Project, project_id)
-    if project is None:
+    if project is None or is_project_deleted(session, project_id):
         raise fail("PROJECT_NOT_FOUND", "项目不存在", 404)
     return project
 
@@ -150,7 +156,7 @@ def system_storage(request: Request):
 
 @router.get("/projects")
 def list_projects(session: Session = Depends(get_session)):
-    projects = session.scalars(select(Project).order_by(Project.updated_at.desc())).all()
+    projects = session.scalars(select(Project).where(visible_projects()).order_by(Project.updated_at.desc())).all()
     return success([project_response(project, session) for project in projects])
 
 
@@ -182,12 +188,10 @@ def update_project(project_id: str, payload: ProjectUpdate, session: Session = D
 @router.delete("/projects/{project_id}")
 def delete_project(project_id: str, request: Request, session: Session = Depends(get_session)):
     project = get_project_or_404(session, project_id)
-    project_dir = safe_project_dir(request, project_id)
-    session.delete(project)
-    session.commit()
-    if project_dir.exists():
-        shutil.rmtree(project_dir)
-    return success(None, "项目删除成功")
+    if has_active_jobs(session, project_id):
+        raise fail("PROJECT_HAS_ACTIVE_JOBS", "项目存在正在执行的任务，请先取消任务再删除", 409)
+    mark_project_deleted(session, project)
+    return success(None, "项目已删除，生成记录和历史视频已保留")
 
 
 @router.post("/projects/{project_id}/archive")
@@ -442,7 +446,7 @@ def create_job(project_id: str, payload: JobCreate, background_tasks: Background
     session.add(job)
     session.commit()
     session.refresh(job)
-    background_tasks.add_task(run_job, request.app.state.settings, request.app.state.session_factory, job.id)
+    background_tasks.add_task(run_tracked_job, request.app.state.settings, request.app.state.session_factory, job.id)
     return success(job_response(job), "生成任务已创建")
 
 
@@ -657,8 +661,8 @@ def delete_backup(backup_id: str, request: Request, session: Session = Depends(g
 
 @router.get("/dashboard/summary")
 def dashboard_summary(session: Session = Depends(get_session)):
-    project_count = session.scalar(select(func.count(Project.id))) or 0
-    asset_count = session.scalar(select(func.count(Asset.id))) or 0
+    project_count = session.scalar(select(func.count(Project.id)).where(visible_projects())) or 0
+    asset_count = session.scalar(select(func.count(Asset.id)).join(Project).where(visible_projects())) or 0
     job_count = session.scalar(select(func.count(GenerationJob.id))) or 0
     succeeded_count = session.scalar(select(func.count(GenerationJob.id)).where(GenerationJob.status == "succeeded")) or 0
     return success({"project_count": project_count, "asset_count": asset_count, "job_count": job_count, "succeeded_count": succeeded_count})
@@ -666,7 +670,7 @@ def dashboard_summary(session: Session = Depends(get_session)):
 
 @router.get("/dashboard/recent-projects")
 def recent_projects(session: Session = Depends(get_session)):
-    projects = session.scalars(select(Project).order_by(Project.updated_at.desc()).limit(5)).all()
+    projects = session.scalars(select(Project).where(visible_projects()).order_by(Project.updated_at.desc()).limit(5)).all()
     return success([project_response(project, session) for project in projects])
 
 
@@ -707,7 +711,7 @@ def retry_job(job_id: str, background_tasks: BackgroundTasks, request: Request, 
     session.add(replacement)
     session.commit()
     session.refresh(replacement)
-    background_tasks.add_task(run_job, request.app.state.settings, request.app.state.session_factory, replacement.id)
+    background_tasks.add_task(run_tracked_job, request.app.state.settings, request.app.state.session_factory, replacement.id)
     return success(job_response(replacement), "已创建重试任务")
 
 
@@ -717,6 +721,8 @@ def resume_job(job_id: str, background_tasks: BackgroundTasks, request: Request,
     job = session.get(GenerationJob, job_id)
     if job is None:
         raise fail("JOB_NOT_FOUND", "生成任务不存在", 404)
+    if is_job_executing(job_id):
+        raise fail("JOB_STILL_STOPPING", "任务正在结束当前调用，请稍后再恢复", 409)
     if job.status not in {"failed", "canceled"}:
         raise fail("JOB_RESUME_NOT_ALLOWED", "只有失败或已取消任务可以恢复")
     if job.provider not in {"mock", "agnes"}:
@@ -734,7 +740,7 @@ def resume_job(job_id: str, background_tasks: BackgroundTasks, request: Request,
     project.status = "generating"
     session.commit()
     session.refresh(job)
-    background_tasks.add_task(run_job, request.app.state.settings, request.app.state.session_factory, job.id)
+    background_tasks.add_task(run_tracked_job, request.app.state.settings, request.app.state.session_factory, job.id)
     return success(job_response(job), "已恢复原任务，已有中间产物将优先复用")
 
 
@@ -743,10 +749,22 @@ def delete_job(job_id: str, request: Request, session: Session = Depends(get_ses
     job = session.get(GenerationJob, job_id)
     if job is None:
         raise fail("JOB_NOT_FOUND", "生成任务不存在", 404)
-    job_dir = request.app.state.settings.projects_dir / job.project_id / "jobs" / job_id
-    output_dir = request.app.state.settings.projects_dir / job.project_id / "outputs" / job_id
+    if job.status not in TERMINAL_JOB_STATUSES:
+        raise fail("JOB_DELETE_NOT_ALLOWED", "任务正在执行，请先取消任务再删除", 409)
+    if is_job_executing(job_id):
+        raise fail("JOB_STILL_STOPPING", "任务正在结束当前调用，请稍后再删除", 409)
+    root = request.app.state.settings.projects_dir.resolve()
+    project_dir = (root / job.project_id).resolve()
+    if project_dir.parent != root:
+        raise fail("INVALID_PATH", "项目路径无效", 400)
+    job_dir = (root / job.project_id / "jobs" / job_id).resolve()
+    output_dir = (root / job.project_id / "outputs" / job_id).resolve()
+    for directory, parent in ((job_dir, project_dir / "jobs"), (output_dir, project_dir / "outputs")):
+        if directory.parent != parent:
+            raise fail("INVALID_PATH", "任务路径无效", 400)
     session.delete(job)
     session.commit()
+    clear_job_checkpoints(request.app.state.settings, job_id)
     for directory in (job_dir, output_dir):
         if directory.exists():
             shutil.rmtree(directory)

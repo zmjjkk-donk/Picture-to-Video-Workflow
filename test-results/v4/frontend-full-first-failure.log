@@ -1,0 +1,461 @@
+
+> outfit-studio-frontend@0.1.0 test
+> vitest run --config vite.config.mjs --configLoader runner --reporter=dot --maxWorkers=2
+
+
+ RUN  v3.2.7 D:/VibeCoding Project Record/2.Interview_TestQuestion_Project/frontend
+
+stderr | src/App.test.tsx > workbench shell > renders the dashboard and summary cards
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/App.test.tsx > workbench shell > renders the dashboard and summary cards
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/App.test.tsx > workbench shell > renders the dashboard and summary cards
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /dashboard and keeps history across navigation
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: Space] `split` is deprecated. Please use `separator` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /dashboard and keeps history across navigation
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /dashboard and keeps history across navigation
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: Space] `split` is deprecated. Please use `separator` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /dashboard and keeps history across navigation
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: Space] `split` is deprecated. Please use `separator` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /dashboard and keeps history across navigation
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /dashboard and keeps history across navigation
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /dashboard and keeps history across navigation
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /dashboard and keeps history across navigation
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /dashboard and keeps history across navigation
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /projects and keeps history across navigation
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /projects and keeps history across navigation
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /projects and keeps history across navigation
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /projects and keeps history across navigation
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: Space] `split` is deprecated. Please use `separator` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /projects and keeps history across navigation
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /projects and keeps history across navigation
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /assets and keeps history across navigation
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /assets and keeps history across navigation
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /assets and keeps history across navigation
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /assets and keeps history across navigation
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: Space] `split` is deprecated. Please use `separator` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /assets and keeps history across navigation
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /assets and keeps history across navigation
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > single task deletion > deletes failed task from /dashboard without deleting project
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: Space] `split` is deprecated. Please use `separator` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > single task deletion > deletes failed task from /dashboard without deleting project
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: Space] `split` is deprecated. Please use `separator` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > single task deletion > deletes failed task from /dashboard without deleting project
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: Space] `split` is deprecated. Please use `separator` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > single task deletion > deletes failed task from /dashboard without deleting project
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > single task deletion > deletes failed task from /dashboard without deleting project
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: Space] `split` is deprecated. Please use `separator` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > single task deletion > deletes failed task from /dashboard without deleting project
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > single task deletion > deletes failed task from /history without deleting project
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > single task deletion > deletes failed task from /history without deleting project
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > single task deletion > deletes failed task from /history without deleting project
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: Space] `split` is deprecated. Please use `separator` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > single task deletion > allows deleting a succeeded task
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > single task deletion > allows deleting a canceled task
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > single task deletion > requires stopping an active task on /dashboard
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: Space] `split` is deprecated. Please use `separator` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > single task deletion > requires stopping an active task on /history
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > single task deletion > keeps the entry and shows the actual API error if deletion is rejected
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > single task deletion > keeps the entry and shows the actual API error if deletion is rejected
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > single task deletion > preserves history access but hides resume for a deleted project
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > single task deletion > preserves history access but hides resume for a deleted project
+Warning: [antd: Alert] `message` is deprecated. Please use `title` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > single task deletion > preserves history access but hides resume for a deleted project
+Warning: [antd: Alert] `message` is deprecated. Please use `title` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > single task deletion > preserves history access but hides resume for a deleted project
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+········x·x·
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/Deletion.test.tsx > single task deletion > requires stopping an active task on /dashboard
+TestingLibraryElementError: Unable to find role="button" and name "删除任务 68968372"
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <div
+      class="ant-layout ant-layout-has-sider app-layout css-dev-only-do-not-override-oc1rc0 css-var-root"
+    >
+      <aside
+        class="ant-layout-sider ant-layout-sider-dark app-sider css-dev-only-do-not-override-oc1rc0 css-var-root"
+        style="flex: 0 0 200px; max-width: 200px; min-width: 200px; width: 200px;"
+      >
+        <div
+          class="ant-layout-sider-children"
+        >
+          <div
+            class="brand"
+          >
+            <div
+              class="brand-mark"
+            >
+              AI
+            </div>
+            <div>
+              <strong>
+                Outfit Studio
+              </strong>
+              <span>
+                换装视频工作台
+              </span>
+            </div>
+          </div>
+          <ul
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark css-dev-only-do-not-override-oc1rc0 css-var-root ant-menu-css-var"
+            data-menu-list="true"
+            role="menu"
+            tabindex="0"
+          >
+            <li
+              class="ant-menu-item ant-menu-item-selected"
+              data-menu-id="rc-menu-uuid-test-id-/dashboard"
+              role="menuitem"
+              style="padding-left: 24px;"
+              tabindex="-1"
+            >
+              <span
+                aria-label="appstore"
+                class="anticon anticon-appstore ant-menu-item-icon"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="appstore"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M464 144H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H212V212h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H612V212h200v200zM464 544H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H212V612h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H612V612h200v200z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="ant-menu-title-content"
+              >
+                工作台
+              </span>
+            </li>
+            <li
+              class="ant-menu-item"
+              data-menu-id="rc-menu-uuid-test-id-/projects"
+              role="menuitem"
+              style="padding-left: 24px;"
+              tabindex="-1"
+            >
+              <span
+                aria-label="video-camera"
+                class="anticon anticon-video-camera ant-menu-item-icon"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="video-camera"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M912 302.3L784 376V224c0-35.3-28.7-64-64-64H128c-35.3 0-64 28.7-64 64v576c0 35.3 28.7 64 64 64h592c35.3 0 64-28.7 64-64V648l128 73.7c21.3 12.3 48-3.1 48-27.6V330c0-24.6-26.7-40-48-27.7zM712 792H136V232h576v560zm176-167l-104-59.8V458.9L888 399v226zM208 360h112c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H208c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="ant-menu-title-content"
+              >
+                换装项目
+              </span>
+            </li>
+            <li
+              class="ant-menu-item"
+              data-menu-id="rc-menu-uuid-test-id-/assets"
+              role="menuitem"
+              style="padding-left: 24px;"
+              tabindex="-1"
+            >
+              <span
+                aria-label="cloud-upload"
+                class="anticon anticon-cloud-upload ant-menu-item-icon"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="cloud-upload"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M518.3 459a8 8 0 00-12.6 0l-112 141.7a7.98 7.98 0 006.3 12.9h73.9V856c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V613.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 459z"
+                  />
+                  <path
+                    d="M811.4 366.7C765.6 245.9 648.9 160 512.2 160S258.8 245.8 213 366.6C127.3 389.1 64 467.2 64 560c0 110.5 89.5 200 199.9 200H304c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8h-40.1c-33.7 0-65.4-13.4-89-37.7-23.5-24.2-36-56.8-34.9-90.6.9-26.4 9.9-51.2 26.2-72.1 16.7-21.3 40.1-36.8 66.1-43.7l37.9-9.9 13.9-36.6c8.6-22.8 20.6-44.1 35.7-63.4a245.6 245.6 0 0152.4-49.9c41.1-28.9 89.5-44.2 140-44.2s98.9 15.3 140 44.2c1...
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <div
+      class="ant-layout ant-layout-has-sider app-layout css-dev-only-do-not-override-oc1rc0 css-var-root"
+    >
+      <aside
+        class="ant-layout-sider ant-layout-sider-dark app-sider css-dev-only-do-not-override-oc1rc0 css-var-root"
+        style="flex: 0 0 200px; max-width: 200px; min-width: 200px; width: 200px;"
+      >
+        <div
+          class="ant-layout-sider-children"
+        >
+          <div
+            class="brand"
+          >
+            <div
+              class="brand-mark"
+            >
+              AI
+            </div>
+            <div>
+              <strong>
+                Outfit Studio
+              </strong>
+              <span>
+                换装视频工作台
+              </span>
+            </div>
+          </div>
+          <ul
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark css-dev-only-do-not-override-oc1rc0 css-var-root ant-menu-css-var"
+            data-menu-list="true"
+            role="menu"
+            tabindex="0"
+          >
+            <li
+              class="ant-menu-item ant-menu-item-selected"
+              data-menu-id="rc-menu-uuid-test-id-/dashboard"
+              role="menuitem"
+              style="padding-left: 24px;"
+              tabindex="-1"
+            >
+              <span
+                aria-label="appstore"
+                class="anticon anticon-appstore ant-menu-item-icon"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="appstore"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M464 144H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H212V212h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H612V212h200v200zM464 544H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H212V612h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H612V612h200v200z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="ant-menu-title-content"
+              >
+                工作台
+              </span>
+            </li>
+            <li
+              class="ant-menu-item"
+              data-menu-id="rc-menu-uuid-test-id-/projects"
+              role="menuitem"
+              style="padding-left: 24px;"
+              tabindex="-1"
+            >
+              <span
+                aria-label="video-camera"
+                class="anticon anticon-video-camera ant-menu-item-icon"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="video-camera"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M912 302.3L784 376V224c0-35.3-28.7-64-64-64H128c-35.3 0-64 28.7-64 64v576c0 35.3 28.7 64 64 64h592c35.3 0 64-28.7 64-64V648l128 73.7c21.3 12.3 48-3.1 48-27.6V330c0-24.6-26.7-40-48-27.7zM712 792H136V232h576v560zm176-167l-104-59.8V458.9L888 399v226zM208 360h112c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H208c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="ant-menu-title-content"
+              >
+                换装项目
+              </span>
+            </li>
+            <li
+              class="ant-menu-item"
+              data-menu-id="rc-menu-uuid-test-id-/assets"
+              role="menuitem"
+              style="padding-left: 24px;"
+              tabindex="-1"
+            >
+              <span
+                aria-label="cloud-upload"
+                class="anticon anticon-cloud-upload ant-menu-item-icon"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="cloud-upload"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M518.3 459a8 8 0 00-12.6 0l-112 141.7a7.98 7.98 0 006.3 12.9h73.9V856c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V613.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 459z"
+                  />
+                  <path
+                    d="M811.4 366.7C765.6 245.9 648.9 160 512.2 160S258.8 245.8 213 366.6C127.3 389.1 64 467.2 64 560c0 110.5 89.5 200 199.9 200H304c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8h-40.1c-33.7 0-65.4-13.4-89-37.7-23.5-24.2-36-56.8-34.9-90.6.9-26.4 9.9-51.2 26.2-72.1 16.7-21.3 40.1-36.8 66.1-43.7l37.9-9.9 13.9-36.6c8.6-22.8 20.6-44.1 35.7-63.4a245.6 245.6 0 0152.4-49.9c41.1-28.9 89.5-44.2 140-44.2s98.9 15.3 140 44.2c1...
+ ❯ waitForWrapper node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ src/Deletion.test.tsx:108:25
+    106|     jobs[0].status = "processing";
+    107|     mount(route);
+    108|     expect(await screen.findByRole("button", { name: "删除任务 68968372" }…
+       |                         ^
+    109|   });
+    110| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  src/Deletion.test.tsx > single task deletion > keeps the entry and shows the actual API error if deletion is rejected
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/Deletion.test.tsx:111:3
+    109|   });
+    110| 
+    111|   it("keeps the entry and shows the actual API error if deletion is re…
+       |   ^
+    112|     deleteError = "项目存在正在执行的任务，请先取消任务再删除";
+    113|     mount("/projects");
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  2 failed | 10 passed (12)
+   Start at  18:13:46
+   Duration  57.17s (transform 137ms, setup 238ms, collect 4.66s, tests 54.50s, environment 1.02s, prepare 138ms)
+

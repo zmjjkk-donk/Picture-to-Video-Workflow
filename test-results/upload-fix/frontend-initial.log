@@ -1,0 +1,14 @@
+
+> outfit-studio-frontend@0.1.0 test
+> vitest run --config vite.config.mjs --configLoader runner src/api/client.test.ts --reporter=dot --maxWorkers=2
+
+
+ RUN  v3.2.7 D:/VibeCoding Project Record/2.Interview_TestQuestion_Project/frontend
+
+·····
+
+ Test Files  1 passed (1)
+      Tests  5 passed (5)
+   Start at  18:28:31
+   Duration  39.37s (transform 371ms, setup 5.24s, collect 112ms, tests 27ms, environment 32.17s, prepare 1.25s)
+

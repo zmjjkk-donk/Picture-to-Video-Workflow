@@ -1,0 +1,101 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+____________ test_relative_data_dir_is_fixed_at_settings_creation _____________
+D:\VibeCoding Project Record\2.Interview_TestQuestion_Project\backend\tests\test_relative_data_dir.py:13: in test_relative_data_dir_is_fixed_at_settings_creation
+    assert settings.data_dir == tmp_path / "data"
+E   AssertionError: assert WindowsPath('data') == (WindowsPath('C:/Users/24473/AppData/Local/Temp/pytest-of-24473/pytest-54/test_relative_data_dir_is_fixe0') / 'data')
+E    +  where WindowsPath('data') = Settings(project_root=WindowsPath('D:/VibeCoding Project Record/2.Interview_TestQuestion_Project'), data_dir=WindowsPa...nt_seconds='4', agnes_image_timeout_seconds=360.0, agnes_poll_interval_seconds=2.0, agnes_video_timeout_seconds=1200.0).data_dir
+___________ test_relative_data_dir_upload_persists_and_can_generate ___________
+D:\VibeCoding Project Record\2.Interview_TestQuestion_Project\backend\tests\test_relative_data_dir.py:25: in test_relative_data_dir_upload_persists_and_can_generate
+    model = client.post(
+D:\anaconda\envs\interview-agent\Lib\site-packages\httpx2\_client.py:1204: in post
+    return self.request(
+D:\anaconda\envs\interview-agent\Lib\site-packages\starlette\testclient.py:463: in request
+    return super().request(
+D:\anaconda\envs\interview-agent\Lib\site-packages\httpx2\_client.py:797: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+D:\anaconda\envs\interview-agent\Lib\site-packages\httpx2\_client.py:980: in send
+    response = self._send_handling_auth(
+D:\anaconda\envs\interview-agent\Lib\site-packages\httpx2\_client.py:1008: in _send_handling_auth
+    response = self._send_handling_redirects(
+D:\anaconda\envs\interview-agent\Lib\site-packages\httpx2\_client.py:1043: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+D:\anaconda\envs\interview-agent\Lib\site-packages\httpx2\_client.py:1076: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+D:\anaconda\envs\interview-agent\Lib\site-packages\starlette\testclient.py:360: in handle_request
+    raise exc
+D:\anaconda\envs\interview-agent\Lib\site-packages\starlette\testclient.py:357: in handle_request
+    portal.call(self.app, scope, receive, send)
+D:\anaconda\envs\interview-agent\Lib\site-packages\anyio\from_thread.py:340: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+D:\anaconda\envs\interview-agent\Lib\concurrent\futures\_base.py:456: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+D:\anaconda\envs\interview-agent\Lib\concurrent\futures\_base.py:401: in __get_result
+    raise self._exception
+D:\anaconda\envs\interview-agent\Lib\site-packages\anyio\from_thread.py:265: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+D:\anaconda\envs\interview-agent\Lib\site-packages\fastapi\applications.py:1163: in __call__
+    await super().__call__(scope, receive, send)
+D:\anaconda\envs\interview-agent\Lib\site-packages\starlette\applications.py:96: in __call__
+    await self.middleware_stack(scope, receive, send)
+D:\anaconda\envs\interview-agent\Lib\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+D:\anaconda\envs\interview-agent\Lib\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+D:\anaconda\envs\interview-agent\Lib\site-packages\starlette\middleware\cors.py:91: in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+D:\anaconda\envs\interview-agent\Lib\site-packages\starlette\middleware\cors.py:149: in simple_response
+    await self.app(scope, receive, send)
+D:\anaconda\envs\interview-agent\Lib\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+D:\anaconda\envs\interview-agent\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+D:\anaconda\envs\interview-agent\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+D:\anaconda\envs\interview-agent\Lib\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+D:\anaconda\envs\interview-agent\Lib\site-packages\starlette\routing.py:676: in __call__
+    await self.middleware_stack(scope, receive, send)
+D:\anaconda\envs\interview-agent\Lib\site-packages\fastapi\routing.py:2734: in app
+    await route.handle(scope, receive, send)
+D:\anaconda\envs\interview-agent\Lib\site-packages\fastapi\routing.py:1780: in handle
+    await self.original_router.handle(scope, receive, send)
+D:\anaconda\envs\interview-agent\Lib\site-packages\fastapi\routing.py:2789: in handle
+    await included_router._handle_selected(scope, receive, send)
+D:\anaconda\envs\interview-agent\Lib\site-packages\fastapi\routing.py:1800: in _handle_selected
+    await original_route.handle(scope, receive, send)
+D:\anaconda\envs\interview-agent\Lib\site-packages\fastapi\routing.py:1279: in handle
+    await app(scope, receive, send)
+D:\anaconda\envs\interview-agent\Lib\site-packages\fastapi\routing.py:158: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+D:\anaconda\envs\interview-agent\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+D:\anaconda\envs\interview-agent\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+D:\anaconda\envs\interview-agent\Lib\site-packages\fastapi\routing.py:144: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+D:\anaconda\envs\interview-agent\Lib\site-packages\fastapi\routing.py:706: in app
+    raw_response = await run_endpoint_function(
+D:\anaconda\envs\interview-agent\Lib\site-packages\fastapi\routing.py:352: in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+D:\VibeCoding Project Record\2.Interview_TestQuestion_Project\backend\app\api\routes.py:301: in upload_model
+    asset = await save_asset(request, session, project, file, "model", "ģ��ͼ", None, existing)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+D:\VibeCoding Project Record\2.Interview_TestQuestion_Project\backend\app\api\routes.py:280: in save_asset
+    asset.stored_path = str(stored_path.relative_to(request.app.state.settings.data_dir)).replace("\\", "/")
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+D:\anaconda\envs\interview-agent\Lib\pathlib.py:682: in relative_to
+    raise ValueError(f"{str(self)!r} is not in the subpath of {str(other)!r}")
+E   ValueError: 'C:\\Users\\24473\\AppData\\Local\\Temp\\pytest-of-24473\\pytest-54\\test_relative_data_dir_upload_0\\data\\projects\\789f73ad-5578-400a-a3f9-caac0e683414\\assets\\793d3aa0-d8a3-49e2-9fda-81e548266843.png' is not in the subpath of 'data'
+=========================== short test summary info ===========================
+FAILED backend/tests/test_relative_data_dir.py::test_relative_data_dir_is_fixed_at_settings_creation
+FAILED backend/tests/test_relative_data_dir.py::test_relative_data_dir_upload_persists_and_can_generate
+2 failed in 4.07s

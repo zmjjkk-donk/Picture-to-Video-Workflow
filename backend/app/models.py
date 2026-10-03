@@ -36,6 +36,15 @@ class Project(Base):
     outputs: Mapped[list["VideoOutput"]] = relationship(back_populates="project", cascade="all, delete-orphan")
 
 
+class DeletedProject(Base):
+    """Keep project history while hiding the project from active workspaces."""
+
+    __tablename__ = "deleted_projects"
+
+    project_id: Mapped[str] = mapped_column(ForeignKey("projects.id", ondelete="CASCADE"), primary_key=True)
+    deleted_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now, nullable=False)
+
+
 class Asset(Base):
     __tablename__ = "assets"
     __table_args__ = (UniqueConstraint("project_id", "asset_type", "slot_index", name="uq_asset_slot"),)
