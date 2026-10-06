@@ -1,0 +1,16 @@
+{
+  "phase": "workflow",
+  "passed": 10,
+  "checks": [
+    "reject-invalid-upload",
+    "create-save-four-images-and-order",
+    "generate-five-second-mock-video",
+    "workflow-log-and-steps",
+    "media-download-hashes-and-range",
+    "unknown-token-and-provider-config",
+    "failed-agnes-job-and-same-id-resume",
+    "settings-save-and-secret-exclusion",
+    "active-deletion-guards-and-cancellation",
+    "project-deletion-keeps-history-task-deletion-cleans-media"
+  ]
+}

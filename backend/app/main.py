@@ -3,7 +3,7 @@ from __future__ import annotations
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
-from fastapi.staticfiles import StaticFiles
+from .services.frontend import FrontendStaticFiles
 
 from .config import Settings, get_settings
 from .db import init_database
@@ -28,7 +28,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.include_router(router)
     frontend_dist = runtime.project_root / "frontend" / "dist"
     if frontend_dist.is_dir():
-        app.mount("/", StaticFiles(directory=frontend_dist, html=True), name="frontend")
+        app.mount("/", FrontendStaticFiles(directory=frontend_dist, html=True), name="frontend")
 
     @app.exception_handler(Exception)
     async def unhandled_exception(_request: Request, exc: Exception):

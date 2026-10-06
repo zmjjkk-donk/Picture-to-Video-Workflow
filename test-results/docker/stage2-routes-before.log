@@ -1,0 +1,195 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0
+rootdir: D:\VibeCoding Project Record\2.Interview_TestQuestion_Project
+plugins: anyio-4.15.1, langsmith-0.14.1, asyncio-1.4.0
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 18 items
+
+backend\tests\test_spa_routes.py FFFFFFFFF.......F.                      [100%]
+
+================================== FAILURES ===================================
+_________ test_frontend_document_routes_can_be_refreshed[/dashboard] __________
+
+client = <starlette.testclient.TestClient object at 0x000001CCDB6FA420>
+path = '/dashboard'
+
+    @pytest.mark.parametrize("path", [
+        "/dashboard", "/projects", "/projects/new",
+        "/projects/11111111-1111-1111-1111-111111111111",
+        "/jobs/11111111-1111-1111-1111-111111111111",
+        "/history", "/assets", "/backups", "/settings",
+    ])
+    def test_frontend_document_routes_can_be_refreshed(client, path):
+        response = client.get(path, headers={"Accept": "text/html"})
+>       assert response.status_code == 200
+E       assert 404 == 200
+E        +  where 404 = <Response [404 Not Found]>.status_code
+
+backend\tests\test_spa_routes.py:24: AssertionError
+__________ test_frontend_document_routes_can_be_refreshed[/projects] __________
+
+client = <starlette.testclient.TestClient object at 0x000001CCDB74A690>
+path = '/projects'
+
+    @pytest.mark.parametrize("path", [
+        "/dashboard", "/projects", "/projects/new",
+        "/projects/11111111-1111-1111-1111-111111111111",
+        "/jobs/11111111-1111-1111-1111-111111111111",
+        "/history", "/assets", "/backups", "/settings",
+    ])
+    def test_frontend_document_routes_can_be_refreshed(client, path):
+        response = client.get(path, headers={"Accept": "text/html"})
+>       assert response.status_code == 200
+E       assert 404 == 200
+E        +  where 404 = <Response [404 Not Found]>.status_code
+
+backend\tests\test_spa_routes.py:24: AssertionError
+________ test_frontend_document_routes_can_be_refreshed[/projects/new] ________
+
+client = <starlette.testclient.TestClient object at 0x000001CCDB74AF30>
+path = '/projects/new'
+
+    @pytest.mark.parametrize("path", [
+        "/dashboard", "/projects", "/projects/new",
+        "/projects/11111111-1111-1111-1111-111111111111",
+        "/jobs/11111111-1111-1111-1111-111111111111",
+        "/history", "/assets", "/backups", "/settings",
+    ])
+    def test_frontend_document_routes_can_be_refreshed(client, path):
+        response = client.get(path, headers={"Accept": "text/html"})
+>       assert response.status_code == 200
+E       assert 404 == 200
+E        +  where 404 = <Response [404 Not Found]>.status_code
+
+backend\tests\test_spa_routes.py:24: AssertionError
+_ test_frontend_document_routes_can_be_refreshed[/projects/11111111-1111-1111-1111-111111111111] _
+
+client = <starlette.testclient.TestClient object at 0x000001CCDB854230>
+path = '/projects/11111111-1111-1111-1111-111111111111'
+
+    @pytest.mark.parametrize("path", [
+        "/dashboard", "/projects", "/projects/new",
+        "/projects/11111111-1111-1111-1111-111111111111",
+        "/jobs/11111111-1111-1111-1111-111111111111",
+        "/history", "/assets", "/backups", "/settings",
+    ])
+    def test_frontend_document_routes_can_be_refreshed(client, path):
+        response = client.get(path, headers={"Accept": "text/html"})
+>       assert response.status_code == 200
+E       assert 404 == 200
+E        +  where 404 = <Response [404 Not Found]>.status_code
+
+backend\tests\test_spa_routes.py:24: AssertionError
+_ test_frontend_document_routes_can_be_refreshed[/jobs/11111111-1111-1111-1111-111111111111] _
+
+client = <starlette.testclient.TestClient object at 0x000001CCDB87BE90>
+path = '/jobs/11111111-1111-1111-1111-111111111111'
+
+    @pytest.mark.parametrize("path", [
+        "/dashboard", "/projects", "/projects/new",
+        "/projects/11111111-1111-1111-1111-111111111111",
+        "/jobs/11111111-1111-1111-1111-111111111111",
+        "/history", "/assets", "/backups", "/settings",
+    ])
+    def test_frontend_document_routes_can_be_refreshed(client, path):
+        response = client.get(path, headers={"Accept": "text/html"})
+>       assert response.status_code == 200
+E       assert 404 == 200
+E        +  where 404 = <Response [404 Not Found]>.status_code
+
+backend\tests\test_spa_routes.py:24: AssertionError
+__________ test_frontend_document_routes_can_be_refreshed[/history] ___________
+
+client = <starlette.testclient.TestClient object at 0x000001CCDB81A1E0>
+path = '/history'
+
+    @pytest.mark.parametrize("path", [
+        "/dashboard", "/projects", "/projects/new",
+        "/projects/11111111-1111-1111-1111-111111111111",
+        "/jobs/11111111-1111-1111-1111-111111111111",
+        "/history", "/assets", "/backups", "/settings",
+    ])
+    def test_frontend_document_routes_can_be_refreshed(client, path):
+        response = client.get(path, headers={"Accept": "text/html"})
+>       assert response.status_code == 200
+E       assert 404 == 200
+E        +  where 404 = <Response [404 Not Found]>.status_code
+
+backend\tests\test_spa_routes.py:24: AssertionError
+___________ test_frontend_document_routes_can_be_refreshed[/assets] ___________
+
+client = <starlette.testclient.TestClient object at 0x000001CCDB610E00>
+path = '/assets'
+
+    @pytest.mark.parametrize("path", [
+        "/dashboard", "/projects", "/projects/new",
+        "/projects/11111111-1111-1111-1111-111111111111",
+        "/jobs/11111111-1111-1111-1111-111111111111",
+        "/history", "/assets", "/backups", "/settings",
+    ])
+    def test_frontend_document_routes_can_be_refreshed(client, path):
+        response = client.get(path, headers={"Accept": "text/html"})
+>       assert response.status_code == 200
+E       assert 404 == 200
+E        +  where 404 = <Response [404 Not Found]>.status_code
+
+backend\tests\test_spa_routes.py:24: AssertionError
+__________ test_frontend_document_routes_can_be_refreshed[/backups] ___________
+
+client = <starlette.testclient.TestClient object at 0x000001CCDB8E2C60>
+path = '/backups'
+
+    @pytest.mark.parametrize("path", [
+        "/dashboard", "/projects", "/projects/new",
+        "/projects/11111111-1111-1111-1111-111111111111",
+        "/jobs/11111111-1111-1111-1111-111111111111",
+        "/history", "/assets", "/backups", "/settings",
+    ])
+    def test_frontend_document_routes_can_be_refreshed(client, path):
+        response = client.get(path, headers={"Accept": "text/html"})
+>       assert response.status_code == 200
+E       assert 404 == 200
+E        +  where 404 = <Response [404 Not Found]>.status_code
+
+backend\tests\test_spa_routes.py:24: AssertionError
+__________ test_frontend_document_routes_can_be_refreshed[/settings] __________
+
+client = <starlette.testclient.TestClient object at 0x000001CCDB8ADF10>
+path = '/settings'
+
+    @pytest.mark.parametrize("path", [
+        "/dashboard", "/projects", "/projects/new",
+        "/projects/11111111-1111-1111-1111-111111111111",
+        "/jobs/11111111-1111-1111-1111-111111111111",
+        "/history", "/assets", "/backups", "/settings",
+    ])
+    def test_frontend_document_routes_can_be_refreshed(client, path):
+        response = client.get(path, headers={"Accept": "text/html"})
+>       assert response.status_code == 200
+E       assert 404 == 200
+E        +  where 404 = <Response [404 Not Found]>.status_code
+
+backend\tests\test_spa_routes.py:24: AssertionError
+_______ test_head_supports_frontend_documents_but_post_is_not_rewritten _______
+
+client = <starlette.testclient.TestClient object at 0x000001CCDBA0A540>
+
+    def test_head_supports_frontend_documents_but_post_is_not_rewritten(client):
+        response = client.head("/projects/new")
+>       assert response.status_code == 200
+E       assert 404 == 200
+E        +  where 404 = <Response [404 Not Found]>.status_code
+
+backend\tests\test_spa_routes.py:42: AssertionError
+=========================== short test summary info ===========================
+FAILED backend/tests/test_spa_routes.py::test_frontend_document_routes_can_be_refreshed[/dashboard]
+FAILED backend/tests/test_spa_routes.py::test_frontend_document_routes_can_be_refreshed[/projects]
+FAILED backend/tests/test_spa_routes.py::test_frontend_document_routes_can_be_refreshed[/projects/new]
+FAILED backend/tests/test_spa_routes.py::test_frontend_document_routes_can_be_refreshed[/projects/11111111-1111-1111-1111-111111111111]
+FAILED backend/tests/test_spa_routes.py::test_frontend_document_routes_can_be_refreshed[/jobs/11111111-1111-1111-1111-111111111111]
+FAILED backend/tests/test_spa_routes.py::test_frontend_document_routes_can_be_refreshed[/history]
+FAILED backend/tests/test_spa_routes.py::test_frontend_document_routes_can_be_refreshed[/assets]
+FAILED backend/tests/test_spa_routes.py::test_frontend_document_routes_can_be_refreshed[/backups]
+FAILED backend/tests/test_spa_routes.py::test_frontend_document_routes_can_be_refreshed[/settings]
+FAILED backend/tests/test_spa_routes.py::test_head_supports_frontend_documents_but_post_is_not_rewritten
+======================== 10 failed, 8 passed in 4.21s =========================

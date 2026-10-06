@@ -1,0 +1,107 @@
+
+> outfit-studio-frontend@0.1.0 test
+> vitest run --config vite.config.mjs --configLoader runner src/RemainingPages.test.tsx --reporter=verbose --maxWorkers=1
+
+
+ RUN  v3.2.7 D:/VibeCoding Project Record/2.Interview_TestQuestion_Project/frontend
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > shows the failure in both the alert and log and resumes exactly once
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > shows the failure in both the alert and log and resumes exactly once
+Warning: [antd: Alert] `message` is deprecated. Please use `title` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > shows the failure in both the alert and log and resumes exactly once
+Warning: [antd: Alert] `message` is deprecated. Please use `title` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > shows the failure in both the alert and log and resumes exactly once
+Warning: [antd: Alert] `message` is deprecated. Please use `title` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > retains the cancellation and deletion guards for an active job
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+ ✓ src/RemainingPages.test.tsx > remaining pages preserve original operations > shows the failure in both the alert and log and resumes exactly once 1183ms
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > retains the cancellation and deletion guards for an active job
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > retains the cancellation and deletion guards for an active job
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > retains the cancellation and deletion guards for an active job
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > keeps successful video controls, poster and original download link
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+ ✓ src/RemainingPages.test.tsx > remaining pages preserve original operations > retains the cancellation and deletion guards for an active job 895ms
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > keeps successful video controls, poster and original download link
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > keeps successful video controls, poster and original download link
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > preserves history after project deletion while preventing resume
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+ ✓ src/RemainingPages.test.tsx > remaining pages preserve original operations > keeps successful video controls, poster and original download link 483ms
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > preserves history after project deletion while preventing resume
+Warning: [antd: Alert] `message` is deprecated. Please use `title` instead.
+Warning: [antd: Alert] `message` is deprecated. Please use `title` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > preserves history after project deletion while preventing resume
+Warning: [antd: Alert] `message` is deprecated. Please use `title` instead.
+Warning: [antd: Alert] `message` is deprecated. Please use `title` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > preserves history after project deletion while preventing resume
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > exports and imports through the existing ZIP controls and FormData
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+ ✓ src/RemainingPages.test.tsx > remaining pages preserve original operations > preserves history after project deletion while preventing resume 1079ms
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > saves the selected Provider with the existing settings request
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+ ✓ src/RemainingPages.test.tsx > remaining pages preserve original operations > exports and imports through the existing ZIP controls and FormData 4162ms
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > saves the selected Provider with the existing settings request
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > saves the selected Provider with the existing settings request
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > saves the selected Provider with the existing settings request
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > saves the selected Provider with the existing settings request
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+ ✓ src/RemainingPages.test.tsx > remaining pages preserve original operations > saves the selected Provider with the existing settings request 1923ms
+
+ Test Files  1 passed (1)
+      Tests  6 passed (6)
+   Start at  18:55:49
+   Duration  13.98s (transform 202ms, setup 166ms, collect 3.12s, tests 9.73s, environment 731ms, prepare 69ms)
+

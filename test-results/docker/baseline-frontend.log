@@ -1,0 +1,353 @@
+
+> outfit-studio-frontend@0.1.0 test
+> vitest run --config vite.config.mjs --configLoader runner --reporter=dot --maxWorkers=2
+
+
+ RUN  v3.2.7 D:/VibeCoding Project Record/2.Interview_TestQuestion_Project/frontend
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > shows the failure in both the alert and log and resumes exactly once
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > shows the failure in both the alert and log and resumes exactly once
+Warning: [antd: Alert] `message` is deprecated. Please use `title` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > shows the failure in both the alert and log and resumes exactly once
+Warning: [antd: Alert] `message` is deprecated. Please use `title` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > shows the failure in both the alert and log and resumes exactly once
+Warning: [antd: Alert] `message` is deprecated. Please use `title` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > retains the cancellation and deletion guards for an active job
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /dashboard and keeps history across navigation
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: Space] `split` is deprecated. Please use `separator` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /dashboard and keeps history across navigation
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /dashboard and keeps history across navigation
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: Space] `split` is deprecated. Please use `separator` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /dashboard and keeps history across navigation
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: Space] `split` is deprecated. Please use `separator` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > retains the cancellation and deletion guards for an active job
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > retains the cancellation and deletion guards for an active job
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > retains the cancellation and deletion guards for an active job
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > keeps successful video controls, poster and original download link
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > keeps successful video controls, poster and original download link
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > keeps successful video controls, poster and original download link
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > preserves history after project deletion while preventing resume
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > preserves history after project deletion while preventing resume
+Warning: [antd: Alert] `message` is deprecated. Please use `title` instead.
+Warning: [antd: Alert] `message` is deprecated. Please use `title` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > preserves history after project deletion while preventing resume
+Warning: [antd: Alert] `message` is deprecated. Please use `title` instead.
+Warning: [antd: Alert] `message` is deprecated. Please use `title` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /dashboard and keeps history across navigation
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /dashboard and keeps history across navigation
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > preserves history after project deletion while preventing resume
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > exports and imports through the existing ZIP controls and FormData
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /dashboard and keeps history across navigation
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /dashboard and keeps history across navigation
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /dashboard and keeps history across navigation
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > saves the selected Provider with the existing settings request
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > saves the selected Provider with the existing settings request
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /projects and keeps history across navigation
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /projects and keeps history across navigation
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > saves the selected Provider with the existing settings request
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > saves the selected Provider with the existing settings request
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/RemainingPages.test.tsx > remaining pages preserve original operations > saves the selected Provider with the existing settings request
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /projects and keeps history across navigation
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /projects and keeps history across navigation
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: Space] `split` is deprecated. Please use `separator` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /projects and keeps history across navigation
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /projects and keeps history across navigation
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /assets and keeps history across navigation
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/ProjectPresentation.test.tsx > project presentation preserves behavior > keeps known and unavailable Token values in project rows
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /assets and keeps history across navigation
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/ProjectPresentation.test.tsx > project presentation preserves behavior > creates a project through the existing modal with the original fields
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /assets and keeps history across navigation
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /assets and keeps history across navigation
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: Space] `split` is deprecated. Please use `separator` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /assets and keeps history across navigation
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/ProjectPresentation.test.tsx > project presentation preserves behavior > saves four original File objects in order before enabling generation
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+
+stderr | src/Deletion.test.tsx > project deletion across workspaces > confirms deletion from /assets and keeps history across navigation
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > single task deletion > deletes failed task from /dashboard without deleting project
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: Space] `split` is deprecated. Please use `separator` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > single task deletion > deletes failed task from /dashboard without deleting project
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > single task deletion > deletes failed task from /dashboard without deleting project
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: Space] `split` is deprecated. Please use `separator` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > single task deletion > deletes failed task from /dashboard without deleting project
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: Space] `split` is deprecated. Please use `separator` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > single task deletion > deletes failed task from /dashboard without deleting project
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: Space] `split` is deprecated. Please use `separator` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > single task deletion > deletes failed task from /dashboard without deleting project
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > single task deletion > deletes failed task from /history without deleting project
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > single task deletion > deletes failed task from /history without deleting project
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Navigation.test.tsx > themed shared navigation > retains all six navigation entries without submitting anything
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Navigation.test.tsx > themed shared navigation > retains all six navigation entries without submitting anything
+An update to ForwardRef inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/Deletion.test.tsx > single task deletion > deletes failed task from /history without deleting project
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: Space] `split` is deprecated. Please use `separator` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > single task deletion > deletes failed task from /history without deleting project
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: Space] `split` is deprecated. Please use `separator` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Navigation.test.tsx > themed shared navigation > retains all six navigation entries without submitting anything
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > single task deletion > allows deleting a succeeded task
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Navigation.test.tsx > themed shared navigation > retains all six navigation entries without submitting anything
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Navigation.test.tsx > themed shared navigation > retains all six navigation entries without submitting anything
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > single task deletion > allows deleting a canceled task
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Navigation.test.tsx > themed shared navigation > retains all six navigation entries without submitting anything
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Navigation.test.tsx > themed shared navigation > retains all six navigation entries without submitting anything
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Navigation.test.tsx > themed shared navigation > retains the header create entry and original required-field validation
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Navigation.test.tsx > themed shared navigation > retains the header create entry and original required-field validation
+An update to ForwardRef inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/Deletion.test.tsx > single task deletion > requires stopping an active task on /dashboard
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: Space] `split` is deprecated. Please use `separator` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > single task deletion > requires stopping an active task on /history
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > single task deletion > keeps the entry and shows the actual API error if deletion is rejected
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > single task deletion > keeps the entry and shows the actual API error if deletion is rejected
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/Deletion.test.tsx > single task deletion > preserves history access but hides resume for a deleted project
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > single task deletion > preserves history access but hides resume for a deleted project
+Warning: [antd: Alert] `message` is deprecated. Please use `title` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > single task deletion > preserves history access but hides resume for a deleted project
+Warning: [antd: Alert] `message` is deprecated. Please use `title` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/Deletion.test.tsx > single task deletion > preserves history access but hides resume for a deleted project
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/ResponsiveControls.test.tsx > exposes the existing collapsed menu as a keyboard reachable native button
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/ResponsiveControls.test.tsx > exposes the existing collapsed menu as a keyboard reachable native button
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: Space] `split` is deprecated. Please use `separator` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/ResponsiveControls.test.tsx > exposes the existing collapsed menu as a keyboard reachable native button
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: Space] `split` is deprecated. Please use `separator` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/ResponsiveControls.test.tsx > exposes the existing collapsed menu as a keyboard reachable native button
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+stderr | src/App.test.tsx > workbench shell > renders the dashboard and summary cards
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/App.test.tsx > workbench shell > renders the dashboard and summary cards
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/App.test.tsx > workbench shell > renders the dashboard and summary cards
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.
+
+stderr | src/theme/WeatherTheme.test.tsx > weather theme foundation > carries the theme into a modal portal
+Not implemented: Window's getComputedStyle() method: with pseudo-elements
+
+··································
+
+ Test Files  9 passed (9)
+      Tests  34 passed (34)
+   Start at  18:26:01
+   Duration  119.96s (transform 621ms, setup 6.58s, collect 131.27s, tests 65.50s, environment 32.10s, prepare 1.81s)
+

@@ -1,0 +1,35 @@
+{
+  "project": "6c0b26a7-f294-4b72-a2fc-4c30a0736017",
+  "clothing": [
+    "29b3cabb-1dfc-4222-9177-9163c7dc9a9e",
+    "7d5acec1-40a2-4fec-be62-aa3dd8cabce9",
+    "fc834557-3995-411c-a379-8a710d3921b5"
+  ],
+  "model": "4ec96fff-b9c8-4409-b1cb-9f394bc71061",
+  "job": "f66b5d14-b40d-4235-8cef-9fc91df790eb",
+  "output": {
+    "id": "9921d896-7e5e-470c-ada8-2e0785ad3dbd",
+    "job_id": "f66b5d14-b40d-4235-8cef-9fc91df790eb",
+    "project_id": "6c0b26a7-f294-4b72-a2fc-4c30a0736017",
+    "video_path": "projects/6c0b26a7-f294-4b72-a2fc-4c30a0736017/outputs/f66b5d14-b40d-4235-8cef-9fc91df790eb/demo-outfit-change.mp4",
+    "thumbnail_path": "projects/6c0b26a7-f294-4b72-a2fc-4c30a0736017/outputs/f66b5d14-b40d-4235-8cef-9fc91df790eb/demo-outfit-change.png",
+    "width": 360,
+    "height": 640,
+    "duration": 5.0,
+    "file_size": 16964,
+    "sha256": "cd93b7242e49f3f44699cb3b7095565f85987a0f0b49f310d83740c91c0934f3",
+    "video_url": "http://127.0.0.1:18000/api/outputs/9921d896-7e5e-470c-ada8-2e0785ad3dbd/video",
+    "thumbnail_url": "http://127.0.0.1:18000/api/outputs/9921d896-7e5e-470c-ada8-2e0785ad3dbd/thumbnail",
+    "created_at": "2026-10-04T10:39:59.000284"
+  },
+  "failed_job": "ea8ad58c-566b-4a39-be01-740055561135",
+  "backup": "d88f1268-d99d-479f-b11a-81542be2ae4c",
+  "windows_fixture": {
+    "project": "7203049e-8cd7-4cbb-8900-c489634fc53c",
+    "job": "2019698d-fd07-4114-aa68-c1e848d8efed",
+    "failed_job": "a095d8fd-bb5d-4ec4-b855-7c7662995eb9",
+    "video_sha256": "545a58728a85f9175d2d50330ac515cb912b596f003971e182a25e9b98c02ac4",
+    "source_platform": "Windows",
+    "fixture_kind": "synthetic pixels, Mock Provider, no real Agnes key"
+  }
+}

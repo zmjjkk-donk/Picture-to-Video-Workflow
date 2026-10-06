@@ -1,0 +1,13 @@
+{
+  "passed": 8,
+  "checks": [
+    "build-root-independent-of-current-directory",
+    "auto-find-installed-docker-without-explicit-path",
+    "dry-run-port-bind-path-env-file-and-no-mutations",
+    "reject-quoted-env",
+    "reject-invalid-port",
+    "reject-comma-mount-path",
+    "reject-missing-env-file",
+    "actual-script-start-with-spaced-path-and-env-override"
+  ]
+}

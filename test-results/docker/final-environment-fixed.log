@@ -1,0 +1,13 @@
+{
+  "checks": 5,
+  "result": "passed",
+  "python": "3.12.15",
+  "uid": 10001,
+  "ffmpeg": "/usr/bin/ffmpeg",
+  "packages": {
+    "fastapi": "0.141.1",
+    "langgraph": "1.2.12",
+    "SQLAlchemy": "2.1.1",
+    "imageio-ffmpeg": "0.6.0"
+  }
+}

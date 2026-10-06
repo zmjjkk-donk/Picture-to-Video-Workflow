@@ -1,0 +1,136 @@
+INFO:     172.17.0.1:53586 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/system/info HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET / HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /assets/index-CZPHhNKd.js HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /assets/index-CmgPxLKQ.css HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /dashboard HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /projects HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /projects/new HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /projects/test-id HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /jobs/test-id HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /assets HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /history HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /backups HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /settings HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/does-not-exist HTTP/1.1" 404 Not Found
+INFO:     172.17.0.1:53586 - "GET /assets/missing.js HTTP/1.1" 404 Not Found
+INFO:     172.17.0.1:53586 - "GET /assets/missing.css HTTP/1.1" 404 Not Found
+INFO:     172.17.0.1:53586 - "GET /.env HTTP/1.1" 404 Not Found
+INFO:     172.17.0.1:53586 - "GET /unrelated HTTP/1.1" 404 Not Found
+INFO:     172.17.0.1:53586 - "HEAD /projects/new HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "POST /dashboard HTTP/1.1" 405 Method Not Allowed
+INFO:     127.0.0.1:41430 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/system/info HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "POST /api/projects HTTP/1.1" 201 Created
+INFO:     172.17.0.1:53586 - "POST /api/projects/5f95ee6d-b4d5-43a5-98b4-43848a88ca34/assets/model HTTP/1.1" 400 Bad Request
+INFO:     172.17.0.1:53586 - "GET /api/projects/5f95ee6d-b4d5-43a5-98b4-43848a88ca34/assets HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "DELETE /api/projects/5f95ee6d-b4d5-43a5-98b4-43848a88ca34 HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "POST /api/projects HTTP/1.1" 201 Created
+INFO:     172.17.0.1:53586 - "POST /api/projects/e7be857b-d7bd-4779-9102-17dab3fb2ee9/assets/model HTTP/1.1" 201 Created
+INFO:     172.17.0.1:53586 - "POST /api/projects/e7be857b-d7bd-4779-9102-17dab3fb2ee9/assets/clothing HTTP/1.1" 201 Created
+INFO:     172.17.0.1:53586 - "POST /api/projects/e7be857b-d7bd-4779-9102-17dab3fb2ee9/assets/clothing HTTP/1.1" 201 Created
+INFO:     172.17.0.1:53586 - "POST /api/projects/e7be857b-d7bd-4779-9102-17dab3fb2ee9/assets/clothing HTTP/1.1" 201 Created
+INFO:     172.17.0.1:53586 - "GET /api/projects/e7be857b-d7bd-4779-9102-17dab3fb2ee9/assets HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/projects/e7be857b-d7bd-4779-9102-17dab3fb2ee9 HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/assets/f59e460b-a935-4fe7-a457-b7257f1b9e81/file HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/assets/f59e460b-a935-4fe7-a457-b7257f1b9e81/thumbnail HTTP/1.1" 200 OK
+INFO:     Started server process [1]
+INFO:     172.17.0.1:53586 - "GET /api/assets/990fe9aa-68ac-4a60-88a1-0b85db3c35a9/file HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/assets/990fe9aa-68ac-4a60-88a1-0b85db3c35a9/thumbnail HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/assets/194ff9f8-07a7-4643-99ae-f01246f5823b/file HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/assets/194ff9f8-07a7-4643-99ae-f01246f5823b/thumbnail HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/assets/21a6b220-0743-41d7-83e9-e6625dfc9847/file HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/assets/21a6b220-0743-41d7-83e9-e6625dfc9847/thumbnail HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "POST /api/projects/e7be857b-d7bd-4779-9102-17dab3fb2ee9/assets/reorder HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/projects/e7be857b-d7bd-4779-9102-17dab3fb2ee9/assets HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "POST /api/projects/e7be857b-d7bd-4779-9102-17dab3fb2ee9/jobs HTTP/1.1" 201 Created
+INFO:     172.17.0.1:53586 - "GET /api/jobs/97487915-1c48-402d-a97a-a83fab8c56af HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/jobs/97487915-1c48-402d-a97a-a83fab8c56af HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/jobs/97487915-1c48-402d-a97a-a83fab8c56af HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/jobs/97487915-1c48-402d-a97a-a83fab8c56af HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/jobs/97487915-1c48-402d-a97a-a83fab8c56af HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/jobs/97487915-1c48-402d-a97a-a83fab8c56af HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/jobs/97487915-1c48-402d-a97a-a83fab8c56af HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/jobs/97487915-1c48-402d-a97a-a83fab8c56af HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/jobs/97487915-1c48-402d-a97a-a83fab8c56af HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/jobs/97487915-1c48-402d-a97a-a83fab8c56af HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/jobs/97487915-1c48-402d-a97a-a83fab8c56af HTTP/1.1" 200 OK
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (360, 640) to (368, 640) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+INFO:     172.17.0.1:53586 - "GET /api/jobs/97487915-1c48-402d-a97a-a83fab8c56af HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/jobs/97487915-1c48-402d-a97a-a83fab8c56af HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/jobs/97487915-1c48-402d-a97a-a83fab8c56af HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/jobs/97487915-1c48-402d-a97a-a83fab8c56af/outputs HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/jobs/97487915-1c48-402d-a97a-a83fab8c56af/logs HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/jobs/97487915-1c48-402d-a97a-a83fab8c56af/steps HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/jobs/97487915-1c48-402d-a97a-a83fab8c56af/artifacts HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/outputs/436fe65e-08ef-45f2-a42b-0a243c24d67c/video HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/outputs/436fe65e-08ef-45f2-a42b-0a243c24d67c/video HTTP/1.1" 206 Partial Content
+INFO:     172.17.0.1:53586 - "GET /api/outputs/436fe65e-08ef-45f2-a42b-0a243c24d67c/thumbnail HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/jobs/97487915-1c48-402d-a97a-a83fab8c56af HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/providers HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "POST /api/providers/agnes/validate HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "POST /api/projects/e7be857b-d7bd-4779-9102-17dab3fb2ee9/jobs HTTP/1.1" 201 Created
+INFO:     172.17.0.1:53586 - "GET /api/jobs/42e51d1f-a785-413c-9f67-504b609ae7d4 HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/jobs/42e51d1f-a785-413c-9f67-504b609ae7d4 HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/jobs/42e51d1f-a785-413c-9f67-504b609ae7d4 HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/jobs/42e51d1f-a785-413c-9f67-504b609ae7d4 HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "POST /api/jobs/42e51d1f-a785-413c-9f67-504b609ae7d4/resume HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/jobs/42e51d1f-a785-413c-9f67-504b609ae7d4 HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/jobs/42e51d1f-a785-413c-9f67-504b609ae7d4 HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/jobs/42e51d1f-a785-413c-9f67-504b609ae7d4 HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/jobs/42e51d1f-a785-413c-9f67-504b609ae7d4 HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "PATCH /api/settings HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/settings HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "POST /api/projects HTTP/1.1" 201 Created
+INFO:     172.17.0.1:53586 - "POST /api/projects/0a1421fa-1503-407d-9ee4-1fe639726e9a/assets/model HTTP/1.1" 201 Created
+INFO:     172.17.0.1:53586 - "POST /api/projects/0a1421fa-1503-407d-9ee4-1fe639726e9a/assets/clothing HTTP/1.1" 201 Created
+INFO:     172.17.0.1:53586 - "POST /api/projects/0a1421fa-1503-407d-9ee4-1fe639726e9a/assets/clothing HTTP/1.1" 201 Created
+INFO:     172.17.0.1:53586 - "POST /api/projects/0a1421fa-1503-407d-9ee4-1fe639726e9a/assets/clothing HTTP/1.1" 201 Created
+INFO:     172.17.0.1:53586 - "GET /api/projects/0a1421fa-1503-407d-9ee4-1fe639726e9a/assets HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/projects/0a1421fa-1503-407d-9ee4-1fe639726e9a HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/assets/88369fb7-dd17-41b1-bb52-98b74b872ed0/file HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/assets/88369fb7-dd17-41b1-bb52-98b74b872ed0/thumbnail HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/assets/0c0e0cfb-6bb9-4bdd-a002-47e5c44696b9/file HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/assets/0c0e0cfb-6bb9-4bdd-a002-47e5c44696b9/thumbnail HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/assets/728858f5-cd7e-4cbd-b205-8c7b1e0a409b/file HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/assets/728858f5-cd7e-4cbd-b205-8c7b1e0a409b/thumbnail HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/assets/255ffb3e-0965-4b35-a3c0-ece921fe79c5/file HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "GET /api/assets/255ffb3e-0965-4b35-a3c0-ece921fe79c5/thumbnail HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "POST /api/projects/0a1421fa-1503-407d-9ee4-1fe639726e9a/jobs HTTP/1.1" 201 Created
+INFO:     172.17.0.1:53586 - "DELETE /api/jobs/9da7e152-aaf7-42e5-bcde-e1a1965693c4 HTTP/1.1" 409 Conflict
+INFO:     172.17.0.1:53586 - "DELETE /api/projects/0a1421fa-1503-407d-9ee4-1fe639726e9a HTTP/1.1" 409 Conflict
+INFO:     172.17.0.1:53586 - "POST /api/jobs/9da7e152-aaf7-42e5-bcde-e1a1965693c4/cancel HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "DELETE /api/jobs/9da7e152-aaf7-42e5-bcde-e1a1965693c4 HTTP/1.1" 409 Conflict
+INFO:     172.17.0.1:53586 - "GET /api/jobs/9da7e152-aaf7-42e5-bcde-e1a1965693c4 HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53586 - "DELETE /api/jobs/9da7e152-aaf7-42e5-bcde-e1a1965693c4 HTTP/1.1" 409 Conflict
+INFO:     127.0.0.1:57338 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:54764 - "GET /api/jobs HTTP/1.1" 200 OK
+IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (360, 640) to (368, 640) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+INFO:     127.0.0.1:38954 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39794 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32914 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57922 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58572 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40726 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33100 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51524 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58978 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46628 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37506 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53816 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50742 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55878 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51838 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55986 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60696 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51022 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47906 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37286 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58960 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55536 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51506 - "GET /api/health HTTP/1.1" 200 OK

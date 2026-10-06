@@ -1,0 +1,21 @@
+PASS build-root-independent-of-current-directory
+PASS auto-find-installed-docker-without-explicit-path
+PASS dry-run-port-bind-path-env-file-and-no-mutations
+PASS reject-quoted-env
+PASS reject-invalid-port
+PASS reject-comma-mount-path
+PASS reject-missing-env-file
+PASS actual-script-start-with-spaced-path-and-env-override
+{
+  "passed": 8,
+  "checks": [
+    "build-root-independent-of-current-directory",
+    "auto-find-installed-docker-without-explicit-path",
+    "dry-run-port-bind-path-env-file-and-no-mutations",
+    "reject-quoted-env",
+    "reject-invalid-port",
+    "reject-comma-mount-path",
+    "reject-missing-env-file",
+    "actual-script-start-with-spaced-path-and-env-override"
+  ]
+}

@@ -17,3 +17,12 @@ frontend/.vite-cache/
 # V5 browser verification uses a disposable local database and media copies.
 test-results/v5/runtime/
 test-results/v5/browser-inputs/
+
+# Docker runtime configuration and isolated acceptance data.
+.env.docker
+docker-data/
+test-results/docker/runtime*/
+test-results/docker/*.zip
+test-results/docker/*.mp4
+test-results/docker/*.env
+docker-artifacts/

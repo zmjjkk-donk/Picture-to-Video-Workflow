@@ -1,0 +1,8 @@
+{
+  "project": "7203049e-8cd7-4cbb-8900-c489634fc53c",
+  "job": "2019698d-fd07-4114-aa68-c1e848d8efed",
+  "failed_job": "a095d8fd-bb5d-4ec4-b855-7c7662995eb9",
+  "video_sha256": "545a58728a85f9175d2d50330ac515cb912b596f003971e182a25e9b98c02ac4",
+  "source_platform": "Windows",
+  "fixture_kind": "synthetic pixels, Mock Provider, no real Agnes key"
+}

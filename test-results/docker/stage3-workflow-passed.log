@@ -1,0 +1,26 @@
+PASS reject-invalid-upload
+PASS create-save-four-images-and-order
+PASS generate-five-second-mock-video
+PASS workflow-log-and-steps
+PASS media-download-hashes-and-range
+PASS unknown-token-and-provider-config
+PASS failed-agnes-job-and-same-id-resume
+PASS settings-save-and-secret-exclusion
+PASS active-deletion-guards-and-cancellation
+PASS project-deletion-keeps-history-task-deletion-cleans-media
+{
+  "phase": "workflow",
+  "passed": 10,
+  "checks": [
+    "reject-invalid-upload",
+    "create-save-four-images-and-order",
+    "generate-five-second-mock-video",
+    "workflow-log-and-steps",
+    "media-download-hashes-and-range",
+    "unknown-token-and-provider-config",
+    "failed-agnes-job-and-same-id-resume",
+    "settings-save-and-secret-exclusion",
+    "active-deletion-guards-and-cancellation",
+    "project-deletion-keeps-history-task-deletion-cleans-media"
+  ]
+}

@@ -1,0 +1,15 @@
+PASS reject-invalid-upload
+PASS create-save-four-images-and-order
+Traceback (most recent call last):
+  File "D:\VibeCoding Project Record\2.Interview_TestQuestion_Project\scripts\container_acceptance.py", line 342, in <module>
+    main()
+  File "D:\VibeCoding Project Record\2.Interview_TestQuestion_Project\scripts\container_acceptance.py", line 333, in main
+    getattr(checks, args.phase)()
+  File "D:\VibeCoding Project Record\2.Interview_TestQuestion_Project\scripts\container_acceptance.py", line 147, in workflow
+    self.check("generate-five-second-mock-video", self._generate)
+  File "D:\VibeCoding Project Record\2.Interview_TestQuestion_Project\scripts\container_acceptance.py", line 61, in check
+    operation()
+  File "D:\VibeCoding Project Record\2.Interview_TestQuestion_Project\scripts\container_acceptance.py", line 225, in _generate
+    assert len(outputs) == 1 and abs(outputs[0]["duration"] - 5) <= 0.15
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

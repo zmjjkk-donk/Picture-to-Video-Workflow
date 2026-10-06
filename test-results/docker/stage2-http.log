@@ -1,0 +1,42 @@
+PASS healthy-api
+PASS same-origin-build-and-assets
+PASS refresh-/dashboard
+PASS refresh-/projects
+PASS refresh-/projects/new
+PASS refresh-/projects/test-id
+PASS refresh-/jobs/test-id
+PASS refresh-/assets
+PASS refresh-/history
+PASS refresh-/backups
+PASS refresh-/settings
+PASS missing-/api/does-not-exist
+PASS missing-/assets/missing.js
+PASS missing-/assets/missing.css
+PASS missing-/.env
+PASS missing-/unrelated
+PASS head-and-method-boundary
+PASS container-health-and-process-config
+{
+  "phase": "static",
+  "passed": 18,
+  "checks": [
+    "healthy-api",
+    "same-origin-build-and-assets",
+    "refresh-/dashboard",
+    "refresh-/projects",
+    "refresh-/projects/new",
+    "refresh-/projects/test-id",
+    "refresh-/jobs/test-id",
+    "refresh-/assets",
+    "refresh-/history",
+    "refresh-/backups",
+    "refresh-/settings",
+    "missing-/api/does-not-exist",
+    "missing-/assets/missing.js",
+    "missing-/assets/missing.css",
+    "missing-/.env",
+    "missing-/unrelated",
+    "head-and-method-boundary",
+    "container-health-and-process-config"
+  ]
+}

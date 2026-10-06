@@ -1,0 +1,11 @@
+{
+  "result": "passed",
+  "archive": "docker-artifacts\\outfit-studio-docker-v1.tar",
+  "size_bytes": 316096000,
+  "sha256": "967de54ad3e1dcb968e0eb060c7ac448cadd6ccee46245ef1cf4dffd616335b8",
+  "image_id": "sha256:67b07fd8c069caa565b6de76778494b16ed00343439bab27b7f4f7e39a80b6fa",
+  "platform": "linux/amd64",
+  "layers": 12,
+  "verified_blobs": 18,
+  "key_in_image": false
+}

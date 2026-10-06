@@ -1,0 +1,64 @@
+INFO:     172.17.0.1:49978 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49978 - "GET /api/system/info HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49978 - "GET /api/projects/3fff25e8-1186-4485-a141-f18778b0e9e8 HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49978 - "GET /api/jobs/9dd08736-85f6-49bb-b37e-6d85402c7bbb HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49978 - "GET /api/jobs/381161ac-d270-477d-ada2-2076f138da7b HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49978 - "GET /api/outputs/1aaff7e6-fdac-4e88-8674-d0abb3eeb569/video HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49978 - "GET /api/settings HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49978 - "POST /api/backups/import HTTP/1.1" 201 Created
+INFO:     Started server process [1]
+INFO:     172.17.0.1:49978 - "POST /api/backups/4047f4da-41cd-486a-bef9-a88da7f936ca/restore?mode=replace HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49978 - "GET /api/projects/7203049e-8cd7-4cbb-8900-c489634fc53c HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49978 - "GET /api/jobs/2019698d-fd07-4114-aa68-c1e848d8efed/outputs HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49978 - "GET /api/outputs/2255e1a1-826f-4843-8579-5b547c1549ee/video HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49978 - "GET /api/jobs/a095d8fd-bb5d-4ec4-b855-7c7662995eb9 HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49978 - "POST /api/jobs/a095d8fd-bb5d-4ec4-b855-7c7662995eb9/resume HTTP/1.1" 200 OK
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     172.17.0.1:49978 - "GET /api/jobs/a095d8fd-bb5d-4ec4-b855-7c7662995eb9 HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49978 - "GET /api/jobs/a095d8fd-bb5d-4ec4-b855-7c7662995eb9 HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49978 - "GET /api/jobs/a095d8fd-bb5d-4ec4-b855-7c7662995eb9 HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49978 - "GET /api/jobs/a095d8fd-bb5d-4ec4-b855-7c7662995eb9 HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49978 - "GET /api/jobs/a095d8fd-bb5d-4ec4-b855-7c7662995eb9 HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49978 - "GET /api/jobs/a095d8fd-bb5d-4ec4-b855-7c7662995eb9 HTTP/1.1" 200 OK
+IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (360, 640) to (368, 640) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+INFO:     172.17.0.1:49978 - "GET /api/jobs/a095d8fd-bb5d-4ec4-b855-7c7662995eb9 HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49978 - "GET /api/jobs/a095d8fd-bb5d-4ec4-b855-7c7662995eb9 HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49978 - "GET /api/jobs/a095d8fd-bb5d-4ec4-b855-7c7662995eb9 HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49978 - "GET /api/jobs/a095d8fd-bb5d-4ec4-b855-7c7662995eb9 HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49978 - "GET /api/jobs/a095d8fd-bb5d-4ec4-b855-7c7662995eb9 HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49978 - "GET /api/jobs/a095d8fd-bb5d-4ec4-b855-7c7662995eb9/outputs HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49978 - "GET /api/outputs/75b835f8-e49d-4c72-b1e7-39b4ceac2285/video HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49978 - "POST /api/backups/import HTTP/1.1" 201 Created
+INFO:     127.0.0.1:42718 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49978 - "POST /api/backups/ac3fd4f0-6557-4d7f-80f8-45858e174806/restore?mode=replace HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49978 - "GET /api/projects/3fff25e8-1186-4485-a141-f18778b0e9e8 HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49978 - "GET /api/jobs/9dd08736-85f6-49bb-b37e-6d85402c7bbb HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49978 - "GET /api/jobs/381161ac-d270-477d-ada2-2076f138da7b HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49978 - "GET /api/outputs/1aaff7e6-fdac-4e88-8674-d0abb3eeb569/video HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49978 - "GET /api/settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33460 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46984 - "GET /jobs/9dd08736-85f6-49bb-b37e-6d85402c7bbb HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46984 - "GET /assets/index-CZPHhNKd.js HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46996 - "GET /assets/index-CmgPxLKQ.css HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46996 - "GET /api/settings HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46984 - "GET /api/jobs/9dd08736-85f6-49bb-b37e-6d85402c7bbb HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46984 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     172.17.0.1:46998 - "GET /api/jobs/9dd08736-85f6-49bb-b37e-6d85402c7bbb/outputs HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46984 - "GET /api/jobs/9dd08736-85f6-49bb-b37e-6d85402c7bbb/logs HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46996 - "GET /api/jobs/9dd08736-85f6-49bb-b37e-6d85402c7bbb/artifacts HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46996 - "GET /api/outputs/1aaff7e6-fdac-4e88-8674-d0abb3eeb569/thumbnail HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46984 - "GET /api/outputs/1aaff7e6-fdac-4e88-8674-d0abb3eeb569/video HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:45086 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:35644 - "GET /jobs/9dd08736-85f6-49bb-b37e-6d85402c7bbb HTTP/1.1" 304 Not Modified
+INFO:     172.17.0.1:35656 - "GET /api/settings HTTP/1.1" 200 OK
+INFO:     172.17.0.1:35644 - "GET /api/jobs/9dd08736-85f6-49bb-b37e-6d85402c7bbb HTTP/1.1" 200 OK
+INFO:     172.17.0.1:35656 - "GET /api/jobs/9dd08736-85f6-49bb-b37e-6d85402c7bbb/artifacts HTTP/1.1" 200 OK
+INFO:     172.17.0.1:35644 - "GET /api/jobs/9dd08736-85f6-49bb-b37e-6d85402c7bbb/logs HTTP/1.1" 200 OK
+INFO:     172.17.0.1:35662 - "GET /api/jobs/9dd08736-85f6-49bb-b37e-6d85402c7bbb/outputs HTTP/1.1" 200 OK
+INFO:     172.17.0.1:35662 - "GET /api/outputs/1aaff7e6-fdac-4e88-8674-d0abb3eeb569/thumbnail HTTP/1.1" 200 OK
+INFO:     172.17.0.1:35644 - "GET /api/outputs/1aaff7e6-fdac-4e88-8674-d0abb3eeb569/video HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:38920 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49246 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44852 - "GET /api/health HTTP/1.1" 200 OK

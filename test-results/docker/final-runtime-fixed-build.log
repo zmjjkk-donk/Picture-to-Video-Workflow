@@ -1,0 +1,91 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.71kB 0.0s done
+#1 DONE 0.1s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.3s
+
+#3 docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e
+#3 resolve docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e 0.1s done
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/python:3.12-slim-bookworm@sha256:54c85f3c47607a77f32adec749d3c81d1348bf25833671f512b26a9b6d778cb3
+#4 DONE 0.5s
+
+#5 [internal] load metadata for docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c
+#5 DONE 0.5s
+
+#6 [internal] load .dockerignore
+#6 transferring context: 290B done
+#6 DONE 0.0s
+
+#7 [internal] load build context
+#7 DONE 0.0s
+
+#8 [runtime 1/9] FROM docker.io/library/python:3.12-slim-bookworm@sha256:54c85f3c47607a77f32adec749d3c81d1348bf25833671f512b26a9b6d778cb3
+#8 resolve docker.io/library/python:3.12-slim-bookworm@sha256:54c85f3c47607a77f32adec749d3c81d1348bf25833671f512b26a9b6d778cb3 0.1s done
+#8 DONE 0.1s
+
+#9 [frontend-build 1/6] FROM docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c
+#9 resolve docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c 0.1s done
+#9 DONE 0.1s
+
+#7 [internal] load build context
+#7 transferring context: 133.86kB 0.0s done
+#7 DONE 0.1s
+
+#10 [frontend-build 4/6] RUN npm ci
+#10 CACHED
+
+#11 [frontend-build 5/6] COPY frontend/ ./
+#11 CACHED
+
+#12 [frontend-build 3/6] COPY frontend/package.json frontend/package-lock.json ./
+#12 CACHED
+
+#13 [frontend-build 2/6] WORKDIR /build/frontend
+#13 CACHED
+
+#14 [runtime 5/9] RUN /usr/local/bin/python -m pip install -r requirements.txt     && /usr/local/bin/python -m pip check
+#14 CACHED
+
+#15 [runtime 3/9] RUN apt-get update     && apt-get install -y --no-install-recommends ffmpeg     && rm -rf /var/lib/apt/lists/*     && groupadd --gid 10001 app     && useradd --uid 10001 --gid app --no-create-home app     && mkdir -p /app/data     && chown app:app /app/data
+#15 CACHED
+
+#16 [runtime 2/9] WORKDIR /app
+#16 CACHED
+
+#17 [runtime 4/9] COPY requirements.txt ./
+#17 CACHED
+
+#18 [frontend-build 6/6] RUN npm run build
+#18 CACHED
+
+#19 [runtime 6/9] COPY backend/__init__.py ./backend/__init__.py
+#19 CACHED
+
+#20 [runtime 7/9] COPY backend/app/ ./backend/app/
+#20 DONE 0.1s
+
+#21 [runtime 8/9] COPY README.md ./README.md
+#21 DONE 0.3s
+
+#22 [runtime 9/9] COPY --from=frontend-build /build/frontend/dist/ ./frontend/dist/
+#22 DONE 0.2s
+
+#23 exporting to image
+#23 exporting layers
+#23 exporting layers 0.7s done
+#23 exporting manifest sha256:688e38be55155fec2f861b4c82c5555f3b4782c031a712eeccb00efdbc25fcb5 0.1s done
+#23 exporting config sha256:62f6e45ec80762a2576bb6cbcb18a94ee53cf76aeb000c86a58983c4994a0756 0.1s done
+#23 exporting attestation manifest sha256:7c751f685ceb054e812d22651f64090197dfaa166d1d4adcab0780d66327a82c
+#23 exporting attestation manifest sha256:7c751f685ceb054e812d22651f64090197dfaa166d1d4adcab0780d66327a82c 0.1s done
+#23 exporting manifest list sha256:67b07fd8c069caa565b6de76778494b16ed00343439bab27b7f4f7e39a80b6fa 0.1s done
+#23 naming to docker.io/library/outfit-studio:docker-v1
+#23 naming to docker.io/library/outfit-studio:docker-v1 0.0s done
+#23 unpacking to docker.io/library/outfit-studio:docker-v1
+#23 unpacking to docker.io/library/outfit-studio:docker-v1 0.2s done
+#23 DONE 1.4s
+镜像构建完成：outfit-studio:docker-v1

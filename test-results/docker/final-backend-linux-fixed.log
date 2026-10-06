@@ -1,0 +1,27 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.15, pytest-9.1.1, pluggy-1.6.0
+cachedir: /tmp/pytest-cache
+rootdir: /app
+plugins: asyncio-1.4.0, langsmith-0.14.4, anyio-4.15.1
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 72 items
+
+backend/tests/test_agnes_provider.py .......                             [  9%]
+backend/tests/test_agnes_workflow.py .                                   [ 11%]
+backend/tests/test_api_operations.py ..                                  [ 13%]
+backend/tests/test_api_projects_assets.py ...                            [ 18%]
+backend/tests/test_app_smoke.py .                                        [ 19%]
+backend/tests/test_backup.py ..                                          [ 22%]
+backend/tests/test_cancel_race.py ....                                   [ 27%]
+backend/tests/test_deletion.py ...................                       [ 54%]
+backend/tests/test_frontend_static.py .                                  [ 55%]
+backend/tests/test_media.py .                                            [ 56%]
+backend/tests/test_persistence.py ..                                     [ 59%]
+backend/tests/test_readme.py ..                                          [ 62%]
+backend/tests/test_relative_data_dir.py ..                               [ 65%]
+backend/tests/test_spa_routes.py ..................                      [ 90%]
+backend/tests/test_token_usage.py ..                                     [ 93%]
+backend/tests/test_workflow.py ...                                       [ 97%]
+backend/tests/test_workflow_controls.py ..                               [100%]
+
+======================== 72 passed in 67.17s (0:01:07) =========================

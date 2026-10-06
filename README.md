@@ -55,7 +55,7 @@ npm install
 npm run dev
 ```
 
-开发地址通常为 http://127.0.0.1:5173。开发服务器会把 `/api` 请求转发到本地后端，因此仍需在另一个终端启动 Uvicorn。
+开发地址通常为 http://127.0.0.1:5173。当前前端默认直接请求 `http://127.0.0.1:8000/api`，Vite 没有配置代理，因此仍需在另一个终端启动 Uvicorn。可在构建时通过 `VITE_API_BASE` 设置 API 地址；Docker 方案使用同源 `/api`。
 
 修改完成后构建前端：
 
@@ -163,3 +163,22 @@ npm test -- --run
 ## 当前范围和限制
 
 项目面向本地笔试演示和单机使用，不包含多用户权限、云端对象存储、Redis/Celery 和在线部署。真实视频生成依赖 Agnes API Key、接口额度、网络和 Agnes 返回的可访问媒体地址。项目数据可以通过 ZIP 备份迁移到另一台电脑。
+
+## Docker 单容器部署
+
+已有 Docker Linux 引擎的用户可以使用单容器运行完整工作台，不需要在宿主机安装 Python、Node.js 或 FFmpeg。前端在构建时编译，数据库及媒体挂载到独立目录；镜像不包含开发者的项目数据或真实 API Key。
+
+Windows PowerShell 7 首次启动：
+
+```powershell
+Set-Location "<PROJECT_ROOT>"
+if (-not (Test-Path -LiteralPath '.env.docker')) {
+    Copy-Item -LiteralPath '.env.docker.example' -Destination '.env.docker'
+}
+& '.\scripts\docker-build.ps1'
+& '.\scripts\docker-run.ps1'
+```
+
+留空 Key 可用 Mock 演示。需要真实生成时自行填写 `.env.docker`，不要给值加引号；复制示例只需首次执行。默认访问 http://127.0.0.1:8000/，数据保存在 `docker-data/`。端口占用时可传入 `-Port 18000`，自定义数据目录可传入 `-DataDir '<HOST_DATA_DIR>'`。
+
+Linux 命令、数据迁移、备份恢复、运行管理和网络排错见 [Docker 部署说明](DOCKER_DEPLOYMENT.md)，实际测试结果见 [Docker 开发验收记录](DOCKER_DEVELOPMENT_RECORD.md)。

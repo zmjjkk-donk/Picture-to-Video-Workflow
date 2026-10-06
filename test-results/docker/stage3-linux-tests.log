@@ -1,0 +1,20 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.15, pytest-9.1.1, pluggy-1.6.0
+rootdir: /app
+plugins: asyncio-1.4.0, langsmith-0.14.4, anyio-4.15.1
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 15 items
+
+backend/tests/test_workflow.py ...                                       [ 20%]
+backend/tests/test_workflow_controls.py ..                               [ 33%]
+backend/tests/test_agnes_workflow.py .                                   [ 40%]
+backend/tests/test_agnes_provider.py .......                             [ 86%]
+backend/tests/test_token_usage.py ..                                     [100%]
+
+=============================== warnings summary ===============================
+../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:469
+  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:469: PytestCacheWarning: could not create cache path /app/.pytest_cache/v/cache/nodeids: [Errno 13] Permission denied: '/app/pytest-cache-files-sax0uqmh'
+    config.cache.set("cache/nodeids", sorted(self.cached_nodeids))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 15 passed, 1 warning in 11.35s ========================

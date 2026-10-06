@@ -1,0 +1,35 @@
+{
+  "project": "3fff25e8-1186-4485-a141-f18778b0e9e8",
+  "clothing": [
+    "5520cf4a-08f2-453d-9689-5aaac1fd52c1",
+    "3d77f42c-ab79-4234-acfd-46f78fbde1a6",
+    "83cce9f6-765a-4448-b9d3-12dfe2ad7aec"
+  ],
+  "model": "ca6947dc-0faa-458f-bede-26c15106364c",
+  "job": "9dd08736-85f6-49bb-b37e-6d85402c7bbb",
+  "output": {
+    "id": "1aaff7e6-fdac-4e88-8674-d0abb3eeb569",
+    "job_id": "9dd08736-85f6-49bb-b37e-6d85402c7bbb",
+    "project_id": "3fff25e8-1186-4485-a141-f18778b0e9e8",
+    "video_path": "projects/3fff25e8-1186-4485-a141-f18778b0e9e8/outputs/9dd08736-85f6-49bb-b37e-6d85402c7bbb/demo-outfit-change.mp4",
+    "thumbnail_path": "projects/3fff25e8-1186-4485-a141-f18778b0e9e8/outputs/9dd08736-85f6-49bb-b37e-6d85402c7bbb/demo-outfit-change.png",
+    "width": 360,
+    "height": 640,
+    "duration": 5.0,
+    "file_size": 16964,
+    "sha256": "cd93b7242e49f3f44699cb3b7095565f85987a0f0b49f310d83740c91c0934f3",
+    "video_url": "http://127.0.0.1:18002/api/outputs/1aaff7e6-fdac-4e88-8674-d0abb3eeb569/video",
+    "thumbnail_url": "http://127.0.0.1:18002/api/outputs/1aaff7e6-fdac-4e88-8674-d0abb3eeb569/thumbnail",
+    "created_at": "2026-10-04T11:05:41.857376"
+  },
+  "failed_job": "381161ac-d270-477d-ada2-2076f138da7b",
+  "backup": "032ea4df-5083-417c-8673-6652fecb8032",
+  "windows_fixture": {
+    "project": "7203049e-8cd7-4cbb-8900-c489634fc53c",
+    "job": "2019698d-fd07-4114-aa68-c1e848d8efed",
+    "failed_job": "a095d8fd-bb5d-4ec4-b855-7c7662995eb9",
+    "video_sha256": "545a58728a85f9175d2d50330ac515cb912b596f003971e182a25e9b98c02ac4",
+    "source_platform": "Windows",
+    "fixture_kind": "synthetic pixels, Mock Provider, no real Agnes key"
+  }
+}

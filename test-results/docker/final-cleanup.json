@@ -1,0 +1,12 @@
+[
+  {
+    "Container": "outfit-docker-check-http",
+    "ExitCode": 0,
+    "DataPreserved": true
+  },
+  {
+    "Container": "outfit-docker-check-final",
+    "ExitCode": 0,
+    "DataPreserved": true
+  }
+]

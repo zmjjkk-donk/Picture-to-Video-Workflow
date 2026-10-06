@@ -1,0 +1,11 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0
+rootdir: D:\VibeCoding Project Record\2.Interview_TestQuestion_Project
+plugins: anyio-4.15.1, langsmith-0.14.1, asyncio-1.4.0
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 19 items
+
+backend\tests\test_spa_routes.py ..................                      [ 94%]
+backend\tests\test_frontend_static.py .                                  [100%]
+
+============================= 19 passed in 3.29s ==============================

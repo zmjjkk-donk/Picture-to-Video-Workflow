@@ -8,7 +8,7 @@ from typing import TypedDict
 
 from langgraph.checkpoint.sqlite import SqliteSaver
 from langgraph.graph import END, START, StateGraph
-from sqlalchemy import select
+from sqlalchemy import select, update
 
 from ..config import Settings
 from ..models import Asset, GeneratedArtifact, GenerationJob, GenerationStep, Project, VideoOutput, WorkflowRun
@@ -65,12 +65,22 @@ def record_node(session_factory, job_id: str, node_name: str, sequence: int, sta
 
 
 def update_job(session_factory, job_id: str, **changes) -> None:
+    if not changes:
+        return
     with session_factory() as session:
-        job = session.get(GenerationJob, job_id)
-        if job is None:
+        # A cancellation may commit after ensure_job_active or a stale read.
+        # Check the status in the same SQL write so late replies cannot undo it.
+        result = session.execute(
+            update(GenerationJob)
+            .where(GenerationJob.id == job_id, GenerationJob.status != "canceled")
+            .values(**changes)
+            .execution_options(synchronize_session=False)
+        )
+        if result.rowcount == 0:
+            job = session.get(GenerationJob, job_id)
+            if job is not None and job.status == "canceled":
+                raise WorkflowError("JOB_CANCELED", "任务已取消")
             return
-        for key, value in changes.items():
-            setattr(job, key, value)
         session.commit()
 
 
@@ -394,5 +404,10 @@ def _finish_failed(session_factory, job_id: str, code: str, message: str) -> Non
         job = session.get(GenerationJob, job_id)
         if job is None or job.status == "canceled":
             return
-    update_job(session_factory, job_id, status="failed", progress=0, current_node="failed", error_code=code, error_message=message, finished_at=utc_now())
+    try:
+        update_job(session_factory, job_id, status="failed", progress=0, current_node="failed", error_code=code, error_message=message, finished_at=utc_now())
+    except WorkflowError as exc:
+        if exc.code == "JOB_CANCELED":
+            return  # Cancellation committed between the read and the failure write.
+        raise
     record_node(session_factory, job_id, "workflow", 99, "failed", error_message=message)

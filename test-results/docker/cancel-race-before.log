@@ -1,0 +1,131 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0
+rootdir: D:\VibeCoding Project Record\2.Interview_TestQuestion_Project
+plugins: anyio-4.15.1, langsmith-0.14.1, asyncio-1.4.0
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 3 items
+
+backend\tests\test_cancel_race.py FFF                                    [100%]
+
+================================== FAILURES ===================================
+_ test_cancel_during_provider_reply_keeps_cancel_and_stops_output[processing-88] _
+
+tmp_path = WindowsPath('C:/Users/24473/AppData/Local/Temp/pytest-of-24473/pytest-65/test_cancel_during_provider_re0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000029E39AECD10>
+late_status = 'processing', late_progress = 88
+
+    @pytest.mark.parametrize("late_status,late_progress", [("processing", 88), ("succeeded", 100)])
+    def test_cancel_during_provider_reply_keeps_cancel_and_stops_output(tmp_path: Path, monkeypatch, late_status, late_progress):
+        settings = Settings(data_dir=tmp_path / "data")
+        client = TestClient(create_app(settings))
+        project, _ = prepare_project(client)
+        factory = client.app.state.session_factory
+        with factory() as session:
+            job = GenerationJob(project_id=project, provider="mock", status="queued")
+            session.add(job)
+            session.commit()
+            job_id = job.id
+        progress_at_cancel = []
+    
+        class CancelDuringReply(MockVideoProvider):
+            def get_video_job_status(self, provider_job_id):
+                with factory() as session:
+                    job = session.get(GenerationJob, job_id)
+                    progress_at_cancel.append(job.progress)
+                    job.status = "canceled"
+                    job.current_node = "canceled"
+                    job.finished_at = runner.utc_now()
+                    session.commit()
+                return ProviderStatus(late_status, late_progress, "Synthetic late provider reply")
+    
+        monkeypatch.setattr(runner, "MockVideoProvider", CancelDuringReply)
+        runner.run_job(settings, factory, job_id)
+        with factory() as session:
+            job = session.get(GenerationJob, job_id)
+>           assert job.status == "canceled"
+E           AssertionError: assert 'failed' == 'canceled'
+E             
+E             - canceled
+E             + failed
+
+backend\tests\test_cancel_race.py:45: AssertionError
+_ test_cancel_during_provider_reply_keeps_cancel_and_stops_output[succeeded-100] _
+
+tmp_path = WindowsPath('C:/Users/24473/AppData/Local/Temp/pytest-of-24473/pytest-65/test_cancel_during_provider_re1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000029E39D14560>
+late_status = 'succeeded', late_progress = 100
+
+    @pytest.mark.parametrize("late_status,late_progress", [("processing", 88), ("succeeded", 100)])
+    def test_cancel_during_provider_reply_keeps_cancel_and_stops_output(tmp_path: Path, monkeypatch, late_status, late_progress):
+        settings = Settings(data_dir=tmp_path / "data")
+        client = TestClient(create_app(settings))
+        project, _ = prepare_project(client)
+        factory = client.app.state.session_factory
+        with factory() as session:
+            job = GenerationJob(project_id=project, provider="mock", status="queued")
+            session.add(job)
+            session.commit()
+            job_id = job.id
+        progress_at_cancel = []
+    
+        class CancelDuringReply(MockVideoProvider):
+            def get_video_job_status(self, provider_job_id):
+                with factory() as session:
+                    job = session.get(GenerationJob, job_id)
+                    progress_at_cancel.append(job.progress)
+                    job.status = "canceled"
+                    job.current_node = "canceled"
+                    job.finished_at = runner.utc_now()
+                    session.commit()
+                return ProviderStatus(late_status, late_progress, "Synthetic late provider reply")
+    
+        monkeypatch.setattr(runner, "MockVideoProvider", CancelDuringReply)
+        runner.run_job(settings, factory, job_id)
+        with factory() as session:
+            job = session.get(GenerationJob, job_id)
+>           assert job.status == "canceled"
+E           AssertionError: assert 'succeeded' == 'canceled'
+E             
+E             - canceled
+E             + succeeded
+
+backend\tests\test_cancel_race.py:45: AssertionError
+------------------------------ Captured log call ------------------------------
+WARNING  imageio_ffmpeg:_io.py:561 IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (360, 640) to (368, 640) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+_________ test_cancel_committed_between_read_and_sql_update_is_atomic _________
+
+tmp_path = WindowsPath('C:/Users/24473/AppData/Local/Temp/pytest-of-24473/pytest-65/test_cancel_committed_between_0')
+
+    def test_cancel_committed_between_read_and_sql_update_is_atomic(tmp_path: Path):
+        client = TestClient(create_app(Settings(data_dir=tmp_path / "data")))
+        project = client.post("/api/projects", json={"name": "ԭ��ȡ������"}).json()["data"]["id"]
+        factory = client.app.state.session_factory
+        with factory() as session:
+            job = GenerationJob(project_id=project, provider="mock", status="processing", progress=45)
+            session.add(job)
+            session.commit()
+            job_id = job.id
+        fired = []
+    
+        def commit_cancel_before_update(_connection, _cursor, statement, _parameters, _context, _many):
+            if not fired and statement.lstrip().upper().startswith("UPDATE GENERATION_JOBS"):
+                fired.append(True)
+                with factory() as other:
+                    job = other.get(GenerationJob, job_id)
+                    job.status = "canceled"
+                    job.current_node = "canceled"
+                    other.commit()
+    
+        engine = client.app.state.engine
+        event.listen(engine, "before_cursor_execute", commit_cancel_before_update)
+        try:
+>           with pytest.raises(runner.WorkflowError, match="������ȡ��") as error:
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE WorkflowError
+
+backend\tests\test_cancel_race.py:75: Failed
+=========================== short test summary info ===========================
+FAILED backend/tests/test_cancel_race.py::test_cancel_during_provider_reply_keeps_cancel_and_stops_output[processing-88]
+FAILED backend/tests/test_cancel_race.py::test_cancel_during_provider_reply_keeps_cancel_and_stops_output[succeeded-100]
+FAILED backend/tests/test_cancel_race.py::test_cancel_committed_between_read_and_sql_update_is_atomic
+============================== 3 failed in 3.63s ==============================

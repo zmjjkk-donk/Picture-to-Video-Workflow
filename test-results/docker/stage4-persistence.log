@@ -1,0 +1,20 @@
+PASS export-complete-zip-and-checksums
+PASS reject-invalid-zip
+PASS delete-and-restore-snapshot
+PASS import-and-restore-zip
+PASS restart-preserves-records-and-media
+PASS recreate-preserves-records-and-media
+PASS windows-backup-import-and-failed-job-resume
+{
+  "phase": "persistence",
+  "passed": 7,
+  "checks": [
+    "export-complete-zip-and-checksums",
+    "reject-invalid-zip",
+    "delete-and-restore-snapshot",
+    "import-and-restore-zip",
+    "restart-preserves-records-and-media",
+    "recreate-preserves-records-and-media",
+    "windows-backup-import-and-failed-job-resume"
+  ]
+}

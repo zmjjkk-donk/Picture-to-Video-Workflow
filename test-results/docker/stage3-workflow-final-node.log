@@ -1,0 +1,27 @@
+PASS reject-invalid-upload
+PASS create-save-four-images-and-order
+PASS generate-five-second-mock-video
+PASS workflow-log-and-steps
+PASS media-download-hashes-and-range
+PASS unknown-token-and-provider-config
+PASS failed-agnes-job-and-same-id-resume
+PASS settings-save-and-secret-exclusion
+PASS active-deletion-guards-and-cancellation
+Traceback (most recent call last):
+  File "D:\VibeCoding Project Record\2.Interview_TestQuestion_Project\scripts\container_acceptance.py", line 348, in <module>
+    main()
+  File "D:\VibeCoding Project Record\2.Interview_TestQuestion_Project\scripts\container_acceptance.py", line 339, in main
+    getattr(checks, args.phase)()
+  File "D:\VibeCoding Project Record\2.Interview_TestQuestion_Project\scripts\container_acceptance.py", line 154, in workflow
+    self.check("project-deletion-keeps-history-task-deletion-cleans-media", self._delete_history)
+  File "D:\VibeCoding Project Record\2.Interview_TestQuestion_Project\scripts\container_acceptance.py", line 61, in check
+    operation()
+  File "D:\VibeCoding Project Record\2.Interview_TestQuestion_Project\scripts\container_acceptance.py", line 317, in _delete_history
+    self.api("DELETE", f"/api/projects/{project}")
+  File "D:\VibeCoding Project Record\2.Interview_TestQuestion_Project\scripts\container_acceptance.py", line 71, in api
+    body = self.request(method, path, status, **kwargs).json()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VibeCoding Project Record\2.Interview_TestQuestion_Project\scripts\container_acceptance.py", line 67, in request
+    assert response.status_code == status, (method, path, response.status_code, response.text[:600])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('DELETE', '/api/projects/34a2a225-1bb3-447b-a1d3-ff8a72c031b5', 409, '{"detail":{"success":false,"error":{"code":"PROJECT_HAS_ACTIVE_JOBS","message":"��Ŀ��������ִ�е���������ȡ��������ɾ��"},"request_id":"81c883f0-f50c-48ee-a79f-07f85635fabd"}}')

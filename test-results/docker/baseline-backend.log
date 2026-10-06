@@ -1,0 +1,24 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0
+rootdir: D:\VibeCoding Project Record\2.Interview_TestQuestion_Project
+plugins: anyio-4.15.1, langsmith-0.14.1, asyncio-1.4.0
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 50 items
+
+backend\tests\test_agnes_provider.py .......                             [ 14%]
+backend\tests\test_agnes_workflow.py .                                   [ 16%]
+backend\tests\test_api_operations.py ..                                  [ 20%]
+backend\tests\test_api_projects_assets.py ...                            [ 26%]
+backend\tests\test_app_smoke.py .                                        [ 28%]
+backend\tests\test_backup.py ..                                          [ 32%]
+backend\tests\test_deletion.py ...................                       [ 70%]
+backend\tests\test_frontend_static.py .                                  [ 72%]
+backend\tests\test_media.py .                                            [ 74%]
+backend\tests\test_persistence.py ..                                     [ 78%]
+backend\tests\test_readme.py ..                                          [ 82%]
+backend\tests\test_relative_data_dir.py ..                               [ 86%]
+backend\tests\test_token_usage.py ..                                     [ 90%]
+backend\tests\test_workflow.py ...                                       [ 96%]
+backend\tests\test_workflow_controls.py ..                               [100%]
+
+============================= 50 passed in 16.22s =============================

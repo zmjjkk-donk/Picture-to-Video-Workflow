@@ -1,0 +1,26 @@
+{
+  "Name": "/outfit-docker-check-final",
+  "ImageId": "sha256:67b07fd8c069caa565b6de76778494b16ed00343439bab27b7f4f7e39a80b6fa",
+  "Health": "healthy",
+  "User": "app",
+  "Port": [
+    {
+      "HostIp": "127.0.0.1",
+      "HostPort": "18002"
+    }
+  ],
+  "WorkerCommand": [
+    "/usr/local/bin/python",
+    "-m",
+    "uvicorn",
+    "backend.app.main:app",
+    "--host",
+    "0.0.0.0",
+    "--port",
+    "8000",
+    "--workers",
+    "1",
+    "--timeout-graceful-shutdown",
+    "120"
+  ]
+}

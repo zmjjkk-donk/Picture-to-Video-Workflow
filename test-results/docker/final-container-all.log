@@ -1,0 +1,39 @@
+PASS healthy-api
+PASS same-origin-build-and-assets
+PASS refresh-/dashboard
+PASS refresh-/projects
+PASS refresh-/projects/new
+PASS refresh-/projects/test-id
+PASS refresh-/jobs/test-id
+PASS refresh-/assets
+PASS refresh-/history
+PASS refresh-/backups
+PASS refresh-/settings
+PASS missing-/api/does-not-exist
+PASS missing-/assets/missing.js
+PASS missing-/assets/missing.css
+PASS missing-/.env
+PASS missing-/unrelated
+PASS head-and-method-boundary
+PASS container-health-and-process-config
+PASS reject-invalid-upload
+PASS create-save-four-images-and-order
+PASS generate-five-second-mock-video
+PASS workflow-log-and-steps
+PASS media-download-hashes-and-range
+PASS unknown-token-and-provider-config
+PASS failed-agnes-job-and-same-id-resume
+PASS settings-save-and-secret-exclusion
+Traceback (most recent call last):
+  File "D:\VibeCoding Project Record\2.Interview_TestQuestion_Project\scripts\container_acceptance.py", line 479, in <module>
+    main()
+  File "D:\VibeCoding Project Record\2.Interview_TestQuestion_Project\scripts\container_acceptance.py", line 467, in main
+    checks.workflow()
+  File "D:\VibeCoding Project Record\2.Interview_TestQuestion_Project\scripts\container_acceptance.py", line 154, in workflow
+    self.check("active-deletion-guards-and-cancellation", self._cancel)
+  File "D:\VibeCoding Project Record\2.Interview_TestQuestion_Project\scripts\container_acceptance.py", line 62, in check
+    operation()
+  File "D:\VibeCoding Project Record\2.Interview_TestQuestion_Project\scripts\container_acceptance.py", line 305, in _cancel
+    assert response.json()["detail"]["error"]["code"] == "JOB_STILL_STOPPING"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
